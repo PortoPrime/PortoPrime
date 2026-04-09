@@ -1,0 +1,248 @@
+import { NextRequest, NextResponse } from 'next/server';
+
+// ─── Runtime: standard Node.js (not edge) ──────────────────────────────────
+// Required for nodemailer (uses Node crypto/net under the hood).
+export const runtime = 'nodejs';
+
+// ─── Types ──────────────────────────────────────────────────────────────────
+interface LeadPayload {
+  name:      string;
+  phone:     string;
+  location?: string; // optional — future buyers may not have a property yet
+  revenue?:  string;
+  _hp?:      string; // honeypot — should always be empty
+}
+
+// ─── In-memory rate limiter ─────────────────────────────────────────────────
+// Resets on cold start; sufficient for a server with persistent connections.
+// For a stateless/serverless deployment use an external KV (e.g. Upstash Redis).
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT   = 3;                   // max submissions per window per IP
+const RATE_WINDOW  = 60 * 60 * 1000;     // 1-hour rolling window
+
+function isRateLimited(ip: string): boolean {
+  const now   = Date.now();
+  const entry = rateLimitMap.get(ip);
+
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW });
+    return false;
+  }
+  if (entry.count >= RATE_LIMIT) return true;
+  entry.count++;
+  return false;
+}
+
+// ─── Phone validation ───────────────────────────────────────────────────────
+// Accepts: +351 followed by PT mobile/landline prefix + 8 digits, OR any
+// international E.164 number (+[country][7-14 digits]).
+function isValidPhone(phone: string): boolean {
+  const cleaned = phone.replace(/[\s\-().]/g, '');
+  // Portuguese mobile/landline: +351 9/2/3/6/7/8 + 8 digits (total 12 digits after +351)
+  const ptPattern   = /^\+351[236789]\d{8}$/;
+  // Generic international: + then 7–15 digits
+  const intlPattern = /^\+[1-9]\d{6,14}$/;
+  return ptPattern.test(cleaned) || intlPattern.test(cleaned);
+}
+
+// ─── HTML escape (for Telegram HTML mode) ──────────────────────────────────
+function escHtml(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+// ─── Telegram notification ──────────────────────────────────────────────────
+async function sendTelegram(lead: LeadPayload): Promise<void> {
+  const token  = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+
+  if (!token || !chatId) {
+    console.warn('[LeadAPI] Telegram credentials missing — skipping Telegram notification');
+    return;
+  }
+
+  const lines = [
+    `🚀 <b>New Lead for PortoPrime!</b>`,
+    ``,
+    `👤 <b>Name:</b> ${escHtml(lead.name)}`,
+    `📞 <b>Phone:</b> ${escHtml(lead.phone)}`,
+    lead.location ? `📍 <b>Location:</b> ${escHtml(lead.location)}` : null,
+    lead.revenue  ? `💰 <b>Est. Revenue:</b> ${escHtml(lead.revenue)}/mo` : null,
+    ``,
+    `🕐 <i>${new Date().toLocaleString('en-GB', { timeZone: 'Europe/Lisbon' })} (Lisbon)</i>`,
+  ].filter(Boolean).join('\n');
+
+  const res = await fetch(
+    `https://api.telegram.org/bot${token}/sendMessage`,
+    {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ chat_id: chatId, text: lines, parse_mode: 'HTML' }),
+    },
+  );
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Telegram API error ${res.status}: ${text}`);
+  }
+}
+
+// ─── Email notification (nodemailer — optional) ─────────────────────────────
+// Install with: npm install nodemailer @types/nodemailer
+// Then fill in SMTP_* vars in .env.local (see comments there).
+// If nodemailer is not installed the email step is silently skipped.
+async function sendEmail(lead: LeadPayload): Promise<void> {
+  const smtpUser  = process.env.SMTP_USER;
+  const smtpPass  = process.env.SMTP_PASS;
+  const smtpHost  = process.env.SMTP_HOST  || 'smtp.gmail.com';
+  const smtpPort  = Number(process.env.SMTP_PORT) || 587;
+  const emailTo   = process.env.LEAD_EMAIL_TO || 'aleksei@fastapproval.pt';
+
+  if (!smtpUser || !smtpPass) {
+    console.info('[LeadAPI] SMTP credentials not set — skipping email notification');
+    return;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any
+  let nodemailer: any;
+  try {
+    nodemailer = require('nodemailer');
+  } catch {
+    console.warn('[LeadAPI] nodemailer not installed — run: npm install nodemailer @types/nodemailer');
+    return;
+  }
+
+  const transporter = nodemailer.createTransport({
+    host:   smtpHost,
+    port:   smtpPort,
+    secure: smtpPort === 465,
+    auth:   { user: smtpUser, pass: smtpPass },
+  });
+
+  const lisbonTime = new Date().toLocaleString('en-GB', { timeZone: 'Europe/Lisbon' });
+
+  const html = `
+    <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#f4f4f4;padding:20px;border-radius:10px;">
+      <!-- Header -->
+      <div style="background:#1B263B;padding:28px 24px;border-radius:8px 8px 0 0;text-align:center;">
+        <h1 style="color:#E0C397;margin:0;font-size:26px;letter-spacing:1px;">PortoPrime</h1>
+        <p style="color:rgba(255,255,255,0.55);margin:6px 0 0;font-size:13px;">Lead Notification</p>
+      </div>
+      <!-- Body -->
+      <div style="background:#ffffff;padding:28px 24px;border-radius:0 0 8px 8px;">
+        <h2 style="color:#1B263B;font-size:20px;border-bottom:2px solid #E0C397;padding-bottom:10px;margin-top:0;">
+          🚀 New Lead Received
+        </h2>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;">
+          <tr>
+            <td style="padding:10px 0;color:#888;width:160px;vertical-align:top;">👤 Name</td>
+            <td style="padding:10px 0;color:#1B263B;font-weight:bold;">${escHtml(lead.name)}</td>
+          </tr>
+          <tr style="background:#fafafa;">
+            <td style="padding:10px 8px;color:#888;vertical-align:top;">📞 Phone</td>
+            <td style="padding:10px 8px;color:#1B263B;font-weight:bold;">${escHtml(lead.phone)}</td>
+          </tr>
+          ${lead.location ? `
+          <tr>
+            <td style="padding:10px 0;color:#888;vertical-align:top;">📍 Location</td>
+            <td style="padding:10px 0;color:#1B263B;font-weight:bold;">${escHtml(lead.location)}</td>
+          </tr>` : ''}
+          ${lead.revenue ? `
+          <tr style="background:#fafafa;">
+            <td style="padding:10px 8px;color:#888;vertical-align:top;">💰 Est. Revenue</td>
+            <td style="padding:10px 8px;font-weight:bold;font-size:18px;color:#C9A96E;">${escHtml(lead.revenue)}/mo</td>
+          </tr>` : ''}
+        </table>
+
+        <!-- Timestamp -->
+        <div style="margin-top:24px;padding:14px 16px;background:#f0f4f8;border-radius:6px;border-left:4px solid #E0C397;">
+          <p style="margin:0;color:#666;font-size:12px;">Submitted: <strong>${lisbonTime}</strong> (Lisbon time)</p>
+        </div>
+
+        <!-- Action button -->
+        <div style="margin-top:24px;text-align:center;">
+          <a href="https://wa.me/351915481058"
+             style="display:inline-block;background:#25D366;color:#ffffff;padding:13px 28px;
+                    border-radius:8px;text-decoration:none;font-weight:bold;font-size:14px;">
+            📱 WhatsApp this Lead
+          </a>
+        </div>
+      </div>
+      <!-- Footer -->
+      <p style="text-align:center;color:#aaa;font-size:11px;margin-top:16px;">
+        PortoPrime · Lisbon · Porto · Algarve · portoprime.pt
+      </p>
+    </div>
+  `;
+
+  await transporter.sendMail({
+    from:    `"PortoPrime Leads" <${smtpUser}>`,
+    to:      emailTo,
+    subject: `🏠 New Lead: ${lead.name}${lead.location ? ` — ${lead.location}` : ''}`,
+    html,
+  });
+}
+
+// ─── POST /api/lead ─────────────────────────────────────────────────────────
+export async function POST(req: NextRequest) {
+  try {
+    // ── Rate limit by IP ──────────────────────────────────────────────────
+    const ip = (
+      req.headers.get('x-forwarded-for')?.split(',')[0].trim() ??
+      req.headers.get('x-real-ip') ??
+      'unknown'
+    );
+    if (isRateLimited(ip)) {
+      return NextResponse.json({ error: 'rate_limit' }, { status: 429 });
+    }
+
+    // ── Parse body ────────────────────────────────────────────────────────
+    let body: LeadPayload;
+    try {
+      body = await req.json();
+    } catch {
+      return NextResponse.json({ error: 'invalid_body' }, { status: 400 });
+    }
+
+    const { name, phone, location, revenue, _hp } = body;
+
+    // ── Honeypot check — real users never touch this hidden field ─────────
+    if (_hp) {
+      // Return 200 so bots don't know they were caught
+      return NextResponse.json({ ok: true });
+    }
+
+    // ── Required field validation — location is optional ─────────────────
+    if (!name?.trim() || !phone?.trim()) {
+      return NextResponse.json({ error: 'missing_fields' }, { status: 400 });
+    }
+
+    // ── Phone format validation ───────────────────────────────────────────
+    if (!isValidPhone(phone)) {
+      return NextResponse.json({ error: 'invalid_phone' }, { status: 422 });
+    }
+
+    const lead: LeadPayload = {
+      name:     name.trim(),
+      phone:    phone.trim(),
+      location: location?.trim() || undefined,
+      revenue:  revenue?.trim()  || undefined,
+    };
+
+    // ── Send Telegram (primary — must succeed) ───────────────────────────
+    await sendTelegram(lead);
+
+    // ── Send email (secondary — non-fatal) ───────────────────────────────
+    sendEmail(lead).catch((err) =>
+      console.error('[LeadAPI] Email send failed:', err),
+    );
+
+    return NextResponse.json({ ok: true });
+
+  } catch (err) {
+    console.error('[LeadAPI] Unhandled error:', err);
+    return NextResponse.json({ error: 'server_error' }, { status: 500 });
+  }
+}

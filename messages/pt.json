@@ -1,0 +1,204 @@
+{
+  "metadata": {
+    "title": "PortoPrime — Gestão Premium de Imóveis em Portugal",
+    "description": "Maximize o rendimento do seu imóvel em Portugal. Subarrendamento, gestão, renovação e licenciamento AL em Lisboa, Porto e Algarve.",
+    "keywords": "gestão de imóveis Portugal, Alojamento Local, arrendamento curta duração Lisboa, investimento imobiliário Porto"
+  },
+  "nav": {
+    "logo": "PortoPrime",
+    "services": "Serviços",
+    "about": "Sobre Nós",
+    "results": "Resultados",
+    "contact": "Contacto",
+    "cta": "Consulta Gratuita",
+    "languageLabel": "Idioma"
+  },
+  "hero": {
+    "eyebrow": "O Parceiro Premium em Imóveis em Portugal",
+    "headline": "O Seu Imóvel, A Nossa Expertise. Rendimento Máximo com Zero Stress.",
+    "subheadline": "Gestão completa em Lisboa, Porto e Algarve. Da renovação profissional ao apoio aos hóspedes 24/7 e contabilidade transparente em tempo real.",
+    "ctaPrimary": "Calcule o Potencial do Meu Imóvel",
+    "ctaSecondary": "Ver Serviços",
+    "badge1": "15% de Rendimento Médio",
+    "badge2": "90% de Taxa de Ocupação",
+    "badge3": "Licenciado e Conforme",
+    "trust": {
+      "licensed": "Licenciado pelo Turismo de Portugal",
+      "aima": "Conforme com a AIMA",
+      "roi": "15% de ROI Médio"
+    }
+  },
+  "services": {
+    "eyebrow": "Os Nossos Serviços",
+    "headline": "Tudo o Que o Seu Imóvel Precisa",
+    "subheadline": "Uma solução completa de gestão imobiliária para investidores em Lisboa, Porto e Algarve.",
+    "bento": {
+      "alCompliance": {
+        "title": "Proteção Total de Conformidade AL",
+        "description": "Domínio especializado das leis de Alojamento Local, relatórios SEF/AIMA e otimização fiscal completa — sempre protegido e em conformidade.",
+        "tag": "Proteção Legal"
+      },
+      "renovation": {
+        "title": "Renovação Inteligente",
+        "description": "Acrescente 30% ao valor do seu imóvel com a nossa equipa de renovação liderada por designers. Transformamos espaços em propriedades de arrendamento premium.",
+        "tag": "+30% Valor do Ativo"
+      },
+      "dashboard": {
+        "title": "Painel do Proprietário",
+        "description": "Acompanhe os seus ganhos em tempo real. Contabilidade 100% transparente acessível em qualquer dispositivo, em qualquer parte do mundo.",
+        "tag": "Tempo Real"
+      },
+      "guestNetwork": {
+        "title": "Rede Global de Hóspedes",
+        "description": "Evite as OTAs. Aceda à nossa base de dados privada de viajantes de alto valor para reservas premium e melhores rendimentos.",
+        "tag": "Rede Privada"
+      }
+    },
+    "renovation": {
+      "title": "Renovação Completa",
+      "description": "Serviços de renovação de ponta a ponta — desde o design de interiores e planeamento até à execução e acabamentos. Maximizamos o apelo do seu imóvel e o seu valor de mercado."
+    },
+    "management": {
+      "title": "Gestão 24/7",
+      "description": "Comunicação com hóspedes 24 horas por dia, coordenação de check-in/check-out, limpeza profissional e manutenção — para que nunca tenha de se preocupar."
+    },
+    "accounting": {
+      "title": "Contabilidade Transparente",
+      "description": "Dashboard do proprietário em tempo real com relatórios detalhados de receitas, análise de despesas, dados de ocupação e extratos mensais. Total transparência, sempre."
+    },
+    "guestNetwork": {
+      "title": "Rede de Hóspedes",
+      "description": "Acesso a canais exclusivos de reservas além do Airbnb e Booking.com — clientes corporativos, agências de relocalização e redes de viagens premium."
+    },
+    "legal": {
+      "title": "Licenciamento AL e Jurídico",
+      "description": "Apoio especializado no registo de Alojamento Local, relatórios de conformidade SEF/AIMA e todos os requisitos regulatórios para arrendamentos de curta duração em Portugal."
+    },
+    "alsoIncluded": "Também Incluído",
+    "realEstate": {
+      "title": "Serviços Imobiliários",
+      "description": "Assistência especializada na aquisição de imóveis e consultoria hipotecária através dos nossos parceiros licenciados."
+    }
+  },
+  "results": {
+    "eyebrow": "Resultados Comprovados",
+    "headline": "Números que Falam por Si",
+    "metrics": {
+      "yield": {
+        "value": "15%",
+        "label": "Rendimento Anual Médio",
+        "description": "Retornos acima do mercado para os nossos imóveis geridos"
+      },
+      "occupancy": {
+        "value": "90%",
+        "label": "Taxa de Ocupação",
+        "description": "Ocupação consistentemente elevada em todo o nosso portefólio"
+      },
+      "properties": {
+        "value": "120+",
+        "label": "Imóveis Geridos",
+        "description": "Em Lisboa, Porto e Algarve"
+      },
+      "satisfaction": {
+        "value": "4.9★",
+        "label": "Satisfação dos Proprietários",
+        "description": "Avaliado pelos nossos proprietários"
+      }
+    },
+    "testimonialsHeadline": "O Que Dizem os Nossos Proprietários",
+    "testimonials": [
+      {
+        "quote": "A PortoPrime transformou o meu apartamento em Lisboa numa fonte de rendimento constante. A minha rentabilidade subiu de 6% para 14% no primeiro ano.",
+        "author": "James M.",
+        "origin": "Investidor Britânico, Lisboa"
+      },
+      {
+        "quote": "A equipa de renovação superou todas as expectativas. O imóvel está deslumbrante e atrai hóspedes premium de forma consistente.",
+        "author": "Olga S.",
+        "origin": "Proprietária Russa, Porto"
+      },
+      {
+        "quote": "Finalmente uma empresa de gestão com transparência real. O dashboard dá-me total controlo de qualquer parte do mundo.",
+        "author": "Klaus H.",
+        "origin": "Investidor Alemão, Algarve"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Começar",
+    "headline": "Marque a Sua Consulta Gratuita",
+    "subheadline": "Conte-nos sobre o seu imóvel e mostraremos como maximizar o seu potencial. Sem compromissos, sem pressão.",
+    "form": {
+      "name": "Nome Completo",
+      "namePlaceholder": "O seu nome completo",
+      "phone": "Número de Telefone",
+      "phonePlaceholder": "+351 xxx xxx xxx",
+      "whatsapp": "WhatsApp",
+      "whatsappPlaceholder": "Igual ao telefone? Deixe em branco se for o mesmo",
+      "location": "Localização do Imóvel",
+      "locationPlaceholder": "ex: Lisboa, Chiado",
+      "message": "Fale-nos sobre o seu imóvel (opcional)",
+      "messagePlaceholder": "Tipo, dimensão, situação atual...",
+      "submit": "Enviar Pedido",
+      "submitting": "A enviar...",
+      "successTitle": "Obrigado!",
+      "successMessage": "Entraremos em contacto em até 24 horas.",
+      "privacy": "As suas informações são 100% privadas e nunca partilhadas.",
+      "revenueLabel": "A Sua Receita Estimada",
+      "revenuePlaceholder": "ex: €1.234/mês",
+      "modalWhatsapp": "Fale connosco no WhatsApp",
+      "modalClose": "Fechar",
+      "errorPhone": "Por favor, introduza um número de telefone válido (+351 ou formato internacional).",
+      "errorRequired": "Por favor, preencha todos os campos obrigatórios.",
+      "errorServer": "Algo correu mal. Tente novamente.",
+      "errorRateLimit": "Demasiadas tentativas. Aguarde um momento antes de tentar novamente.",
+      "optional": "(Opcional)"
+    }
+  },
+  "calculator": {
+    "eyebrow": "Calculadora de ROI",
+    "headline": "Calcule o Potencial do Seu Imóvel",
+    "subheadline": "Veja quanto o seu imóvel pode render com a gestão completa da PortoPrime.",
+    "propertyDetails": "Detalhes do Seu Imóvel",
+    "location": "Localização",
+    "locations": {
+      "lisbon": "Lisboa",
+      "porto": "Porto",
+      "algarve": "Algarve",
+      "other": "Outra"
+    },
+    "propertyType": "Tipo de Imóvel",
+    "propertyTypes": {
+      "studio": "Studio",
+      "oneBedroom": "T1",
+      "twoBedroom": "T2",
+      "villa": "Moradia"
+    },
+    "condition": "Condição Atual",
+    "conditionLabels": {
+      "renovation": "Precisa de Renovação",
+      "fair": "Razoável",
+      "good": "Bom",
+      "veryGood": "Muito Bom",
+      "premium": "Premium"
+    },
+    "occupancy": "Taxa de Ocupação Média",
+    "estimatedRevenue": "Receita Mensal Estimada",
+    "perMonth": "/mês",
+    "afterFees": "após taxa de gestão de 20%",
+    "annualProjection": "Projeção anual",
+    "renovationUpsell": "Com a nossa Renovação Profissional, o seu rendimento poderia aumentar mais",
+    "renovationUpsellHighlight": "25%",
+    "renovationUpsellSuffix": "— passando para",
+    "cta": "Obter Relatório Detalhado do Meu Imóvel",
+    "disclaimer": "As estimativas baseiam-se em dados de mercado atuais para Alojamento Local (AL) em Portugal. O rendimento final depende das características específicas do imóvel, dos regimes fiscais CIRS/CIRC (contabilidade simplificada ou organizada) e das regulamentações municipais. A PortoPrime presta apoio completo no licenciamento AL e na representação fiscal."
+  },
+  "footer": {
+    "tagline": "Gestão premium de imóveis para investidores que exigem resultados.",
+    "locations": "Lisboa · Porto · Algarve",
+    "rights": "Todos os direitos reservados.",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço",
+    "legalDisclaimer": "Aviso Legal"
+  }
+}
