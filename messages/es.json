@@ -1,0 +1,124 @@
+{
+  "metadata": {
+    "title": "PortoPrime — Gestión Inmobiliaria Premium en Portugal",
+    "description": "Maximiza el rendimiento de tu inmueble en Portugal. Subarrendamiento, gestión, renovación y licencias AL en Lisboa, Oporto y Algarve.",
+    "keywords": "gestión inmobiliaria Portugal, Alojamento Local, alquiler corta estancia Lisboa, inversión inmobiliaria Oporto"
+  },
+  "nav": {
+    "logo": "PortoPrime",
+    "services": "Servicios",
+    "about": "Nosotros",
+    "results": "Resultados",
+    "contact": "Contacto",
+    "cta": "Consulta Gratuita",
+    "languageLabel": "Idioma"
+  },
+  "hero": {
+    "eyebrow": "El Socio Inmobiliario Premium de Portugal",
+    "headline": "Maximiza el Rendimiento de Tu Inmueble en Portugal",
+    "subheadline": "Desde el subarrendamiento y la gestión de huéspedes 24/7 hasta la renovación completa y la licencia AL — convertimos tu inmueble en un activo de alto rendimiento.",
+    "ctaPrimary": "Consulta Gratuita",
+    "ctaSecondary": "Ver Nuestros Servicios",
+    "badge1": "15% de rendimiento medio",
+    "badge2": "90% tasa de ocupación",
+    "badge3": "Licenciado & cumplidor"
+  },
+  "services": {
+    "eyebrow": "Nuestros Servicios",
+    "headline": "Todo lo que tu inmueble necesita",
+    "subheadline": "Una solución completa de gestión inmobiliaria para inversores en Lisboa, Oporto y Algarve.",
+    "renovation": {
+      "title": "Renovación Completa",
+      "description": "Servicios de renovación llave en mano — desde el diseño de interiores y la planificación hasta la ejecución y los acabados. Maximizamos el atractivo de alquiler y el valor de mercado de tu inmueble."
+    },
+    "management": {
+      "title": "Gestión 24/7",
+      "description": "Comunicación con huéspedes las 24 horas, coordinación de check-in/check-out, limpieza profesional y mantenimiento — para que nunca tengas que preocuparte."
+    },
+    "accounting": {
+      "title": "Contabilidad Transparente",
+      "description": "Panel del propietario en tiempo real con informes detallados de ingresos, análisis de gastos, estadísticas de ocupación y extractos mensuales. Transparencia total, siempre."
+    },
+    "guestNetwork": {
+      "title": "Red de Huéspedes",
+      "description": "Acceso a canales de reserva exclusivos más allá de Airbnb y Booking.com — clientes corporativos, agencias de reubicación y redes de viajes premium."
+    },
+    "legal": {
+      "title": "Licencia AL & Legal",
+      "description": "Asistencia experta con el registro de Alojamento Local, informes de cumplimiento SEF/AIMA y todos los requisitos regulatorios para alquileres de corta estancia en Portugal."
+    }
+  },
+  "results": {
+    "eyebrow": "Resultados Probados",
+    "headline": "Números que Hablan por Sí Solos",
+    "metrics": {
+      "yield": {
+        "value": "15%",
+        "label": "Rendimiento Anual Medio",
+        "description": "Retornos por encima del mercado para nuestros inmuebles gestionados"
+      },
+      "occupancy": {
+        "value": "90%",
+        "label": "Tasa de Ocupación",
+        "description": "Ocupación consistentemente alta en toda nuestra cartera"
+      },
+      "properties": {
+        "value": "120+",
+        "label": "Inmuebles Gestionados",
+        "description": "En Lisboa, Oporto y Algarve"
+      },
+      "satisfaction": {
+        "value": "4.9★",
+        "label": "Satisfacción de Propietarios",
+        "description": "Valorado por nuestros propietarios"
+      }
+    },
+    "testimonialsHeadline": "Lo que dicen nuestros propietarios",
+    "testimonials": [
+      {
+        "quote": "PortoPrime transformó mi apartamento en Lisboa en una fuente de ingresos constante. Mi rendimiento subió del 6% al 14% en el primer año.",
+        "author": "James M.",
+        "origin": "Inversor Británico, Lisboa"
+      },
+      {
+        "quote": "El equipo de renovación superó todas las expectativas. El inmueble luce espectacular y atrae huéspedes premium de forma constante.",
+        "author": "Olga S.",
+        "origin": "Propietaria Rusa, Oporto"
+      },
+      {
+        "quote": "Por fin una empresa de gestión con transparencia real. El panel me da control total desde cualquier parte del mundo.",
+        "author": "Klaus H.",
+        "origin": "Inversor Alemán, Algarve"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Empezar",
+    "headline": "Reserva tu Consulta Gratuita",
+    "subheadline": "Cuéntanos sobre tu inmueble y te mostraremos cómo maximizar su potencial. Sin compromisos, sin presión.",
+    "form": {
+      "name": "Nombre Completo",
+      "namePlaceholder": "Tu nombre completo",
+      "phone": "Número de Teléfono",
+      "phonePlaceholder": "+34 xxx xxx xxx",
+      "whatsapp": "WhatsApp",
+      "whatsappPlaceholder": "¿Igual que el teléfono? Deja en blanco si es el mismo",
+      "location": "Ubicación del Inmueble",
+      "locationPlaceholder": "ej. Lisboa, Chiado",
+      "message": "Cuéntanos sobre tu inmueble (opcional)",
+      "messagePlaceholder": "Tipo, tamaño, situación actual...",
+      "submit": "Enviar Solicitud",
+      "submitting": "Enviando...",
+      "successTitle": "¡Gracias!",
+      "successMessage": "Nos pondremos en contacto en las próximas 24 horas.",
+      "privacy": "Tu información es 100% privada y nunca se comparte."
+    }
+  },
+  "footer": {
+    "tagline": "Gestión inmobiliaria premium para inversores que exigen resultados.",
+    "locations": "Lisboa · Oporto · Algarve",
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
+  }
+}

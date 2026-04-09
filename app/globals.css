@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Custom Properties — Mediterranean Palette ─────────────────────── */
+:root {
+  /* Primary: Deep Navy Blue */
+  --primary: #1B263B;
+  --primary-light: #263554;
+  --primary-dark: #111827;
+
+  /* Secondary: Gold / Sand */
+  --secondary: #E0C397;
+  --secondary-light: #EDD9B5;
+  --secondary-dark: #C9A96E;
+
+  /* Surfaces */
+  --surface: #F8F6F2;
+  --surface-elevated: #FFFFFF;
+
+  /* Font tokens */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+}
+
+/* ─── Base Resets ─────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--surface);
+  color: var(--primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* ─── Glassmorphism Utility ───────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-dark {
+  background: rgba(27, 38, 59, 0.85);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid rgba(224, 195, 151, 0.15);
+}
+
+/* ─── Gold Gradient Text ──────────────────────────────────────────────────── */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #E0C397 0%, #C9A96E 50%, #E0C397 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-dark);
+  border-radius: 3px;
+}
+
+/* ─── Focus Ring ──────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 3px;
+}
+
+/* ─── Selection ──────────────────────────────────────────────────────────── */
+::selection {
+  background: var(--secondary);
+  color: var(--primary);
+}
