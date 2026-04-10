@@ -200,5 +200,57 @@
     "privacy": "Datenschutzrichtlinie",
     "terms": "Nutzungsbedingungen",
     "legalDisclaimer": "Rechtlicher Hinweis"
+  },
+  "portfolio": {
+    "eyebrow": "Echte Ergebnisse",
+    "headline": "Vorher & Nachher: Echte Immobilien",
+    "subheadline": "Eine Lissaboner Wohnung innerhalb von 6 Wochen von sanierungsbedürftig zu Premium-Kurzzeitvermietung transformiert.",
+    "beforeLabel": "Vorher",
+    "afterLabel": "Nachher",
+    "dragHint": "Ziehen zum Vergleichen",
+    "statsHeadline": "Renovierungs-ROI",
+    "statInvestment": "Investition",
+    "statInvestmentValue": "35.000 €",
+    "statValueLabel": "Wertsteigerung",
+    "statValueValue": "+30 %",
+    "statYieldLabel": "Monatsrendite",
+    "statYieldValue": "2.200 €",
+    "location": "Alfama, Lissabon",
+    "cta": "Renovierung starten"
+  },
+  "faq": {
+    "eyebrow": "Investor-FAQ",
+    "headline": "Rechtliche & Steuerfragen beantwortet",
+    "subheadline": "Klare Antworten auf die Fragen, die jeder ausländische Investor vor einer Entscheidung stellt.",
+    "q1": "Wie werden neue AL-Lizenzen derzeit vergeben?",
+    "a1": "Nach dem temporären Moratorium in den historischen Vierteln von Lissabon und Porto hat die Regierung die AL-Regeln im Rahmen des \"Mais Habitação\"-Pakets überarbeitet. Neue Lizenzen sind nun in den meisten Gemeinden außerhalb der ausgewiesenen Eindämmungszonen möglich. Unser Rechtsteam prüft die Förderfähigkeit Ihrer Immobilie und übernimmt den gesamten Einreichungsprozess bei der Câmara Municipal — typische Bearbeitungszeit: 60–90 Tage.",
+    "q2": "Benötige ich einen Steuervertreter in Portugal?",
+    "a2": "Ja. Das portugiesische Recht verpflichtet alle nicht ansässigen Immobilieneigentümer, einen zertifizierten Fiskalvertreter mit portugiesischer NIF zu benennen. Dieser empfängt die offizielle Korrespondenz der Autoridade Tributária, sichert fristgerechte IRS/CIRS-Erklärungen und ist Ihr rechtlicher Ansprechpartner. PortoPrime beinhaltet die Fiskalvertretung im Vollverwaltungspaket.",
+    "q3": "Wie hoch ist der tatsächliche Steuersatz auf Kurzzeitvermietungseinnahmen?",
+    "a3": "AL-Einnahmen fallen unter Kategorie B (selbstständige Berufstätigkeit). Im vereinfachten Regime gelten 35 % des Bruttoumsatzes als steuerpflichtiges Einkommen, das für Nichtansässige pauschal mit 25 % besteuert wird. Bei geordneter Buchführung mindern tatsächliche abzugsfähige Ausgaben die Bemessungsgrundlage. PortoPrime modelliert beide Regime jährlich.",
+    "q4": "Kann meine AL-Lizenz ausgesetzt oder widerrufen werden?",
+    "a4": "Lizenzen können bei wiederholten Lärmklagen, fehlendem Haftpflichtversicherungsschutz oder Nichteinhaltung der AIMA-Gästeregistrierungspflichten ausgesetzt werden. Unser 24/7-Management stellt die vollständige Compliance sicher: Wir melden alle AIMA-Check-ins/-outs, führen Versicherungsunterlagen und reagieren auf jede Gästeinteraktion.",
+    "q5": "Was beinhaltet die Verwaltungsgebühr von 20 %?",
+    "a5": "24/7 mehrsprachiger Gästesupport, dynamische Preisgestaltung über proprietäres Kanalmanagement, professionelle Reinigung nach jedem Auschecken, Koordination von Kleinreparaturen, monatliche Eigentümerabrechnungen, Fiskalvertretung, AIMA-Compliance-Berichte und Zugang zu unserem privaten Hochwertigkeits-Gastnetzwerk. Keine versteckten Kosten."
+  },
+  "leadMagnet": {
+    "eyebrow": "Kostenlose Ressource",
+    "headline": "Portugal Investment Guide 2026",
+    "subheadline": "Rechtlicher Rahmen, Steueroptimierungsstrategien und die renditereichsten Lagen — in einem 32-seitigen PDF.",
+    "emailLabel": "E-Mail-Adresse",
+    "emailPlaceholder": "ihre@email.com",
+    "submit": "Meinen kostenlosen Guide erhalten",
+    "submitting": "Wird gesendet…",
+    "successTitle": "Prüfen Sie Ihren Posteingang!",
+    "successMessage": "Ihr Guide ist unterwegs. Prüfen Sie Ihre E-Mail in wenigen Minuten.",
+    "privacy": "Kein Spam. Jederzeit abbestellbar.",
+    "badge1": "32 Seiten",
+    "badge2": "Ausgabe 2026",
+    "badge3": "Kostenloses PDF",
+    "bookTitle": "Portugal\nInvestment\nGuide",
+    "bookYear": "2026"
+  },
+  "trustedPartners": {
+    "label": "Vertrauenspartner & Zertifizierungen"
   }
 }

@@ -200,5 +200,57 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "legalDisclaimer": "Legal Disclaimer"
+  },
+  "portfolio": {
+    "eyebrow": "Real Results",
+    "headline": "Before & After: Real Properties",
+    "subheadline": "A Lisbon apartment transformed from distressed to premium short-term rental in 6 weeks.",
+    "beforeLabel": "Before",
+    "afterLabel": "After",
+    "dragHint": "Drag to compare",
+    "statsHeadline": "Renovation ROI",
+    "statInvestment": "Investment",
+    "statInvestmentValue": "€35,000",
+    "statValueLabel": "Value Increase",
+    "statValueValue": "+30%",
+    "statYieldLabel": "Monthly Yield",
+    "statYieldValue": "€2,200",
+    "location": "Alfama, Lisbon",
+    "cta": "Start Your Renovation"
+  },
+  "faq": {
+    "eyebrow": "Investor FAQ",
+    "headline": "Legal & Tax Questions Answered",
+    "subheadline": "Straight answers to the questions every foreign investor asks before committing.",
+    "q1": "How are new AL licenses currently being handled?",
+    "a1": "After the temporary moratorium in Lisbon and Porto's historic areas, the government revised AL rules under the \"Mais Habitação\" package. New licenses are now permitted in most municipalities outside designated containment zones. Our legal team verifies your property's eligibility and handles the full Câmara Municipal submission — typical processing time is 60–90 days.",
+    "q2": "Do I need a tax representative in Portugal?",
+    "a2": "Yes. Portuguese law requires all non-resident property owners to appoint a certified fiscal representative with a Portuguese NIF. Your representative receives official correspondence from the Autoridade Tributária, ensures timely IRS/CIRS declarations and quarterly filings, and acts as your legal point of contact. PortoPrime includes fiscal representation in our full-management package.",
+    "q3": "What is the actual tax rate on short-term rental income?",
+    "a3": "AL income is classified under Category B (independent professional activity). Under the simplified regime, 35% of your gross revenue is treated as taxable income, subject to a flat 25% withholding rate for non-residents. Under organized accounting, real deductible expenses reduce the tax base. PortoPrime models both regimes annually and switches you to whichever is more favorable.",
+    "q4": "Can my AL license be suspended or revoked?",
+    "a4": "Licenses can be suspended for repeated noise complaints, operating without valid liability insurance, or non-compliance with AIMA guest registration requirements. Our 24/7 management ensures you stay fully compliant: we file all AIMA check-in/check-out reports, maintain insurance records, and respond to every guest interaction — protecting your license at all times.",
+    "q5": "What does the 20% management fee actually include?",
+    "a5": "24/7 multilingual guest support, dynamic pricing via proprietary channel management, professional cleaning after every checkout, minor maintenance coordination, monthly owner statements, full fiscal representation, AIMA compliance reporting, and access to our private high-value guest network. No hidden charges — everything is itemized in your monthly dashboard."
+  },
+  "leadMagnet": {
+    "eyebrow": "Free Resource",
+    "headline": "Portugal Investment Guide 2026",
+    "subheadline": "Legal framework, tax optimization strategies, and the highest-yield neighborhoods — distilled into one 32-page PDF.",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "your@email.com",
+    "submit": "Get My Free Guide",
+    "submitting": "Sending…",
+    "successTitle": "Check Your Inbox!",
+    "successMessage": "Your guide is on its way. Check your email within the next few minutes.",
+    "privacy": "No spam. Unsubscribe anytime.",
+    "badge1": "32 Pages",
+    "badge2": "2026 Edition",
+    "badge3": "Free PDF",
+    "bookTitle": "Portugal\nInvestment\nGuide",
+    "bookYear": "2026"
+  },
+  "trustedPartners": {
+    "label": "Trusted Partners & Certifications"
   }
 }

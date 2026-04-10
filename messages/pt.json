@@ -200,5 +200,57 @@
     "privacy": "Política de Privacidade",
     "terms": "Termos de Serviço",
     "legalDisclaimer": "Aviso Legal"
+  },
+  "portfolio": {
+    "eyebrow": "Resultados Reais",
+    "headline": "Antes & Depois: Imóveis Reais",
+    "subheadline": "Um apartamento em Lisboa transformado de degradado a arrendamento premium em 6 semanas.",
+    "beforeLabel": "Antes",
+    "afterLabel": "Depois",
+    "dragHint": "Arraste para comparar",
+    "statsHeadline": "ROI da Renovação",
+    "statInvestment": "Investimento",
+    "statInvestmentValue": "€35.000",
+    "statValueLabel": "Valorização",
+    "statValueValue": "+30%",
+    "statYieldLabel": "Rendimento Mensal",
+    "statYieldValue": "€2.200",
+    "location": "Alfama, Lisboa",
+    "cta": "Iniciar a Sua Renovação"
+  },
+  "faq": {
+    "eyebrow": "FAQ do Investidor",
+    "headline": "Questões Legais e Fiscais Respondidas",
+    "subheadline": "Respostas directas às perguntas que todo investidor estrangeiro faz antes de decidir.",
+    "q1": "Como estão a ser tratadas as novas licenças AL actualmente?",
+    "a1": "Após a moratória temporária nas áreas históricas de Lisboa e Porto, o governo reviu as regras AL no âmbito do pacote \"Mais Habitação\". As novas licenças são agora permitidas na maioria dos municípios fora das zonas de contenção designadas. A nossa equipa jurídica verifica a elegibilidade do seu imóvel e trata de todo o processo junto da Câmara Municipal — prazo típico de 60 a 90 dias.",
+    "q2": "Preciso de um representante fiscal em Portugal?",
+    "a2": "Sim. A lei portuguesa exige que todos os proprietários não residentes nomeiem um representante fiscal certificado com NIF português. O representante recebe a correspondência oficial da Autoridade Tributária, assegura as declarações de IRS/CIRS atempadas e actua como ponto de contacto legal. A PortoPrime inclui a representação fiscal no pacote de gestão completa.",
+    "q3": "Qual é a taxa de imposto real sobre os rendimentos de arrendamento de curta duração?",
+    "a3": "Os rendimentos AL enquadram-se na Categoria B (actividade profissional independente). No regime simplificado, 35% do rendimento bruto é tributável ao abrigo do CIRS. Na contabilidade organizada, as despesas dedutíveis reais reduzem a base tributável. A PortoPrime modela ambos os regimes anualmente e muda para o mais vantajoso.",
+    "q4": "A minha licença AL pode ser suspensa ou revogada?",
+    "a4": "As licenças podem ser suspensas por queixas de ruído reiteradas, ausência de seguro de responsabilidade civil válido ou incumprimento dos requisitos de registo de hóspedes da AIMA. A nossa gestão 24/7 garante total conformidade: registamos todos os check-ins/check-outs na AIMA, mantemos os registos de seguro e respondemos a todas as interacções com hóspedes.",
+    "q5": "O que inclui a taxa de gestão de 20%?",
+    "a5": "Apoio multilíngue 24/7, gestão dinâmica de preços e canais, limpeza profissional após cada saída, coordenação de pequena manutenção, extractos mensais, representação fiscal, relatórios de conformidade AIMA e acesso à nossa rede privada de hóspedes de alto valor. Sem custos ocultos — tudo discriminado no dashboard mensal."
+  },
+  "leadMagnet": {
+    "eyebrow": "Recurso Gratuito",
+    "headline": "Guia de Investimento em Portugal 2026",
+    "subheadline": "Enquadramento legal, estratégias de optimização fiscal e os bairros com maior rendimento — em 32 páginas PDF.",
+    "emailLabel": "Endereço de Email",
+    "emailPlaceholder": "o-seu@email.com",
+    "submit": "Obter o Meu Guia Gratuito",
+    "submitting": "A enviar…",
+    "successTitle": "Verifique o Seu Email!",
+    "successMessage": "O seu guia está a caminho. Verifique o email nos próximos minutos.",
+    "privacy": "Sem spam. Cancele a qualquer momento.",
+    "badge1": "32 Páginas",
+    "badge2": "Edição 2026",
+    "badge3": "PDF Gratuito",
+    "bookTitle": "Guia de\nInvestimento\nem Portugal",
+    "bookYear": "2026"
+  },
+  "trustedPartners": {
+    "label": "Parceiros e Certificações de Confiança"
   }
 }

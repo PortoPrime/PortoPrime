@@ -200,5 +200,57 @@
     "privacy": "Politique de Confidentialité",
     "terms": "Conditions d'Utilisation",
     "legalDisclaimer": "Mentions Légales"
+  },
+  "portfolio": {
+    "eyebrow": "Résultats Réels",
+    "headline": "Avant & Après : Propriétés Réelles",
+    "subheadline": "Un appartement à Lisbonne transformé de vétuste à location premium en 6 semaines.",
+    "beforeLabel": "Avant",
+    "afterLabel": "Après",
+    "dragHint": "Glissez pour comparer",
+    "statsHeadline": "ROI de la Rénovation",
+    "statInvestment": "Investissement",
+    "statInvestmentValue": "35 000 €",
+    "statValueLabel": "Valorisation",
+    "statValueValue": "+30 %",
+    "statYieldLabel": "Rendement Mensuel",
+    "statYieldValue": "2 200 €",
+    "location": "Alfama, Lisbonne",
+    "cta": "Lancer Ma Rénovation"
+  },
+  "faq": {
+    "eyebrow": "FAQ Investisseur",
+    "headline": "Questions Juridiques et Fiscales",
+    "subheadline": "Des réponses claires aux questions que chaque investisseur étranger pose avant de s'engager.",
+    "q1": "Comment les nouvelles licences AL sont-elles gérées actuellement ?",
+    "a1": "Après le moratoire temporaire dans les zones historiques de Lisbonne et Porto, le gouvernement a révisé les règles AL dans le cadre du paquet \"Mais Habitação\". Les nouvelles licences sont désormais possibles dans la plupart des communes en dehors des zones de contention. Notre équipe juridique vérifie l'éligibilité de votre bien et gère toute la procédure auprès de la Câmara Municipal — délai habituel : 60 à 90 jours.",
+    "q2": "Ai-je besoin d'un représentant fiscal au Portugal ?",
+    "a2": "Oui. La loi portugaise oblige tous les propriétaires non-résidents à désigner un représentant fiscal certifié disposant d'un NIF portugais. Celui-ci reçoit la correspondance officielle de l'Autoridade Tributária, assure les déclarations IRS/CIRS dans les délais et agit comme votre interlocuteur légal. PortoPrime inclut la représentation fiscale dans notre offre de gestion complète.",
+    "q3": "Quel est le taux d'imposition réel sur les revenus de location courte durée ?",
+    "a3": "Les revenus AL relèvent de la Catégorie B (activité professionnelle indépendante). Sous le régime simplifié, 35 % de votre chiffre d'affaires brut est imposable à un taux forfaitaire de 25 % pour les non-résidents. Avec la comptabilité organisée, les charges réellement déductibles réduisent la base imposable. PortoPrime modélise les deux régimes chaque année.",
+    "q4": "Ma licence AL peut-elle être suspendue ou révoquée ?",
+    "a4": "Les licences peuvent être suspendues pour plaintes répétées de bruit, absence d'assurance responsabilité civile valide ou non-conformité aux exigences d'enregistrement des locataires AIMA. Notre gestion 24/7 garantit votre pleine conformité : nous enregistrons tous les check-ins/check-outs AIMA et répondons à chaque interaction client.",
+    "q5": "Que comprend réellement la commission de gestion de 20 % ?",
+    "a5": "Support multilingue 24/7, tarification dynamique via notre gestionnaire de canaux propriétaire, nettoyage professionnel après chaque départ, coordination des petites réparations, relevés mensuels, représentation fiscale, rapports de conformité AIMA et accès à notre réseau privé d'hôtes à forte valeur ajoutée. Sans frais cachés."
+  },
+  "leadMagnet": {
+    "eyebrow": "Ressource Gratuite",
+    "headline": "Guide d'Investissement Portugal 2026",
+    "subheadline": "Cadre juridique, stratégies d'optimisation fiscale et les quartiers les plus rentables — en 32 pages PDF.",
+    "emailLabel": "Adresse Email",
+    "emailPlaceholder": "votre@email.com",
+    "submit": "Obtenir Mon Guide Gratuit",
+    "submitting": "Envoi en cours…",
+    "successTitle": "Consultez Votre Boîte Mail !",
+    "successMessage": "Votre guide est en route. Vérifiez votre email dans les prochaines minutes.",
+    "privacy": "Pas de spam. Désinscription à tout moment.",
+    "badge1": "32 Pages",
+    "badge2": "Édition 2026",
+    "badge3": "PDF Gratuit",
+    "bookTitle": "Guide\nd'Investissement\nPortugal",
+    "bookYear": "2026"
+  },
+  "trustedPartners": {
+    "label": "Partenaires et Certifications de Confiance"
   }
 }

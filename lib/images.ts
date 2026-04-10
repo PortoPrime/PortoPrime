@@ -95,6 +95,19 @@ export const IMAGES = {
     width: 1200,
     height: 675,
   },
+
+  /**
+   * Portfolio — Before renovation
+   * Distressed / empty apartment interior — contrasts with `renovation` after photo
+   * Aspect ratio: 4:3
+   */
+  beforeReno: {
+    src: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80',
+    alt: 'Apartment before renovation — dated interiors with untapped potential',
+    blurDataURL: BLUR_STONE,
+    width: 1200,
+    height: 900,
+  },
 } as const;
 
 export type ImageKey = keyof typeof IMAGES;
