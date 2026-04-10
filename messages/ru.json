@@ -7,8 +7,8 @@
   "nav": {
     "logo": "PortoPrime",
     "services": "Услуги",
-    "about": "О нас",
-    "results": "Результаты",
+    "portfolio": "Портфолио",
+    "faq": "FAQ",
     "contact": "Контакты",
     "cta": "Бесплатная консультация",
     "languageLabel": "Язык"
@@ -185,7 +185,7 @@
     "occupancy": "Средняя заполняемость",
     "estimatedRevenue": "Расчётный ежемесячный доход",
     "perMonth": "/месяц",
-    "afterFees": "после комиссии за управление 20%",
+    "afterFees": "после комиссии за управление 30%",
     "annualProjection": "Годовой прогноз",
     "renovationUpsell": "С нашим Профессиональным Ремонтом ваш доход может вырасти ещё на",
     "renovationUpsellHighlight": "25%",

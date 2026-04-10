@@ -7,8 +7,8 @@
   "nav": {
     "logo": "PortoPrime",
     "services": "Services",
-    "about": "À propos",
-    "results": "Résultats",
+    "portfolio": "Portfolio",
+    "faq": "FAQ",
     "contact": "Contact",
     "cta": "Consultation Gratuite",
     "languageLabel": "Langue"
@@ -185,7 +185,7 @@
     "occupancy": "Taux d'Occupation Moyen",
     "estimatedRevenue": "Revenu Mensuel Estimé",
     "perMonth": "/mois",
-    "afterFees": "après frais de gestion de 20%",
+    "afterFees": "après frais de gestion de 30%",
     "annualProjection": "Projection annuelle",
     "renovationUpsell": "Avec notre Rénovation Professionnelle, votre rendement pourrait augmenter de",
     "renovationUpsellHighlight": "25%",

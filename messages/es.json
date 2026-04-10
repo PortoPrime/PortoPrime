@@ -7,8 +7,8 @@
   "nav": {
     "logo": "PortoPrime",
     "services": "Servicios",
-    "about": "Nosotros",
-    "results": "Resultados",
+    "portfolio": "Portafolio",
+    "faq": "FAQ",
     "contact": "Contacto",
     "cta": "Consulta Gratuita",
     "languageLabel": "Idioma"
@@ -185,7 +185,7 @@
     "occupancy": "Ocupación Media",
     "estimatedRevenue": "Ingresos Mensuales Estimados",
     "perMonth": "/mes",
-    "afterFees": "tras comisión de gestión del 20%",
+    "afterFees": "tras comisión de gestión del 30%",
     "annualProjection": "Proyección anual",
     "renovationUpsell": "Con nuestra Renovación Profesional, tu rentabilidad podría aumentar un",
     "renovationUpsellHighlight": "25%",

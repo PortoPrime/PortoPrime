@@ -32,7 +32,7 @@ const CONDITION_MULTIPLIERS: Record<number, number> = {
   5: 1.10,
 };
 
-const SERVICE_FEE       = 0.20; // 20% management fee
+const SERVICE_FEE       = 0.30; // 30% management fee
 const DAYS_PER_MONTH    = 30;
 const RENOVATION_BOOST  = 0.25; // +25% with professional renovation
 
