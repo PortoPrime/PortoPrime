@@ -202,7 +202,13 @@
       "essential": "Essenziale · 15%",
       "standard": "Standard · 20%",
       "premium": "Premium · 25%"
-    }
+    },
+    "tierTooltips": {
+      "essential": "Prenotazioni online e tariffazione dinamica. La gestione operativa rimane a carico del proprietario.",
+      "standard": "Gestione completa: pulizie, check-in degli ospiti e rendiconti mensili.",
+      "premium": "Proprietà senza pensieri. Rappresentanza fiscale, conformità legale e manutenzione incluse."
+    },
+    "taxNote": "Risultati stimati al netto delle imposte basati sull'aliquota IRC base del 19%. Le aliquote effettive individuali (~21%) possono variare per comune."
   },
   "footer": {
     "tagline": "Gestione immobiliare premium per investitori che pretendono risultati.",

@@ -202,7 +202,13 @@
       "essential": "Essencial · 15%",
       "standard": "Standard · 20%",
       "premium": "Premium · 25%"
-    }
+    },
+    "tierTooltips": {
+      "essential": "Reservas online e preços dinâmicos. Operações no local a cargo do proprietário.",
+      "standard": "Operações completas: limpeza, check-ins e extractos mensais.",
+      "premium": "Gestão total sem preocupações. Representação fiscal, conformidade legal e manutenção incluídas."
+    },
+    "taxNote": "Resultados estimados após impostos com base na taxa IRC de 19%. Taxas efectivas individuais (~21%) podem variar por município."
   },
   "footer": {
     "tagline": "Gestão premium de imóveis para investidores que exigem resultados.",

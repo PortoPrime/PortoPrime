@@ -202,7 +202,13 @@
       "essential": "Essential · 15%",
       "standard": "Standard · 20%",
       "premium": "Premium · 25%"
-    }
+    },
+    "tierTooltips": {
+      "essential": "Online booking & dynamic pricing. Owner handles on-site operations.",
+      "standard": "Full operations: cleaning coordination, guest check-ins, and monthly statements.",
+      "premium": "Hands-free ownership. Tax representation, legal compliance & maintenance included."
+    },
+    "taxNote": "Estimated after-tax results based on 19% base IRC. Individual effective rates (~21%) may vary by municipality."
   },
   "footer": {
     "tagline": "Premium property management for investors who demand results.",

@@ -23,13 +23,19 @@ const BASE_RATES: Record<string, number> = {
   villa:      300,
 };
 
-/** Condition 1 = Needs Renovation → 5 = Premium */
+/**
+ * ADR multiplier by condition (1 = Needs Renovation → 5 = Premium).
+ * Spread is intentionally wide: Premium earns ~2× a Renovation property,
+ * which reinforces the renovation upsell and reflects real market dynamics.
+ *   Condition 5 / Condition 1 = 1.30 / 0.65 = 2.0  (+100% vs renovation)
+ *   Condition 5 / Condition 3 = 1.30 / 1.00 = +30%  above market baseline
+ */
 const CONDITION_MULTIPLIERS: Record<number, number> = {
-  1: 0.70,
-  2: 0.82,
-  3: 0.92,
-  4: 1.00,
-  5: 1.10,
+  1: 0.65,   // Needs Renovation — significant ADR discount
+  2: 0.80,   // Fair             — below-market
+  3: 1.00,   // Good             — at market (reference point)
+  4: 1.15,   // Very Good        — above market
+  5: 1.30,   // Premium          — top-of-market (+100% vs Renovation)
 };
 
 const DAYS_PER_MONTH    = 30;
@@ -42,6 +48,17 @@ const FEE_RATES: Record<FeeTier, number> = {
   essential: 0.15,
   standard:  0.20,
   premium:   0.25,
+};
+
+/**
+ * Brand-name labels for tier segment buttons.
+ * These are EN-only because they are PortoPrime product names, not UI copy.
+ * Tooltip descriptions come from i18n (`tierTooltips.*`).
+ */
+const TIER_DISPLAY: Record<FeeTier, string> = {
+  essential: 'Essential',
+  standard:  'Standard',
+  premium:   'Premium',
 };
 
 // ─── Core calculation function ──────────────────────────────────────────────
@@ -165,6 +182,7 @@ export function Calculator() {
   const [condition,        setCondition]        = useState(3);         // 1–5
   const [occupancy,        setOccupancy]        = useState(80);        // 40–100 %
   const [feeTier,          setFeeTier]          = useState<FeeTier>('standard');
+  const [hoveredTier,      setHoveredTier]      = useState<FeeTier | null>(null);
 
   // ── Derived values ───────────────────────────────────────────────────────
   const monthly         = calcMonthly(selectedLocation, propertyType, condition, occupancy, feeTier);
@@ -410,34 +428,80 @@ export function Calculator() {
 
               </div>
 
-              {/* Fee tier selector ──────────────────────────────────────── */}
+              {/* Management Level selector ────────────────────────────── */}
               <div className="mb-7">
-                <label className="flex items-center gap-1.5 text-xs font-bold tracking-wide uppercase text-gray-500 mb-2">
+                <label className="flex items-center gap-1.5 text-xs font-bold tracking-wide uppercase text-gray-500 mb-3">
                   <Sliders className="w-3.5 h-3.5" style={{ color: '#C9A96E' }} />
                   {t('feeTierLabel')}
                 </label>
-                <div className="grid grid-cols-3 gap-2">
-                  {(['essential', 'standard', 'premium'] as const).map((tier) => (
-                    <button
-                      key={tier}
-                      type="button"
-                      onClick={() => setFeeTier(tier)}
-                      className={`
-                        py-2.5 px-2 rounded-xl text-xs font-semibold text-center
-                        border transition-all duration-200 leading-tight
-                        ${feeTier === tier
-                          ? 'text-[#1B263B] border-[#C9A96E] shadow-sm'
-                          : 'text-gray-400 border-gray-200 hover:border-gray-300 hover:text-gray-600'
-                        }
-                      `}
-                      style={feeTier === tier
-                        ? { background: 'linear-gradient(135deg, rgba(224,195,151,0.20), rgba(201,169,110,0.10))' }
-                        : {}
-                      }
-                    >
-                      {t(`tiers.${tier}`)}
-                    </button>
-                  ))}
+
+                {/* ── iOS-style segment control ── */}
+                <div
+                  className="flex rounded-xl p-1 gap-1"
+                  style={{ background: '#F3F4F6' }}
+                  role="radiogroup"
+                  aria-label={t('feeTierLabel')}
+                >
+                  {(['essential', 'standard', 'premium'] as const).map((tier) => {
+                    const isActive = feeTier === tier;
+                    return (
+                      <button
+                        key={tier}
+                        type="button"
+                        role="radio"
+                        aria-checked={isActive}
+                        onClick={() => setFeeTier(tier)}
+                        onMouseEnter={() => setHoveredTier(tier)}
+                        onMouseLeave={() => setHoveredTier(null)}
+                        onFocus={() => setHoveredTier(tier)}
+                        onBlur={() => setHoveredTier(null)}
+                        className="flex-1 flex flex-col items-center justify-center py-2.5 rounded-lg transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-[#C9A96E]/50"
+                        style={isActive ? {
+                          background:  'linear-gradient(135deg, #E0C397 0%, #C9A96E 100%)',
+                          boxShadow:   '0 2px 10px rgba(201,169,110,0.40)',
+                        } : {
+                          background: 'transparent',
+                        }}
+                      >
+                        {/* Percentage — the "price" anchor */}
+                        <span
+                          className="text-sm font-bold tabular-nums leading-none"
+                          style={{ color: isActive ? '#1B263B' : '#9CA3AF' }}
+                        >
+                          {Math.round(FEE_RATES[tier] * 100)}%
+                        </span>
+                        {/* Product name */}
+                        <span
+                          className="text-[10px] mt-0.5 font-semibold"
+                          style={{ color: isActive ? 'rgba(27,38,59,0.65)' : '#C4C9D4' }}
+                        >
+                          {TIER_DISPLAY[tier]}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* ── Live description — updates on hover; defaults to active tier ── */}
+                <div
+                  className="mt-2.5 flex items-start gap-2 px-3 py-2 rounded-lg transition-all duration-200"
+                  style={{
+                    background: 'rgba(201,169,110,0.06)',
+                    border:     '1px solid rgba(201,169,110,0.14)',
+                    minHeight:  '40px',
+                  }}
+                >
+                  <Info
+                    className="w-3 h-3 flex-shrink-0"
+                    style={{ color: '#C9A96E', marginTop: '2px' }}
+                    strokeWidth={2}
+                  />
+                  <p
+                    className="text-[11px] leading-snug"
+                    style={{ color: '#6B7280' }}
+                  >
+                    {t(`tierTooltips.${hoveredTier ?? feeTier}`)}
+                  </p>
                 </div>
               </div>
 
@@ -556,9 +620,18 @@ export function Calculator() {
                     </span>
                     <span className="text-lg text-white/40 mb-2">{t('perMonth')}</span>
                   </div>
-                  <p className="text-xs text-white/35 mb-6">
-                    {t('afterFees', { fee: Math.round(FEE_RATES[feeTier] * 100) })}
-                  </p>
+                  {/* After-fees label + IRC tax context, grouped as one block */}
+                  <div className="mb-6">
+                    <p className="text-xs mb-1" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                      {t('afterFees', { fee: Math.round(FEE_RATES[feeTier] * 100) })}
+                    </p>
+                    <p
+                      className="text-[10px] leading-relaxed"
+                      style={{ color: 'rgba(255,255,255,0.20)', fontStyle: 'italic' }}
+                    >
+                      {t('taxNote')}
+                    </p>
+                  </div>
 
                   {/* Annual projection card */}
                   <div

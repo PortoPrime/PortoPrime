@@ -202,7 +202,13 @@
       "essential": "Esencial · 15%",
       "standard": "Estándar · 20%",
       "premium": "Premium · 25%"
-    }
+    },
+    "tierTooltips": {
+      "essential": "Reservas online y precios dinámicos. La operativa in situ es responsabilidad del propietario.",
+      "standard": "Gestión completa: coordinación de limpieza, check-ins y extractos mensuales.",
+      "premium": "Propiedad sin preocupaciones. Representación fiscal, cumplimiento legal y mantenimiento incluidos."
+    },
+    "taxNote": "Resultados estimados después de impuestos basados en el tipo IRC base del 19%. Los tipos efectivos individuales (~21%) pueden variar según el municipio."
   },
   "footer": {
     "tagline": "Gestión inmobiliaria premium para inversores que exigen resultados.",

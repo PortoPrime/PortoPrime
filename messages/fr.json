@@ -202,7 +202,13 @@
       "essential": "Essentiel · 15%",
       "standard": "Standard · 20%",
       "premium": "Premium · 25%"
-    }
+    },
+    "tierTooltips": {
+      "essential": "Réservations en ligne & tarification dynamique. L'exploitation sur place reste à la charge du propriétaire.",
+      "standard": "Gestion complète : coordination du nettoyage, check-ins des hôtes et relevés mensuels.",
+      "premium": "Propriété sans contrainte. Représentation fiscale, conformité légale et maintenance incluses."
+    },
+    "taxNote": "Résultats estimés après impôts basés sur un taux IRC de base de 19%. Les taux effectifs individuels (~21%) peuvent varier selon la municipalité."
   },
   "footer": {
     "tagline": "Gestion immobilière premium pour les investisseurs qui exigent des résultats.",

@@ -202,7 +202,13 @@
       "essential": "Basis · 15%",
       "standard": "Standard · 20%",
       "premium": "Premium · 25%"
-    }
+    },
+    "tierTooltips": {
+      "essential": "Online-Buchung & dynamische Preisgestaltung. Betrieb vor Ort liegt beim Eigentümer.",
+      "standard": "Vollständiger Betrieb: Reinigung, Gäste-Check-in und monatliche Abrechnungen.",
+      "premium": "Sorgloser Besitz. Steuerliche Vertretung, rechtliche Compliance & Instandhaltung inklusive."
+    },
+    "taxNote": "Geschätzte Ergebnisse nach Steuern auf Basis von 19% IRC-Grundsteuersatz. Individuelle Effektivsätze (~21%) können je nach Gemeinde variieren."
   },
   "footer": {
     "tagline": "Premium-Immobilienverwaltung für Investoren, die Ergebnisse fordern.",
