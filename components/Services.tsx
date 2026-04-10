@@ -168,7 +168,19 @@ export function Services() {
                   'hover:-translate-y-1 hover:shadow-2xl',
                   colSpan,
                 ].join(' ')}
-                style={{ background: bg, border: `1px solid ${border}` }}
+                style={{
+                  background:        bg,
+                  border:            `1px solid ${border}`,
+                  // ─── Sub-pixel seam fix ────────────────────────────────
+                  // 1. Force GPU compositing layer → eliminates sub-pixel
+                  //    rounding gaps between image strip and content during
+                  //    scroll / resize on Chromium and Safari.
+                  transform:         'translateZ(0)',
+                  backfaceVisibility: 'hidden',
+                  // 2. Blocks a Chromium stacking-boundary artifact where a
+                  //    1 px crack appears along adjacent composited elements.
+                  outline:           '1px solid transparent',
+                }}
               >
                 {/* ── Image strip — fixed height, never compressed ──────── */}
                 <div className={`relative ${imgHeight} flex-shrink-0 overflow-hidden`}>
@@ -217,8 +229,15 @@ export function Services() {
                 {/*
                   flex-1 + flex flex-col: the content area expands as text grows.
                   p-7/p-8 gives generous breathing room so text never touches borders.
+                  marginTop: -2px physically overlaps the image strip bottom edge
+                  by 2 px — a belt-and-suspenders guard against any remaining
+                  sub-pixel gap that GPU compositing alone might not catch.
+                  pt-5 (20 px) already gives enough room so no content is hidden.
                 */}
-                <div className="relative flex flex-col flex-1 p-7 md:p-8 pt-5">
+                <div
+                  className="relative flex flex-col flex-1 p-7 md:p-8 pt-5"
+                  style={{ marginTop: '-2px' }}
+                >
 
                   {/* Inner glow on hover */}
                   <div
