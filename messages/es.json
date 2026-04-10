@@ -253,19 +253,19 @@
   "leadMagnet": {
     "eyebrow": "Recurso Gratuito",
     "headline": "Guía de Inversión en Portugal 2026",
-    "subheadline": "Marco legal, estrategias de optimización fiscal y los barrios con mayor rendimiento — en 32 páginas PDF.",
+    "subheadline": "Marco legal, estrategias de optimización fiscal y los barrios con mayor rendimiento — en un PDF exclusivo.",
     "emailLabel": "Dirección de Email",
     "emailPlaceholder": "tu@email.com",
     "submit": "Obtener Mi Guía Gratis",
     "submitting": "Enviando…",
-    "successTitle": "¡Revisa Tu Bandeja de Entrada!",
-    "successMessage": "Tu guía está en camino. Revisa tu email en los próximos minutos.",
+    "successTitle": "¡Tu guía se está descargando!",
+    "successMessage": "Si la descarga no comenzó automáticamente,",
     "privacy": "Sin spam. Cancela cuando quieras.",
-    "badge1": "32 Páginas",
     "badge2": "Edición 2026",
     "badge3": "PDF Gratis",
     "bookTitle": "Guía de\nInversión\nen Portugal",
-    "bookYear": "2026"
+    "bookYear": "2026",
+    "successLinkText": "haz clic aquí"
   },
   "trustedPartners": {
     "label": "Socios y Certificaciones de Confianza",

@@ -253,19 +253,19 @@
   "leadMagnet": {
     "eyebrow": "Free Resource",
     "headline": "Portugal Investment Guide 2026",
-    "subheadline": "Legal framework, tax optimization strategies, and the highest-yield neighborhoods — distilled into one 32-page PDF.",
+    "subheadline": "Legal framework, tax optimization strategies, and the highest-yield neighborhoods — distilled into one exclusive PDF.",
     "emailLabel": "Email Address",
     "emailPlaceholder": "your@email.com",
     "submit": "Get My Free Guide",
     "submitting": "Sending…",
-    "successTitle": "Check Your Inbox!",
-    "successMessage": "Your guide is on its way. Check your email within the next few minutes.",
+    "successTitle": "Your Guide is Downloading!",
+    "successMessage": "If the download didn't start automatically,",
     "privacy": "No spam. Unsubscribe anytime.",
-    "badge1": "32 Pages",
     "badge2": "2026 Edition",
     "badge3": "Free PDF",
     "bookTitle": "Portugal\nInvestment\nGuide",
-    "bookYear": "2026"
+    "bookYear": "2026",
+    "successLinkText": "click here"
   },
   "trustedPartners": {
     "label": "Trusted Partners & Certifications",

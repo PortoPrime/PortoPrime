@@ -253,19 +253,19 @@
   "leadMagnet": {
     "eyebrow": "Ressource Gratuite",
     "headline": "Guide d'Investissement Portugal 2026",
-    "subheadline": "Cadre juridique, stratégies d'optimisation fiscale et les quartiers les plus rentables — en 32 pages PDF.",
+    "subheadline": "Cadre juridique, stratégies d'optimisation fiscale et les quartiers les plus rentables — en PDF exclusif.",
     "emailLabel": "Adresse Email",
     "emailPlaceholder": "votre@email.com",
     "submit": "Obtenir Mon Guide Gratuit",
     "submitting": "Envoi en cours…",
-    "successTitle": "Consultez Votre Boîte Mail !",
-    "successMessage": "Votre guide est en route. Vérifiez votre email dans les prochaines minutes.",
+    "successTitle": "Votre guide est en cours de téléchargement !",
+    "successMessage": "Si le téléchargement ne démarre pas automatiquement,",
     "privacy": "Pas de spam. Désinscription à tout moment.",
-    "badge1": "32 Pages",
     "badge2": "Édition 2026",
     "badge3": "PDF Gratuit",
     "bookTitle": "Guide\nd'Investissement\nPortugal",
-    "bookYear": "2026"
+    "bookYear": "2026",
+    "successLinkText": "cliquez ici"
   },
   "trustedPartners": {
     "label": "Partenaires et Certifications de Confiance",

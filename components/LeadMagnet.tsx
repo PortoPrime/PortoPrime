@@ -4,6 +4,23 @@ import { useState, useId } from 'react';
 import { useTranslations } from 'next-intl';
 import { Mail, BookOpen, CheckCircle2 } from 'lucide-react';
 
+// ─── PDF Download utility ─────────────────────────────────────────────────────
+/**
+ * Programmatically triggers a browser file download.
+ * Creates a temporary <a download> element, clicks it, and removes it.
+ * SSR-safe: no-ops when `document` is not available.
+ */
+function triggerDownload(url: string, filename: string): void {
+  if (typeof document === 'undefined') return;
+  const link     = document.createElement('a');
+  link.href      = url;
+  link.download  = filename;
+  link.rel       = 'noopener';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 // ─── LeadMagnet Component ─────────────────────────────────────────────────────
 export function LeadMagnet() {
   const t   = useTranslations('leadMagnet');
@@ -30,36 +47,46 @@ export function LeadMagnet() {
 
     setLoading(true);
     try {
-      // Re-use /api/lead; pass email as name, mark as guide request
-      const res = await fetch('/api/lead', {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify({
-          name:     email.trim(),
-          phone:    '+000000000000', // placeholder — guide requests have no phone
-          location: 'Guide Request',
-          revenue:  email.trim(),   // used as identifier in email notification
-        }),
+      // ── Analytics — fire on every valid lead ───────────────────────
+      // Replace the console.log below with your actual tracker once ready:
+      //   window.gtag?.('event', 'generate_lead', { email: email.trim(), label: 'guide-download' });
+      //   analytics.track('Lead Generated', { email: email.trim(), source: 'guide-magnet' });
+      console.log('[PortoPrime Analytics] Lead Generated', {
+        event:  'guide_download',
+        email:  email.trim(),
+        source: 'lead-magnet',
+        ts:     new Date().toISOString(),
       });
 
-      if (res.ok) {
-        setSuccess(true);
-      } else {
-        setErrorMsg('Something went wrong. Please try again.');
-      }
-    } catch {
-      setErrorMsg('Something went wrong. Please try again.');
+      // ── Trigger PDF download immediately (don't block on API) ──────
+      triggerDownload(
+        '/docs/Portugal-Investment-Guide-2026.pdf',
+        'Portugal-Investment-Guide-2026.pdf',
+      );
+
+      // ── Capture lead in background — non-critical, fire-and-forget ─
+      fetch('/api/lead', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name:     email.trim(),
+          phone:    '+000000000000', // guide requests have no phone
+          location: 'Guide Request',
+          revenue:  email.trim(),   // used as email identifier in admin notification
+        }),
+      }).catch(() => { /* non-critical — download already started */ });
+
+      // ── Clear field + show success banner ──────────────────────────
+      setEmail('');
+      setSuccess(true);
+
     } finally {
       setLoading(false);
     }
   };
 
-  // ── Badge chips ────────────────────────────────────────────────────────
-  const badges = [
-    t('badge1'),
-    t('badge2'),
-    t('badge3'),
-  ];
+  // ── Badge chips (badge1 = page count removed per product decision) ────
+  const badges = [t('badge2'), t('badge3')];
 
   return (
     <section
@@ -295,7 +322,21 @@ export function LeadMagnet() {
                 <CheckCircle2 className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#7EC8C8' }} strokeWidth={1.8} />
                 <div>
                   <p className="font-semibold text-white mb-1">{t('successTitle')}</p>
-                  <p className="text-sm text-white/60">{t('successMessage')}</p>
+                  <p className="text-sm text-white/60">
+                    {t('successMessage')}{' '}
+                    {/* Fallback manual download link */}
+                    <a
+                      href="/docs/Portugal-Investment-Guide-2026.pdf"
+                      download="Portugal-Investment-Guide-2026.pdf"
+                      rel="noopener"
+                      className="underline underline-offset-2 transition-colors duration-150"
+                      style={{ color: '#C9A96E' }}
+                      onMouseEnter={e => (e.currentTarget.style.color = '#E0C397')}
+                      onMouseLeave={e => (e.currentTarget.style.color = '#C9A96E')}
+                    >
+                      {t('successLinkText')}
+                    </a>
+                  </p>
                 </div>
               </div>
             ) : (

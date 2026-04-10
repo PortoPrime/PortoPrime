@@ -253,19 +253,19 @@
   "leadMagnet": {
     "eyebrow": "Risorsa Gratuita",
     "headline": "Guida agli Investimenti in Portogallo 2026",
-    "subheadline": "Quadro normativo, strategie di ottimizzazione fiscale e i quartieri con la maggiore rendita — in 32 pagine PDF.",
+    "subheadline": "Quadro normativo, strategie di ottimizzazione fiscale e i quartieri con la maggiore rendita — in un PDF esclusivo.",
     "emailLabel": "Indirizzo Email",
     "emailPlaceholder": "la-tua@email.com",
     "submit": "Ottieni la Mia Guida Gratuita",
     "submitting": "Invio in corso…",
-    "successTitle": "Controlla la Tua Casella di Posta!",
-    "successMessage": "La tua guida è in arrivo. Controlla la tua email nei prossimi minuti.",
+    "successTitle": "La tua guida è in download!",
+    "successMessage": "Se il download non è iniziato automaticamente,",
     "privacy": "Niente spam. Disiscrizione in qualsiasi momento.",
-    "badge1": "32 Pagine",
     "badge2": "Edizione 2026",
     "badge3": "PDF Gratuito",
     "bookTitle": "Guida agli\nInvestimenti\nPortogallo",
-    "bookYear": "2026"
+    "bookYear": "2026",
+    "successLinkText": "clicca qui"
   },
   "trustedPartners": {
     "label": "Partner e Certificazioni di Fiducia",

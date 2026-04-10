@@ -253,19 +253,19 @@
   "leadMagnet": {
     "eyebrow": "Kostenlose Ressource",
     "headline": "Portugal Investment Guide 2026",
-    "subheadline": "Rechtlicher Rahmen, Steueroptimierungsstrategien und die renditereichsten Lagen — in einem 32-seitigen PDF.",
+    "subheadline": "Rechtlicher Rahmen, Steueroptimierungsstrategien und die renditereichsten Lagen — in einem exklusiven PDF.",
     "emailLabel": "E-Mail-Adresse",
     "emailPlaceholder": "ihre@email.com",
     "submit": "Meinen kostenlosen Guide erhalten",
     "submitting": "Wird gesendet…",
-    "successTitle": "Prüfen Sie Ihren Posteingang!",
-    "successMessage": "Ihr Guide ist unterwegs. Prüfen Sie Ihre E-Mail in wenigen Minuten.",
+    "successTitle": "Ihr Guide wird heruntergeladen!",
+    "successMessage": "Falls der Download nicht automatisch startet,",
     "privacy": "Kein Spam. Jederzeit abbestellbar.",
-    "badge1": "32 Seiten",
     "badge2": "Ausgabe 2026",
     "badge3": "Kostenloses PDF",
     "bookTitle": "Portugal\nInvestment\nGuide",
-    "bookYear": "2026"
+    "bookYear": "2026",
+    "successLinkText": "hier klicken"
   },
   "trustedPartners": {
     "label": "Vertrauenspartner & Zertifizierungen",

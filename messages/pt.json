@@ -253,19 +253,19 @@
   "leadMagnet": {
     "eyebrow": "Recurso Gratuito",
     "headline": "Guia de Investimento em Portugal 2026",
-    "subheadline": "Enquadramento legal, estratégias de optimização fiscal e os bairros com maior rendimento — em 32 páginas PDF.",
+    "subheadline": "Enquadramento legal, estratégias de optimização fiscal e os bairros com maior rendimento — num PDF exclusivo.",
     "emailLabel": "Endereço de Email",
     "emailPlaceholder": "o-seu@email.com",
     "submit": "Obter o Meu Guia Gratuito",
     "submitting": "A enviar…",
-    "successTitle": "Verifique o Seu Email!",
-    "successMessage": "O seu guia está a caminho. Verifique o email nos próximos minutos.",
+    "successTitle": "O seu guia está a ser descarregado!",
+    "successMessage": "Se o download não iniciou automaticamente,",
     "privacy": "Sem spam. Cancele a qualquer momento.",
-    "badge1": "32 Páginas",
     "badge2": "Edição 2026",
     "badge3": "PDF Gratuito",
     "bookTitle": "Guia de\nInvestimento\nem Portugal",
-    "bookYear": "2026"
+    "bookYear": "2026",
+    "successLinkText": "clique aqui"
   },
   "trustedPartners": {
     "label": "Parceiros e Certificações de Confiança",
