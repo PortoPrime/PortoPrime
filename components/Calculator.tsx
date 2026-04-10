@@ -186,13 +186,25 @@ export function Calculator() {
   // Condition label keys in order (index 0 = condition 1)
   const conditionKeys = ['renovation', 'fair', 'good', 'veryGood', 'premium'] as const;
 
-  // 0–100% position for the floating tooltip above the condition thumb
-  // translateX trick: left={pct}% + translateX(-{pct}%) keeps the pill within
-  // track bounds at both edges without JS clamping.
-  const conditionPct = ((condition - 1) / 4) * 100;
+  // Normalised 0–100 positions for each slider
+  const conditionPct  = ((condition - 1) / 4) * 100;
+  const occupancyPct  = ((occupancy - 40) / 60) * 100;
 
-  // Occupancy fill percentage for the slider gradient
-  const occupancyPct = ((occupancy - 40) / 60) * 100;
+  /**
+   * Returns a CSS calc() string that maps `pct` (0–100) to the actual
+   * horizontal centre of the range-input thumb.
+   *
+   * Browsers inset the thumb so its centre is always ≥ half-thumb-width from
+   * the track edges. For a typical ~20 px browser-default thumb the inset is
+   * ≈10 px. The formula:
+   *   center_x = (container_w − 20px) × pct/100 + 10px
+   *            ≈ pct% + (10 − pct × 0.20)px
+   *
+   * Combined with translateX(−50%) the tooltip pill is centred on the thumb
+   * at every step without any overflow-prevention hack.
+   */
+  const thumbLeft = (pct: number) =>
+    `calc(${pct}% + ${(10 - pct * 0.2).toFixed(2)}px)`;
 
   return (
     <section
@@ -297,29 +309,21 @@ export function Calculator() {
               {/* Condition slider ───────────────────────────────────────── */}
               <div className="mb-7">
 
-                {/* ── Header row: section label + current-state chip ──── */}
-                <div className="flex items-center justify-between mb-2">
+                {/* ── Header row: section label only (no numeric badge) ── */}
+                <div className="flex items-center mb-2">
                   <span className="flex items-center gap-1.5 text-xs font-bold tracking-wide uppercase text-gray-500">
                     <Sliders className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#C9A96E' }} />
                     {t('condition')}
-                  </span>
-                  {/* Subtle numeric badge — e.g. "3 / 5" */}
-                  <span
-                    className="text-[10px] font-bold tabular-nums px-2 py-0.5 rounded-full"
-                    style={{ color: '#C9A96E', background: 'rgba(201,169,110,0.10)' }}
-                  >
-                    {condition} / 5
                   </span>
                 </div>
 
                 {/* ── Slider track + floating tooltip ──────────────────── */}
                 {/*
                   pt-9 reserves vertical room for the tooltip above the thumb.
-                  The tooltip uses the translateX(-conditionPct%) trick:
-                    left=0%  → translateX(0%)    → pill flush with left edge
-                    left=50% → translateX(-50%)  → pill perfectly centered
-                    left=100%→ translateX(-100%) → pill flush with right edge
-                  No JS clamping needed — it stays in-bounds at all 5 steps.
+                  thumbLeft(conditionPct) returns a CSS calc() expression that
+                  maps 0–100 to the actual thumb-centre x-position (accounting
+                  for browser thumb inset ≈ 10 px each side). translateX(-50%)
+                  then centres the pill on the thumb with zero overflow hack.
                 */}
                 <div className="relative pt-9">
 
@@ -327,9 +331,9 @@ export function Calculator() {
                   <div
                     className="absolute top-0 pointer-events-none"
                     style={{
-                      left:       `${conditionPct}%`,
-                      transform:  `translateX(-${conditionPct}%)`,
-                      transition: 'left 0.22s ease, transform 0.22s ease',
+                      left:       thumbLeft(conditionPct),
+                      transform:  'translateX(-50%)',
+                      transition: 'left 0.22s ease',
                     }}
                   >
                     <span
@@ -398,7 +402,8 @@ export function Calculator() {
 
               {/* Occupancy slider ───────────────────────────────────────── */}
               <div>
-                <label className="flex items-center justify-between text-xs font-bold tracking-wide uppercase text-gray-500 mb-3">
+                {/* Header: label + live percentage (right-aligned) */}
+                <label className="flex items-center justify-between text-xs font-bold tracking-wide uppercase text-gray-500 mb-2">
                   <span className="flex items-center gap-1.5">
                     <TrendingUp className="w-3.5 h-3.5" style={{ color: '#C9A96E' }} />
                     {t('occupancy')}
@@ -410,16 +415,51 @@ export function Calculator() {
                     {occupancy}%
                   </span>
                 </label>
-                <GoldSlider
-                  min={40} max={100} step={5}
-                  value={occupancy}
-                  onChange={setOccupancy}
-                />
-                <div className="flex justify-between mt-1.5 text-[10px] text-gray-400">
-                  <span>40%</span>
-                  <span>70%</span>
-                  <span>100%</span>
+
+                {/* Slider track + floating tooltip — same pattern as condition */}
+                <div className="relative pt-9">
+
+                  {/* Floating tooltip pill */}
+                  <div
+                    className="absolute top-0 pointer-events-none"
+                    style={{
+                      left:       thumbLeft(occupancyPct),
+                      transform:  'translateX(-50%)',
+                      transition: 'left 0.22s ease',
+                    }}
+                  >
+                    <span
+                      className="inline-flex items-center px-2.5 py-[5px] rounded-full text-[10px] font-bold whitespace-nowrap shadow-sm"
+                      style={{
+                        color:      '#1B263B',
+                        background: 'linear-gradient(135deg, #E0C397 0%, #C9A96E 100%)',
+                      }}
+                    >
+                      {occupancy}%
+                    </span>
+                    {/* Down-pointing caret */}
+                    <div
+                      className="mx-auto"
+                      style={{
+                        width:       0,
+                        height:      0,
+                        borderLeft:  '5px solid transparent',
+                        borderRight: '5px solid transparent',
+                        borderTop:   '5px solid #C9A96E',
+                        marginTop:   '1px',
+                      }}
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  <GoldSlider
+                    min={40} max={100} step={5}
+                    value={occupancy}
+                    onChange={setOccupancy}
+                  />
                 </div>
+                {/* Static labels removed — percentage is shown in the
+                    floating tooltip and in the header value above */}
               </div>
             </div>
 
