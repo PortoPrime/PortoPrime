@@ -168,7 +168,7 @@
       "lisbon": "Lisboa",
       "porto": "Porto",
       "algarve": "Algarve",
-      "other": "Outra"
+      "other": "Outra Região"
     },
     "propertyType": "Tipo de Imóvel",
     "propertyTypes": {
@@ -194,7 +194,9 @@
     "renovationUpsellHighlight": "25%",
     "renovationUpsellSuffix": "— passando para",
     "cta": "Obter Relatório Detalhado do Meu Imóvel",
-    "disclaimer": "As estimativas baseiam-se em dados de mercado atuais para Alojamento Local (AL) em Portugal. O rendimento final depende das características específicas do imóvel, dos regimes fiscais CIRS/CIRC (contabilidade simplificada ou organizada) e das regulamentações municipais. A PortoPrime presta apoio completo no licenciamento AL e na representação fiscal."
+    "disclaimer": "As estimativas baseiam-se em dados de mercado atuais para Alojamento Local (AL) em Portugal. O rendimento final depende das características específicas do imóvel, dos regimes fiscais CIRS/CIRC (contabilidade simplificada ou organizada) e das regulamentações municipais. A PortoPrime presta apoio completo no licenciamento AL e na representação fiscal.",
+    "otherRegionMessage": "Esta região requer uma análise de mercado individual. Deixe um pedido e prepararemos um relatório detalhado para a sua cidade.",
+    "ctaOtherRegion": "Solicitar Cálculo para a Minha Cidade"
   },
   "footer": {
     "tagline": "Gestão premium de imóveis para investidores que exigem resultados.",

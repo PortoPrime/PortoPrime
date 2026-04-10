@@ -168,7 +168,7 @@
       "lisbon": "Lissabon",
       "porto": "Porto",
       "algarve": "Algarve",
-      "other": "Sonstiges"
+      "other": "Andere Region"
     },
     "propertyType": "Immobilientyp",
     "propertyTypes": {
@@ -194,7 +194,9 @@
     "renovationUpsellHighlight": "25%",
     "renovationUpsellSuffix": "steigen — auf",
     "cta": "Detailbericht für meine Immobilie erhalten",
-    "disclaimer": "Schätzungen basieren auf aktuellen Marktdaten für Alojamento Local (AL) in Portugal. Die tatsächliche Rendite hängt von den spezifischen Immobilienmerkmalen, den Steuerregelungen IRS/IRC (vereinfachte oder organisierte Buchhaltung) und den kommunalen Vorschriften ab. PortoPrime bietet vollständige Unterstützung bei der AL-Lizenzierung und Fiskalvertretung."
+    "disclaimer": "Schätzungen basieren auf aktuellen Marktdaten für Alojamento Local (AL) in Portugal. Die tatsächliche Rendite hängt von den spezifischen Immobilienmerkmalen, den Steuerregelungen IRS/IRC (vereinfachte oder organisierte Buchhaltung) und den kommunalen Vorschriften ab. PortoPrime bietet vollständige Unterstützung bei der AL-Lizenzierung und Fiskalvertretung.",
+    "otherRegionMessage": "Diese Region erfordert eine individuelle Marktanalyse. Hinterlassen Sie eine Anfrage und wir erstellen einen detaillierten Bericht für Ihre Stadt.",
+    "ctaOtherRegion": "Berechnung für meine Stadt anfragen"
   },
   "footer": {
     "tagline": "Premium-Immobilienverwaltung für Investoren, die Ergebnisse fordern.",

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
-import { MapPin, Home, Sliders, TrendingUp, ArrowRight, Sparkles, BarChart2 } from 'lucide-react';
+import { MapPin, Home, Sliders, TrendingUp, ArrowRight, Sparkles, BarChart2, Info } from 'lucide-react';
 
 // Custom event name — LeadForm listens for this to pre-fill the revenue field
 const REVENUE_EVENT = 'portoprime:revenue';
@@ -367,88 +367,110 @@ export function Calculator() {
               className="p-8 md:p-10 flex flex-col"
               style={{ background: 'linear-gradient(155deg, #1B263B 0%, #263554 55%, #1e3252 100%)' }}
             >
-              {/* Revenue output ─────────────────────────────────────────── */}
-              <div className="flex-1">
-                <p className="text-[11px] font-bold tracking-[0.25em] uppercase text-white/40 mb-2">
-                  {t('estimatedRevenue')}
-                </p>
-
-                {/* Animated big number */}
-                <div className="flex items-end gap-1 mb-0.5">
-                  <span
-                    className="text-[3.5rem] leading-none font-bold tabular-nums"
-                    style={{ color: '#E0C397', fontFamily: 'Playfair Display, Georgia, serif' }}
-                  >
-                    €{Math.round(displayMonthly).toLocaleString()}
-                  </span>
-                  <span className="text-lg text-white/40 mb-2">{t('perMonth')}</span>
-                </div>
-                <p className="text-xs text-white/35 mb-6">{t('afterFees')}</p>
-
-                {/* Annual projection card */}
-                <div
-                  className="flex items-center gap-4 p-4 rounded-2xl mb-5"
-                  style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.09)' }}
-                >
+              {/* ── "Other Region" state ────────────────────────────────────
+                  When the user picks "Другой регион / Other Region" we hide
+                  the numeric results and show a personalised-request message.
+                  The panel keeps its height via flex-1 so layout never jumps.
+              ─────────────────────────────────────────────────────────────── */}
+              {selectedLocation === 'other' ? (
+                <div className="flex-1 flex flex-col justify-center">
+                  {/* Info card */}
                   <div
-                    className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
-                    style={{ background: 'rgba(224,195,151,0.12)' }}
-                  >
-                    <BarChart2 className="w-5 h-5" style={{ color: '#E0C397' }} strokeWidth={1.6} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-white/40 uppercase tracking-wider mb-0.5">
-                      {t('annualProjection')}
-                    </p>
-                    <p
-                      className="text-2xl font-bold tabular-nums"
-                      style={{ color: '#E0C397', fontFamily: 'Playfair Display, serif' }}
-                    >
-                      €{Math.round(displayAnnual).toLocaleString()}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Renovation upsell — hidden when condition is already Premium */}
-                {showUpsell && (
-                  <div
-                    className="p-4 rounded-2xl"
+                    className="p-6 rounded-2xl"
                     style={{
                       background: 'rgba(224,195,151,0.07)',
-                      border: '1px solid rgba(224,195,151,0.18)',
+                      border:     '1px solid rgba(224,195,151,0.22)',
                     }}
                   >
-                    <div className="flex items-start gap-2.5">
-                      <Sparkles
-                        className="w-4 h-4 flex-shrink-0 mt-0.5"
-                        style={{ color: '#E0C397' }}
-                        strokeWidth={1.8}
-                      />
-                      <p className="text-xs text-white/65 leading-relaxed">
-                        {t('renovationUpsell')}{' '}
-                        <span
-                          className="font-black text-sm"
-                          style={{ color: '#E0C397' }}
-                        >
-                          {t('renovationUpsellHighlight')}
-                        </span>
-                        {' '}{t('renovationUpsellSuffix')}{' '}
-                        <span className="font-bold text-white/90">
-                          €{Math.round(displayRenovated).toLocaleString()}{t('perMonth')}
-                        </span>
+                    <div className="flex items-start gap-3">
+                      <div
+                        className="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center mt-0.5"
+                        style={{ background: 'rgba(224,195,151,0.14)', border: '1px solid rgba(224,195,151,0.25)' }}
+                      >
+                        <Info className="w-4.5 h-4.5" style={{ color: '#E0C397' }} strokeWidth={1.8} />
+                      </div>
+                      <p className="text-sm text-white/75 leading-relaxed">
+                        {t('otherRegionMessage')}
                       </p>
                     </div>
                   </div>
-                )}
-              </div>
+                </div>
+              ) : (
+                /* ── Standard results ────────────────────────────────────── */
+                <div className="flex-1">
+                  <p className="text-[11px] font-bold tracking-[0.25em] uppercase text-white/40 mb-2">
+                    {t('estimatedRevenue')}
+                  </p>
 
-              {/* CTA ─────────────────────────────────────────────────────── */}
+                  {/* Animated big number */}
+                  <div className="flex items-end gap-1 mb-0.5">
+                    <span
+                      className="text-[3.5rem] leading-none font-bold tabular-nums"
+                      style={{ color: '#E0C397', fontFamily: 'Playfair Display, Georgia, serif' }}
+                    >
+                      €{Math.round(displayMonthly).toLocaleString()}
+                    </span>
+                    <span className="text-lg text-white/40 mb-2">{t('perMonth')}</span>
+                  </div>
+                  <p className="text-xs text-white/35 mb-6">{t('afterFees')}</p>
+
+                  {/* Annual projection card */}
+                  <div
+                    className="flex items-center gap-4 p-4 rounded-2xl mb-5"
+                    style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.09)' }}
+                  >
+                    <div
+                      className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
+                      style={{ background: 'rgba(224,195,151,0.12)' }}
+                    >
+                      <BarChart2 className="w-5 h-5" style={{ color: '#E0C397' }} strokeWidth={1.6} />
+                    </div>
+                    <div>
+                      <p className="text-[10px] text-white/40 uppercase tracking-wider mb-0.5">
+                        {t('annualProjection')}
+                      </p>
+                      <p
+                        className="text-2xl font-bold tabular-nums"
+                        style={{ color: '#E0C397', fontFamily: 'Playfair Display, serif' }}
+                      >
+                        €{Math.round(displayAnnual).toLocaleString()}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Renovation upsell — hidden when condition is already Premium */}
+                  {showUpsell && (
+                    <div
+                      className="p-4 rounded-2xl"
+                      style={{
+                        background: 'rgba(224,195,151,0.07)',
+                        border:     '1px solid rgba(224,195,151,0.18)',
+                      }}
+                    >
+                      <div className="flex items-start gap-2.5">
+                        <Sparkles
+                          className="w-4 h-4 flex-shrink-0 mt-0.5"
+                          style={{ color: '#E0C397' }}
+                          strokeWidth={1.8}
+                        />
+                        <p className="text-xs text-white/65 leading-relaxed">
+                          {t('renovationUpsell')}{' '}
+                          <span className="font-black text-sm" style={{ color: '#E0C397' }}>
+                            {t('renovationUpsellHighlight')}
+                          </span>
+                          {' '}{t('renovationUpsellSuffix')}{' '}
+                          <span className="font-bold text-white/90">
+                            €{Math.round(displayRenovated).toLocaleString()}{t('perMonth')}
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* CTA — text switches based on selected location ──────────── */}
               <div className="mt-8 pt-6 border-t border-white/10">
-                {/*
-                  Dispatches a custom event carrying the formatted monthly revenue
-                  so the LeadForm below can pre-fill the "Your Estimated Revenue" field.
-                  Falls back gracefully if the event API isn't available (SSR guard).
-                */}
                 <button
                   type="button"
                   onClick={handleCtaClick}
@@ -463,15 +485,12 @@ export function Calculator() {
                   "
                   style={{ background: 'linear-gradient(135deg, #E0C397 0%, #C9A96E 100%)' }}
                 >
-                  {t('cta')}
+                  {selectedLocation === 'other' ? t('ctaOtherRegion') : t('cta')}
                   <ArrowRight className="w-4 h-4 flex-shrink-0" strokeWidth={2.5} />
                 </button>
-                {/* Legal & tax compliance disclaimer */}
-                <div
-                  className="mt-4 px-1 flex items-start gap-2"
-                  role="note"
-                  aria-label="Legal disclaimer"
-                >
+
+                {/* Disclaimer */}
+                <div className="mt-4 px-1 flex items-start gap-2" role="note">
                   <span
                     className="flex-shrink-0 mt-0.5 text-[10px] font-bold uppercase tracking-widest"
                     style={{ color: 'rgba(224,195,151,0.45)' }}
