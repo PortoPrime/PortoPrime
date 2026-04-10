@@ -11,17 +11,6 @@ function clamp(val: number, min: number, max: number) {
   return Math.min(Math.max(val, min), max);
 }
 
-// ─── CSS aging treatment for the "BEFORE" image ──────────────────────────────
-// Applied to the wrapper div so it doesn't interfere with the fill Image.
-// sepia(0.45)      — warm yellowish tone of old photography
-// saturate(0.45)   — drain vibrant modern colours
-// brightness(0.72) — dim the scene (old apartments had poor lighting)
-// contrast(1.12)   — increase contrast to bring out shadows and worn surfaces
-// The combination turns any decent interior into a convincingly dated space
-// while remaining clearly readable as a kitchen/room.
-const AGING_FILTER =
-  'sepia(0.45) saturate(0.45) brightness(0.72) contrast(1.12)';
-
 // ─── Portfolio Component ──────────────────────────────────────────────────────
 export function Portfolio() {
   const t = useTranslations('portfolio');
@@ -126,8 +115,7 @@ export function Portfolio() {
 
               {/* ════════════════════════════════════════════════════════
                   AFTER image — full width, sits behind everything.
-                  Uses portfolioAfter: a crisp, modern white kitchen
-                  (photo-1556909114-f6e7ad7d3136 by Brina Blum on Unsplash).
+                  Source: /public/images/portfolio-after.jpg
                 ════════════════════════════════════════════════════════ */}
               <Image
                 src={IMAGES.portfolioAfter.src}
@@ -157,19 +145,11 @@ export function Portfolio() {
                   BEFORE image — clipped on top.
                   clipPath inset(0 X% 0 0) hides the right portion so only
                   the left `pos`% of the before side is visible.
-
-                  AGING TREATMENT: the wrapper div carries the CSS filter so the
-                  same filter value is applied consistently to the entire visible
-                  before region without affecting the label or divider.
-                  This turns the interior photo into a convincingly dated space:
-                  warm sepia tone + drained saturation + dim lighting.
+                  Source: /public/images/portfolio-before.jpg
                 ════════════════════════════════════════════════════════ */}
               <div
                 className="absolute inset-0"
-                style={{
-                  clipPath: `inset(0 ${100 - pos}% 0 0)`,
-                  filter:   AGING_FILTER,
-                }}
+                style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
                 aria-hidden="true"
               >
                 <Image

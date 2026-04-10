@@ -98,29 +98,27 @@ export const IMAGES = {
 
   /**
    * Portfolio — Before renovation
-   * Rundown / dated apartment interior — old brown cabinets, worn tiles, low ceilings.
-   * Photo by Rene Asmussen (Pexels-sourced via Unsplash mirror) — clearly pre-renovation.
-   * CSS aging filter (sepia + desaturate + darken) is applied in Portfolio.tsx on top.
+   * Local asset: /public/images/portfolio-before.jpg
+   * Shows the apartment in its original, pre-renovation state.
    * Aspect ratio: 4:3
    */
   beforeReno: {
-    src: 'https://images.unsplash.com/photo-1556033406689-5e7b50a95e6a?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Apartment before renovation — dated brown cabinets, worn tiles and untapped potential',
+    src: '/images/portfolio-before.jpg',
+    alt: 'Apartment before renovation — original state with untapped potential',
     blurDataURL: BLUR_WARM,
     width: 1200,
     height: 900,
   },
 
   /**
-   * Portfolio — After renovation (dedicated portfolio pair)
-   * Sleek open-plan kitchen with white cabinetry and stone countertops.
-   * Specifically used as the "AFTER" reveal in the Portfolio slider component.
-   * Photo by Brina Blum — one of Unsplash's best-known modern kitchen images.
+   * Portfolio — After renovation
+   * Local asset: /public/images/portfolio-after.jpg
+   * Shows the same apartment after PortoPrime renovation.
    * Aspect ratio: 4:3
    */
   portfolioAfter: {
-    src: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Modern renovated apartment with sleek white kitchen and designer finishes — PortoPrime',
+    src: '/images/portfolio-after.jpg',
+    alt: 'Modern renovated apartment — PortoPrime transformation result',
     blurDataURL: BLUR_STONE,
     width: 1200,
     height: 900,
