@@ -20,10 +20,12 @@ type LocaleCode = (typeof LOCALES)[number]['code'];
 
 // ─── Nav links — anchors must match component IDs in page.tsx ─────────────
 const NAV_LINKS = [
-  { key: 'services'  as const, href: '#services'  },
-  { key: 'portfolio' as const, href: '#portfolio' },
-  { key: 'faq'       as const, href: '#faq'       },
-  { key: 'contact'   as const, href: '#contact'   },
+  { key: 'services'   as const, href: '#services'   },
+  { key: 'calculator' as const, href: '#calculator' },
+  { key: 'portfolio'  as const, href: '#portfolio'  },
+  { key: 'guide'      as const, href: '#guide'      },
+  { key: 'faq'        as const, href: '#faq'        },
+  { key: 'contact'    as const, href: '#contact'    },
 ] as const;
 
 // ─── Props ─────────────────────────────────────────────────────────────────
@@ -138,7 +140,7 @@ export function Navbar({ locale }: NavbarProps) {
           </a>
 
           {/* ── Desktop nav links ──────────────────────────────────────── */}
-          <div className="hidden md:flex items-center gap-7 flex-1 justify-center" role="navigation">
+          <div className="hidden md:flex items-center gap-5 flex-1 justify-center" role="navigation">
             {NAV_LINKS.map(({ key, href }) => (
               <a
                 key={key}

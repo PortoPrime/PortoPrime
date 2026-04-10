@@ -7,7 +7,9 @@
   "nav": {
     "logo": "PortoPrime",
     "services": "Services",
+    "calculator": "Calculateur",
     "portfolio": "Portfolio",
+    "guide": "Guide d'Investissement",
     "faq": "FAQ",
     "contact": "Contact",
     "cta": "Consultation Gratuite",
