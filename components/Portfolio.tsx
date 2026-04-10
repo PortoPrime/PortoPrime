@@ -11,14 +11,25 @@ function clamp(val: number, min: number, max: number) {
   return Math.min(Math.max(val, min), max);
 }
 
+// ─── CSS aging treatment for the "BEFORE" image ──────────────────────────────
+// Applied to the wrapper div so it doesn't interfere with the fill Image.
+// sepia(0.45)      — warm yellowish tone of old photography
+// saturate(0.45)   — drain vibrant modern colours
+// brightness(0.72) — dim the scene (old apartments had poor lighting)
+// contrast(1.12)   — increase contrast to bring out shadows and worn surfaces
+// The combination turns any decent interior into a convincingly dated space
+// while remaining clearly readable as a kitchen/room.
+const AGING_FILTER =
+  'sepia(0.45) saturate(0.45) brightness(0.72) contrast(1.12)';
+
 // ─── Portfolio Component ──────────────────────────────────────────────────────
 export function Portfolio() {
   const t = useTranslations('portfolio');
 
-  // Slider position: 0–100 (percent of image revealed for "before")
-  const [pos, setPos]         = useState(50);
+  // Slider position: 0–100 (percent of canvas the BEFORE side occupies)
+  const [pos,      setPos]      = useState(42);   // start slightly left → AFTER more visible
   const [dragging, setDragging] = useState(false);
-  const containerRef           = useRef<HTMLDivElement>(null);
+  const containerRef            = useRef<HTMLDivElement>(null);
 
   // ── Compute new position from a client X coordinate ─────────────────────
   const updatePos = useCallback((clientX: number) => {
@@ -112,19 +123,24 @@ export function Portfolio() {
               role="img"
               aria-label={`${t('beforeLabel')} / ${t('afterLabel')} comparison slider`}
             >
-              {/* ── AFTER image (full width, behind) ──────────────────── */}
+
+              {/* ════════════════════════════════════════════════════════
+                  AFTER image — full width, sits behind everything.
+                  Uses portfolioAfter: a crisp, modern white kitchen
+                  (photo-1556909114-f6e7ad7d3136 by Brina Blum on Unsplash).
+                ════════════════════════════════════════════════════════ */}
               <Image
-                src={IMAGES.renovation.src}
-                alt={IMAGES.renovation.alt}
+                src={IMAGES.portfolioAfter.src}
+                alt={IMAGES.portfolioAfter.alt}
                 fill
                 placeholder="blur"
-                blurDataURL={IMAGES.renovation.blurDataURL}
+                blurDataURL={IMAGES.portfolioAfter.blurDataURL}
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 priority
               />
 
-              {/* "After" label */}
+              {/* "AFTER" corner label */}
               <span
                 className="absolute top-4 right-4 z-10 text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full"
                 style={{
@@ -137,14 +153,23 @@ export function Portfolio() {
                 {t('afterLabel')}
               </span>
 
-              {/* ── BEFORE image (clipped, on top) ─────────────────────── */}
-              {/*
-                clipPath: inset(0 X% 0 0) reveals the left (pos%) of the before
-                image, hiding the right portion. This creates the sliding reveal.
-              */}
+              {/* ════════════════════════════════════════════════════════
+                  BEFORE image — clipped on top.
+                  clipPath inset(0 X% 0 0) hides the right portion so only
+                  the left `pos`% of the before side is visible.
+
+                  AGING TREATMENT: the wrapper div carries the CSS filter so the
+                  same filter value is applied consistently to the entire visible
+                  before region without affecting the label or divider.
+                  This turns the interior photo into a convincingly dated space:
+                  warm sepia tone + drained saturation + dim lighting.
+                ════════════════════════════════════════════════════════ */}
               <div
                 className="absolute inset-0"
-                style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+                style={{
+                  clipPath: `inset(0 ${100 - pos}% 0 0)`,
+                  filter:   AGING_FILTER,
+                }}
                 aria-hidden="true"
               >
                 <Image
@@ -156,7 +181,18 @@ export function Portfolio() {
                   className="object-cover object-center"
                   sizes="(max-width: 1024px) 100vw, 60vw"
                 />
-                {/* "Before" label */}
+              </div>
+
+              {/* ── "BEFORE" corner label — sits above the aging filter ── */}
+              {/*
+                Must be outside the filtered div so text stays crisp & readable.
+                It is clipped to the before half using the same clipPath value.
+              */}
+              <div
+                className="absolute inset-0 pointer-events-none z-10"
+                style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
+                aria-hidden="true"
+              >
                 <span
                   className="absolute top-4 left-4 text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full"
                   style={{
@@ -173,7 +209,7 @@ export function Portfolio() {
               {/* ── Divider line ─────────────────────────────────────────── */}
               <div
                 className="absolute top-0 bottom-0 w-0.5 z-20 pointer-events-none"
-                style={{ left: `${pos}%`, background: 'rgba(255,255,255,0.85)' }}
+                style={{ left: `${pos}%`, background: 'rgba(255,255,255,0.92)' }}
                 aria-hidden="true"
               />
 
@@ -184,14 +220,15 @@ export function Portfolio() {
                 aria-hidden="true"
               >
                 <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center shadow-xl transition-transform duration-150"
+                  className="w-10 h-10 rounded-full flex items-center justify-center shadow-xl"
                   style={{
-                    background:   '#fff',
-                    border:       '2px solid rgba(27,38,59,0.15)',
-                    transform:    dragging ? 'scale(1.15)' : 'scale(1)',
+                    background: '#fff',
+                    border:     '2px solid rgba(27,38,59,0.15)',
+                    transform:  dragging ? 'scale(1.15)' : 'scale(1)',
+                    transition: 'transform 0.15s ease',
                   }}
                 >
-                  {/* Double chevron icon */}
+                  {/* Double chevron */}
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M7 5l-4 5 4 5" stroke="#1B263B" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M13 5l4 5-4 5" stroke="#1B263B" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
@@ -199,10 +236,13 @@ export function Portfolio() {
                 </div>
               </div>
 
-              {/* ── Drag hint (fades out after interaction) ─────────────── */}
+              {/* ── Drag hint (fades out while dragging) ─────────────────── */}
               <div
-                className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none transition-opacity duration-300"
-                style={{ opacity: dragging ? 0 : 0.85 }}
+                className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 pointer-events-none"
+                style={{
+                  opacity:    dragging ? 0 : 0.85,
+                  transition: 'opacity 0.3s ease',
+                }}
                 aria-hidden="true"
               >
                 <span
@@ -216,6 +256,7 @@ export function Portfolio() {
                   {t('dragHint')}
                 </span>
               </div>
+
             </div>
           </div>
 
