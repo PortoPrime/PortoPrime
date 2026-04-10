@@ -211,6 +211,7 @@ export function TrustedPartners() {
 
   return (
     <section
+      id="partners"
       className="py-20 md:py-24"
       style={{ background: '#F8F6F2' }}
       aria-label="Trusted Partners"
