@@ -188,7 +188,7 @@
     "occupancy": "Tasso di Occupazione Medio",
     "estimatedRevenue": "Ricavo Mensile Stimato",
     "perMonth": "/mese",
-    "afterFees": "dopo commissione di gestione del 30%",
+    "afterFees": "dopo {fee}% di commissione di gestione",
     "annualProjection": "Proiezione annuale",
     "renovationUpsell": "Con la nostra Ristrutturazione Professionale, il tuo rendimento potrebbe aumentare di un ulteriore",
     "renovationUpsellHighlight": "25%",
@@ -196,7 +196,13 @@
     "cta": "Ottieni Report Dettagliato per il Mio Immobile",
     "disclaimer": "Le stime si basano sui dati di mercato attuali per l'Alojamento Local (AL) in Portogallo. Il rendimento finale dipende dalle caratteristiche specifiche dell'immobile, dai regimi fiscali IRS/IRC (contabilità semplificata o organizzata) e dalle normative comunali. PortoPrime fornisce pieno supporto per la licenza AL e la rappresentanza fiscale.",
     "otherRegionMessage": "Questa regione richiede un'analisi di mercato individuale. Lascia una richiesta e prepareremo un report dettagliato per la tua città.",
-    "ctaOtherRegion": "Richiedi un Calcolo per la Mia Città"
+    "ctaOtherRegion": "Richiedi un Calcolo per la Mia Città",
+    "feeTierLabel": "Piano di gestione",
+    "tiers": {
+      "essential": "Essenziale · 15%",
+      "standard": "Standard · 20%",
+      "premium": "Premium · 25%"
+    }
   },
   "footer": {
     "tagline": "Gestione immobiliare premium per investitori che pretendono risultati.",
@@ -235,8 +241,8 @@
     "a3": "I redditi AL rientrano nella Categoria B (attività professionale indipendente). Nel regime semplificato, il 35% del fatturato lordo è imponibile con un'aliquota forfettaria del 25% per i non residenti. Con la contabilità organizzata, le spese deducibili reali riducono la base imponibile. PortoPrime calcola entrambi i regimi ogni anno e applica quello più vantaggioso.",
     "q4": "La mia licenza AL può essere sospesa o revocata?",
     "a4": "Le licenze possono essere sospese per reclami ripetuti per rumori, assenza di assicurazione di responsabilità civile valida o mancata conformità ai requisiti di registrazione degli ospiti AIMA. La nostra gestione 24/7 garantisce la piena conformità: registriamo tutti i check-in/check-out AIMA e rispondiamo a ogni interazione con gli ospiti.",
-    "q5": "Cosa include davvero la commissione di gestione del 30%?",
-    "a5": "Assistenza agli ospiti multilingue 24/7, tariffazione dinamica tramite gestione dei canali proprietaria, pulizia professionale dopo ogni check-out, coordinamento delle piccole manutenzioni, rendiconti mensili, rappresentanza fiscale, report di conformità AIMA e accesso alla nostra rete privata di ospiti ad alto valore. Nessun costo nascosto."
+    "q5": "Cosa include la commissione di gestione e come è strutturata?",
+    "a5": "PortoPrime offre tre piani trasparenti: Essenziale (15%) — prenotazioni, tariffazione dinamica e comunicazione multilingue con gli ospiti; Standard (20%) — tutti i servizi Essenziali più pulizia, check-in, piccola manutenzione e rendiconti mensili; Premium (25%) — tutti i servizi Standard più rappresentanza fiscale, conformità AIMA e AL, manutenzione straordinaria e ispezione annuale. Nessun costo nascosto — tutto dettagliato nel dashboard mensile."
   },
   "leadMagnet": {
     "eyebrow": "Risorsa Gratuita",

@@ -188,7 +188,7 @@
     "occupancy": "Average Occupancy",
     "estimatedRevenue": "Estimated Monthly Revenue",
     "perMonth": "/month",
-    "afterFees": "after 30% management fee",
+    "afterFees": "after {fee}% management fee",
     "annualProjection": "Annual projection",
     "renovationUpsell": "With our Professional Renovation, your yield could increase by an additional",
     "renovationUpsellHighlight": "25%",
@@ -196,7 +196,13 @@
     "cta": "Get Detailed Report for My Property",
     "disclaimer": "Estimates are based on current market data for Alojamento Local (AL) in Portugal. Final yield depends on specific property features, IRS/IRC tax regimes (simplified or organized accounting), and municipal regulations. PortoPrime provides full support with AL licensing and fiscal representation.",
     "otherRegionMessage": "This region requires an individual market analysis. Leave a request and we'll prepare a detailed report for your city.",
-    "ctaOtherRegion": "Request a Custom Report for My City"
+    "ctaOtherRegion": "Request a Custom Report for My City",
+    "feeTierLabel": "Management Plan",
+    "tiers": {
+      "essential": "Essential · 15%",
+      "standard": "Standard · 20%",
+      "premium": "Premium · 25%"
+    }
   },
   "footer": {
     "tagline": "Premium property management for investors who demand results.",
@@ -235,8 +241,8 @@
     "a3": "AL income is classified under Category B (independent professional activity). Under the simplified regime, 35% of your gross revenue is treated as taxable income, subject to a flat 25% withholding rate for non-residents. Under organized accounting, real deductible expenses reduce the tax base. PortoPrime models both regimes annually and switches you to whichever is more favorable.",
     "q4": "Can my AL license be suspended or revoked?",
     "a4": "Licenses can be suspended for repeated noise complaints, operating without valid liability insurance, or non-compliance with AIMA guest registration requirements. Our 24/7 management ensures you stay fully compliant: we file all AIMA check-in/check-out reports, maintain insurance records, and respond to every guest interaction — protecting your license at all times.",
-    "q5": "What does the 30% management fee actually include?",
-    "a5": "24/7 multilingual guest support, dynamic pricing via proprietary channel management, professional cleaning after every checkout, minor maintenance coordination, monthly owner statements, full fiscal representation, AIMA compliance reporting, and access to our private high-value guest network. No hidden charges — everything is itemized in your monthly dashboard."
+    "q5": "What does the management fee include — and how is it structured?",
+    "a5": "PortoPrime offers three transparent tiers: Essential (15%) — bookings, dynamic pricing, and multilingual guest communication; Standard (20%) — all Essential services plus cleaning, check-ins, minor maintenance, and monthly statements; Premium (25%) — all Standard services plus fiscal representation, AIMA & AL compliance, major maintenance, and an annual property inspection. No hidden charges — every item is detailed in your monthly dashboard."
   },
   "leadMagnet": {
     "eyebrow": "Free Resource",

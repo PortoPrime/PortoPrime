@@ -188,7 +188,7 @@
     "occupancy": "Durchschnittliche Auslastung",
     "estimatedRevenue": "Geschätztes Monatseinkommen",
     "perMonth": "/Monat",
-    "afterFees": "nach 30% Verwaltungsgebühr",
+    "afterFees": "nach {fee}% Verwaltungsgebühr",
     "annualProjection": "Jahresprognose",
     "renovationUpsell": "Mit unserer professionellen Renovierung könnte Ihre Rendite um weitere",
     "renovationUpsellHighlight": "25%",
@@ -196,7 +196,13 @@
     "cta": "Detailbericht für meine Immobilie erhalten",
     "disclaimer": "Schätzungen basieren auf aktuellen Marktdaten für Alojamento Local (AL) in Portugal. Die tatsächliche Rendite hängt von den spezifischen Immobilienmerkmalen, den Steuerregelungen IRS/IRC (vereinfachte oder organisierte Buchhaltung) und den kommunalen Vorschriften ab. PortoPrime bietet vollständige Unterstützung bei der AL-Lizenzierung und Fiskalvertretung.",
     "otherRegionMessage": "Diese Region erfordert eine individuelle Marktanalyse. Hinterlassen Sie eine Anfrage und wir erstellen einen detaillierten Bericht für Ihre Stadt.",
-    "ctaOtherRegion": "Berechnung für meine Stadt anfragen"
+    "ctaOtherRegion": "Berechnung für meine Stadt anfragen",
+    "feeTierLabel": "Verwaltungsplan",
+    "tiers": {
+      "essential": "Basis · 15%",
+      "standard": "Standard · 20%",
+      "premium": "Premium · 25%"
+    }
   },
   "footer": {
     "tagline": "Premium-Immobilienverwaltung für Investoren, die Ergebnisse fordern.",
@@ -235,8 +241,8 @@
     "a3": "AL-Einnahmen fallen unter Kategorie B (selbstständige Berufstätigkeit). Im vereinfachten Regime gelten 35 % des Bruttoumsatzes als steuerpflichtiges Einkommen, das für Nichtansässige pauschal mit 25 % besteuert wird. Bei geordneter Buchführung mindern tatsächliche abzugsfähige Ausgaben die Bemessungsgrundlage. PortoPrime modelliert beide Regime jährlich.",
     "q4": "Kann meine AL-Lizenz ausgesetzt oder widerrufen werden?",
     "a4": "Lizenzen können bei wiederholten Lärmklagen, fehlendem Haftpflichtversicherungsschutz oder Nichteinhaltung der AIMA-Gästeregistrierungspflichten ausgesetzt werden. Unser 24/7-Management stellt die vollständige Compliance sicher: Wir melden alle AIMA-Check-ins/-outs, führen Versicherungsunterlagen und reagieren auf jede Gästeinteraktion.",
-    "q5": "Was beinhaltet die Verwaltungsgebühr von 30 %?",
-    "a5": "24/7 mehrsprachiger Gästesupport, dynamische Preisgestaltung über proprietäres Kanalmanagement, professionelle Reinigung nach jedem Auschecken, Koordination von Kleinreparaturen, monatliche Eigentümerabrechnungen, Fiskalvertretung, AIMA-Compliance-Berichte und Zugang zu unserem privaten Hochwertigkeits-Gastnetzwerk. Keine versteckten Kosten."
+    "q5": "Was beinhaltet die Verwaltungsgebühr und wie ist sie aufgebaut?",
+    "a5": "PortoPrime bietet drei transparente Tarife: Basis (15%) — Buchungen, dynamische Preisgestaltung und mehrsprachiger Gästesupport; Standard (20%) — alle Basis-Leistungen plus Reinigung, Check-ins, Kleinreparaturen und monatliche Abrechnungen; Premium (25%) — alle Standard-Leistungen plus Fiskalvertretung, AIMA- und AL-Compliance, größere Instandhaltungen und Jahresinspektion. Keine versteckten Kosten — alles im monatlichen Dashboard aufgeschlüsselt."
   },
   "leadMagnet": {
     "eyebrow": "Kostenlose Ressource",

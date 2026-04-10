@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portugal Investment Guide 2026 — PortoPrime</title>
+
+  <!-- Tailwind CDN (JIT, supports arbitrary values) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:    '#0F172A',
+            surface: '#1E293B',
+            card:    '#162032',
+            gold:    '#D4B483',
+            goldlt:  '#E0C397',
+            muted:   '#94A3B8',
+            body:    '#CBD5E1',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans:  ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Premium fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Force print backgrounds & colours ─────────────────────── */
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust:         exact !important;
+      color-adjust:               exact !important;
+    }
+
+    /* ─── Page setup ─────────────────────────────────────────────── */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    @page :first { margin: 0; }
+
+    html, body {
+      background-color: #0F172A;
+      color: #CBD5E1;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ─── Page break helpers ─────────────────────────────────────── */
+    .page { page-break-before: always; break-before: page; }
+    .no-break { page-break-inside: avoid; break-inside: avoid; }
+
+    /* ─── Cover page ─────────────────────────────────────────────── */
+    .cover {
+      background-color: #0F172A;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(212,180,131,0.09) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(30,41,59,0.95) 0%, transparent 60%);
+      min-height: 297mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 18mm 18mm 14mm 18mm;
+    }
+
+    /* ─── Content pages ──────────────────────────────────────────── */
+    .content-page {
+      background-color: #0F172A;
+      padding: 16mm 18mm 16mm 18mm;
+      min-height: 267mm; /* 297 - margins */
+    }
+
+    /* ─── Gold rules ─────────────────────────────────────────────── */
+    .gold-rule {
+      height: 1px;
+      background: linear-gradient(to right, #D4B483, rgba(212,180,131,0.15), transparent);
+      margin: 0;
+    }
+    .gold-rule-center {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #D4B483, transparent);
+    }
+    .gold-rule-full {
+      height: 1px;
+      background: rgba(212,180,131,0.25);
+    }
+
+    /* ─── Chapter header ─────────────────────────────────────────── */
+    .chapter-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #D4B483;
+      margin-bottom: 10px;
+    }
+    .chapter-number-bg {
+      position: absolute;
+      right: 0;
+      top: -10mm;
+      font-family: 'Playfair Display', serif;
+      font-size: 180pt;
+      font-weight: 900;
+      color: rgba(212,180,131,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .chapter-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28pt;
+      font-weight: 700;
+      color: #F1F5F9;
+      line-height: 1.15;
+      margin: 0 0 6px 0;
+    }
+    .chapter-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 10pt;
+      font-weight: 400;
+      color: #94A3B8;
+      margin-bottom: 14px;
+    }
+
+    /* ─── Section headings ───────────────────────────────────────── */
+    h3.section {
+      font-family: 'Playfair Display', serif;
+      font-size: 14pt;
+      font-weight: 600;
+      color: #E2E8F0;
+      margin: 22px 0 10px 0;
+      padding-left: 12px;
+      border-left: 2px solid #D4B483;
+      line-height: 1.3;
+    }
+    h4.subsection {
+      font-family: 'Inter', sans-serif;
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #D4B483;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 16px 0 6px 0;
+    }
+
+    /* ─── Body paragraphs ────────────────────────────────────────── */
+    p {
+      color: #CBD5E1;
+      margin: 0 0 10px 0;
+      font-size: 10pt;
+      line-height: 1.72;
+    }
+    p strong {
+      color: #E2E8F0;
+      font-weight: 600;
+    }
+    em { color: #94A3B8; font-style: italic; }
+
+    /* ─── Executive summary box ──────────────────────────────────── */
+    .exec-summary {
+      background: rgba(212,180,131,0.06);
+      border: 1px solid rgba(212,180,131,0.18);
+      border-left: 3px solid #D4B483;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 14px 0 20px 0;
+    }
+    .exec-summary p {
+      margin-bottom: 0;
+      font-size: 9.5pt;
+      color: #CBD5E1;
+      font-style: italic;
+    }
+
+    /* ─── Bullet lists ───────────────────────────────────────────── */
+    ul.guide-list {
+      margin: 8px 0 12px 0;
+      padding: 0;
+      list-style: none;
+    }
+    ul.guide-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 7px;
+      font-size: 10pt;
+      color: #CBD5E1;
+      line-height: 1.65;
+    }
+    ul.guide-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(212,180,131,0.55);
+    }
+    ol.guide-list {
+      margin: 8px 0 12px 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: guide-counter;
+    }
+    ol.guide-list li {
+      position: relative;
+      padding-left: 26px;
+      margin-bottom: 8px;
+      font-size: 10pt;
+      color: #CBD5E1;
+      line-height: 1.65;
+      counter-increment: guide-counter;
+    }
+    ol.guide-list li::before {
+      content: counter(guide-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      background: rgba(212,180,131,0.15);
+      border-radius: 50%;
+      font-size: 8pt;
+      font-weight: 700;
+      color: #D4B483;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 18px;
+    }
+
+    /* ─── Tables ─────────────────────────────────────────────────── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px 0;
+      font-size: 9pt;
+    }
+    .data-table thead tr {
+      background: rgba(212,180,131,0.12);
+      border-bottom: 1px solid rgba(212,180,131,0.35);
+    }
+    .data-table thead th {
+      font-family: 'Inter', sans-serif;
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #D4B483;
+      padding: 9px 10px;
+      text-align: left;
+    }
+    .data-table thead th.center { text-align: center; }
+    .data-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .data-table tbody tr:nth-child(even) {
+      background: rgba(255,255,255,0.02);
+    }
+    .data-table tbody td {
+      padding: 8px 10px;
+      color: #CBD5E1;
+      font-size: 9pt;
+      vertical-align: middle;
+    }
+    .data-table tbody td.center { text-align: center; }
+    .data-table tbody td.gold-bold {
+      color: #D4B483;
+      font-weight: 700;
+    }
+    .data-table tbody td.highlight {
+      color: #E0C397;
+      font-weight: 700;
+    }
+    .table-note {
+      font-size: 8pt;
+      color: #64748B;
+      font-style: italic;
+      margin-top: -10px;
+      margin-bottom: 16px;
+    }
+
+    /* ─── Callout / info box ─────────────────────────────────────── */
+    .callout {
+      background: rgba(30,41,59,0.7);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin: 12px 0;
+    }
+    .callout p { margin-bottom: 4px; }
+
+    /* ─── Stat highlight boxes ───────────────────────────────────── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 14px 0;
+    }
+    .stat-box {
+      background: rgba(212,180,131,0.07);
+      border: 1px solid rgba(212,180,131,0.18);
+      border-radius: 6px;
+      padding: 12px 14px;
+      text-align: center;
+    }
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 18pt;
+      font-weight: 700;
+      color: #D4B483;
+      line-height: 1.1;
+      display: block;
+    }
+    .stat-label {
+      font-size: 7.5pt;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #64748B;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ─── TOC page ───────────────────────────────────────────────── */
+    .toc-item {
+      display: flex;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .toc-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 22pt;
+      font-weight: 700;
+      color: rgba(212,180,131,0.25);
+      min-width: 52px;
+      line-height: 1;
+    }
+    .toc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 13pt;
+      font-weight: 600;
+      color: #E2E8F0;
+      flex: 1;
+    }
+    .toc-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 8.5pt;
+      color: #64748B;
+      display: block;
+      margin-top: 2px;
+      font-style: italic;
+    }
+
+    /* ─── Running header (screen decorative only) ────────────────── */
+    @media screen {
+      .page-wrap {
+        max-width: 210mm;
+        margin: 0 auto;
+        box-shadow: 0 0 80px rgba(0,0,0,0.6);
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="page-wrap">
+
+<!-- ═══════════════════════════════════════════════════════════
+     COVER PAGE
+════════════════════════════════════════════════════════════════ -->
+<div class="cover">
+
+  <!-- Top bar: logo + confidential tag -->
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <!-- PortoPrime Logo SVG -->
+    <div style="display:flex; align-items:center; gap:12px;">
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="44" height="44" rx="10" fill="rgba(212,180,131,0.12)" stroke="rgba(212,180,131,0.35)" stroke-width="1"/>
+        <!-- House / building silhouette -->
+        <path d="M22 8L7 19.5V36H17V27H27V36H37V19.5L22 8Z" fill="none" stroke="#D4B483" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M18 36V28H26V36" fill="none" stroke="#D4B483" stroke-width="1.4" stroke-linejoin="round"/>
+        <!-- Crown / roofline accent -->
+        <path d="M14 20.5H30" stroke="rgba(212,180,131,0.4)" stroke-width="0.8"/>
+      </svg>
+      <div>
+        <div style="font-family:'Playfair Display',serif; font-size:15pt; font-weight:700; color:#E2E8F0; line-height:1.1;">PortoPrime</div>
+        <div style="font-family:'Inter',sans-serif; font-size:7pt; letter-spacing:0.25em; text-transform:uppercase; color:#D4B483; margin-top:1px;">Property Management</div>
+      </div>
+    </div>
+    <!-- Confidential badge -->
+    <div style="font-family:'Inter',sans-serif; font-size:7.5pt; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(212,180,131,0.6); border:1px solid rgba(212,180,131,0.22); padding:5px 12px; border-radius:3px;">
+      Confidential
+    </div>
+  </div>
+
+  <!-- Center: Main title block -->
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; padding: 20mm 0 10mm 0;">
+
+    <!-- Decorative line above eyebrow -->
+    <div style="width:48px; height:2px; background:linear-gradient(to right,#D4B483,rgba(212,180,131,0.2)); margin-bottom:18px;"></div>
+
+    <div style="font-family:'Inter',sans-serif; font-size:8pt; font-weight:700; letter-spacing:0.4em; text-transform:uppercase; color:#D4B483; margin-bottom:14px;">
+      Investor Intelligence Series · 2026 Edition
+    </div>
+
+    <h1 style="font-family:'Playfair Display',serif; font-size:46pt; font-weight:900; color:#F8FAFC; line-height:1.08; margin:0 0 12px 0; letter-spacing:-0.01em;">
+      Portugal<br/>Investment<br/>Guide
+    </h1>
+
+    <!-- Year accent -->
+    <div style="font-family:'Playfair Display',serif; font-size:52pt; font-weight:900; color:rgba(212,180,131,0.12); line-height:0.9; margin-bottom:18px; letter-spacing:0.05em;">
+      2026
+    </div>
+
+    <div style="width:280px; height:1px; background:linear-gradient(to right,#D4B483,rgba(212,180,131,0.1)); margin-bottom:18px;"></div>
+
+    <div style="font-family:'Inter',sans-serif; font-size:11pt; color:#94A3B8; font-weight:300; letter-spacing:0.04em; line-height:1.5; max-width:380px;">
+      Residential Real Estate &amp; Short-Term Rental<br/>Income Strategy — Lisbon · Porto · Algarve
+    </div>
+
+    <!-- Stat highlights on cover -->
+    <div style="display:flex; gap:28px; margin-top:30px;">
+      <div>
+        <div style="font-family:'Playfair Display',serif; font-size:22pt; font-weight:700; color:#D4B483;">19%</div>
+        <div style="font-family:'Inter',sans-serif; font-size:7pt; letter-spacing:0.15em; text-transform:uppercase; color:#64748B; margin-top:2px;">IRC Corporate Tax</div>
+      </div>
+      <div style="width:1px; background:rgba(212,180,131,0.18);"></div>
+      <div>
+        <div style="font-family:'Playfair Display',serif; font-size:22pt; font-weight:700; color:#D4B483;">8–11%</div>
+        <div style="font-family:'Inter',sans-serif; font-size:7pt; letter-spacing:0.15em; text-transform:uppercase; color:#64748B; margin-top:2px;">Net AL Yield (std. tier)</div>
+      </div>
+      <div style="width:1px; background:rgba(212,180,131,0.18);"></div>
+      <div>
+        <div style="font-family:'Playfair Display',serif; font-size:22pt; font-weight:700; color:#D4B483;">10.8%</div>
+        <div style="font-family:'Inter',sans-serif; font-size:7pt; letter-spacing:0.15em; text-transform:uppercase; color:#64748B; margin-top:2px;">After-Tax IRR (Algarve, 7yr)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom: prepared by + disclaimer line -->
+  <div>
+    <div class="gold-rule-full" style="margin-bottom:14px;"></div>
+    <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+      <div>
+        <div style="font-family:'Inter',sans-serif; font-size:7.5pt; color:#475569; margin-bottom:3px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600;">Prepared by</div>
+        <div style="font-family:'Playfair Display',serif; font-size:11pt; color:#94A3B8;">PortoPrime Property Management</div>
+        <div style="font-family:'Inter',sans-serif; font-size:7.5pt; color:#334155; margin-top:3px;">portoprime.pt · 2026</div>
+      </div>
+      <div style="text-align:right; max-width:200px;">
+        <div style="font-family:'Inter',sans-serif; font-size:7pt; color:#334155; line-height:1.6; font-style:italic;">
+          This document does not constitute<br/>investment, legal, or tax advice.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     TABLE OF CONTENTS
+════════════════════════════════════════════════════════════════ -->
+<div class="content-page page">
+  <div style="margin-bottom:28px;">
+    <div class="chapter-eyebrow">Contents</div>
+    <h1 class="chapter-title" style="font-size:24pt; margin-bottom:8px;">Table of Contents</h1>
+    <div class="gold-rule"></div>
+  </div>
+
+  <div style="margin-top:24px;">
+
+    <div class="toc-item no-break">
+      <div class="toc-num">01</div>
+      <div>
+        <div class="toc-title">The 2026 Opportunity</div>
+        <span class="toc-subtitle">Why Portugal Remains Europe's Most Compelling Real Estate Market</span>
+      </div>
+    </div>
+
+    <div class="toc-item no-break">
+      <div class="toc-num">02</div>
+      <div>
+        <div class="toc-title">The Tax Revolution: IRC &amp; IMT</div>
+        <span class="toc-subtitle">IRC Corporate Reform, IFICI (NHR 2.0), and IMT Structuring</span>
+      </div>
+    </div>
+
+    <div class="toc-item no-break">
+      <div class="toc-num">03</div>
+      <div>
+        <div class="toc-title">The AL Landscape</div>
+        <span class="toc-subtitle">Licensing, Regulation &amp; the 2026 Market Reset</span>
+      </div>
+    </div>
+
+    <div class="toc-item no-break">
+      <div class="toc-num">04</div>
+      <div>
+        <div class="toc-title">Regional Yield Analysis</div>
+        <span class="toc-subtitle">Lisbon, Porto &amp; Algarve — Market-by-Market Data</span>
+      </div>
+    </div>
+
+    <div class="toc-item no-break">
+      <div class="toc-num">05</div>
+      <div>
+        <div class="toc-title">The PortoPrime Advantage &amp; Exit Strategy</div>
+        <span class="toc-subtitle">The 30% Management Model, Renovation Yield &amp; 7-Year IRR Analysis</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Decorative bottom on TOC page -->
+  <div style="margin-top:48px; text-align:center;">
+    <div class="gold-rule-center" style="margin-bottom:20px;"></div>
+    <p style="font-size:8pt; color:#334155; font-style:italic; margin:0;">
+      All financial projections are illustrative. Past performance is not indicative of future results.
+    </p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     CHAPTER 1 — THE 2026 OPPORTUNITY
+════════════════════════════════════════════════════════════════ -->
+<div class="content-page page" style="position:relative; overflow:hidden;">
+  <div class="chapter-number-bg">1</div>
+
+  <div class="no-break" style="margin-bottom:20px; position:relative; z-index:1;">
+    <div class="chapter-eyebrow">Chapter 01</div>
+    <h1 class="chapter-title">The 2026 Opportunity</h1>
+    <p class="chapter-subtitle">Why Portugal Remains Europe's Most Compelling Real Estate Market</p>
+    <div class="gold-rule"></div>
+  </div>
+
+  <div class="exec-summary no-break">
+    <p>Portugal has quietly completed a multi-year transition from a post-crisis recovery story into one of the most structurally sound property investment markets in the Eurozone. In 2026, the convergence of three independent forces — a reforming corporate tax code, a modernised residency incentive framework, and a stabilising short-term rental regulatory environment — creates a window of opportunity that sophisticated investors recognise as rare: a liquid, euro-denominated market where capital appreciation, rental yield, and tax efficiency are simultaneously achievable.</p>
+  </div>
+
+  <!-- Key stats -->
+  <div class="stat-grid no-break">
+    <div class="stat-box">
+      <span class="stat-value">2.3%</span>
+      <span class="stat-label">GDP Growth 2024</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-value">31M</span>
+      <span class="stat-label">Tourist Arrivals 2024</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-value">€24.7B</span>
+      <span class="stat-label">Tourism Revenue</span>
+    </div>
+  </div>
+
+  <h3 class="section">1.1 The Macroeconomic Foundation</h3>
+  <p>Portugal's GDP growth of 2.3% in 2024 and a projected 2.1% for 2025–2026 significantly outpaces the Eurozone average of 0.8%. This is not accident. It reflects a structural transformation driven by:</p>
+
+  <ul class="guide-list">
+    <li><strong>Tourism as a pillar industry.</strong> Portugal recorded over 31 million tourist arrivals in 2024, generating €24.7 billion in tourism revenue — approximately 9.8% of GDP. The Algarve alone receives more foreign visitors per capita than almost any coastal region in Europe. Demand for quality short-term accommodation is not cyclical. It is structural.</li>
+    <li><strong>Foreign direct investment.</strong> The technology sector's consolidation in Lisbon (home to Web Summit and a growing number of European tech headquarters) has created a second demand vector beyond pure tourism: mid-to-long-stay business travellers, digital nomads, and relocated executives who pay premium rates for well-managed, professionally furnished apartments.</li>
+    <li><strong>Demographic dynamics.</strong> A net inflow of high-income residents — driven in part by the NHR and IFICI programmes — sustains rental demand at the upper end of the market, which is precisely where managed AL properties compete.</li>
+    <li><strong>Currency and interest rate environment.</strong> The European Central Bank's rate normalisation cycle has stabilised. Portuguese mortgage products for non-residents remain accessible at competitive spreads. For all-cash investors, the purchasing environment is materially more attractive than at equivalent yield levels in London, Paris, or Amsterdam.</li>
+  </ul>
+
+  <h3 class="section">1.2 The Investment Thesis in Three Points</h3>
+
+  <h4 class="subsection">Point 1 — Entry prices remain structurally below comparable Mediterranean markets</h4>
+  <p>A prime 1-bedroom apartment in central Lisbon (Príncipe Real, Chiado, Bairro Alto) trades at €6,500–€9,000/m². An equivalent property in Barcelona's Eixample trades at €7,500–€10,500/m². In the Côte d'Azur, the comparable figure exceeds €12,000/m². Portugal's price premium for comparable quality, location, and income-generating potential remains negative against its peer set — a gap that institutional capital is actively closing.</p>
+
+  <h4 class="subsection">Point 2 — Short-term rental yields are among the highest risk-adjusted returns in European residential property</h4>
+  <p>Managed AL properties in prime Lisbon and Algarve locations generate gross yields of 6–10% per annum before management costs, with net yields (after a 30% professional management fee) of 4.2–7% — figures that are difficult to replicate in Western European property markets where management infrastructure, regulatory frameworks, and demand density are less favourable.</p>
+
+  <h4 class="subsection">Point 3 — The tax framework has been fundamentally repriced</h4>
+  <p>Portugal's 2024–2026 tax reform cycle has eliminated several frictions that previously complicated non-resident investment: corporate tax rates are being brought in line with the most competitive EU jurisdictions; the new IFICI regime (NHR 2.0) has been recalibrated to attract high-value individuals; and the IMT exemption landscape for transactions through corporate structures provides material transactional cost reduction.</p>
+
+  <h3 class="section">1.3 Who This Guide Is For</h3>
+  <p>This guide is written for the institutional-grade private investor: family offices, HNWIs structuring a Portuguese real estate portfolio for the first time, and existing investors seeking to optimise assets already held. The minimum efficient investment in the PortoPrime managed model is a single quality asset worth €250,000 or above. The full portfolio benefits of scale — both in tax efficiency and management economics — are realised at the €1M+ level across three or more properties.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     CHAPTER 2 — THE TAX REVOLUTION
+════════════════════════════════════════════════════════════════ -->
+<div class="content-page page" style="position:relative; overflow:hidden;">
+  <div class="chapter-number-bg">2</div>
+
+  <div class="no-break" style="margin-bottom:20px; position:relative; z-index:1;">
+    <div class="chapter-eyebrow">Chapter 02</div>
+    <h1 class="chapter-title">The Tax Revolution</h1>
+    <p class="chapter-subtitle">IRC Corporate Reform, IFICI (NHR 2.0), and IMT Structuring</p>
+    <div class="gold-rule"></div>
+  </div>
+
+  <div class="exec-summary no-break">
+    <p>The 2024–2026 Portuguese State Budgets represent the most consequential restructuring of the country's tax framework for real estate investors since the introduction of the original NHR regime in 2009. Three instruments are directly material to the AL investment strategy: the phased reduction of the IRC corporate tax rate to <strong>19%</strong>; the introduction of the <strong>IFICI regime</strong> (NHR 2.0); and a revised IMT landscape that creates planning opportunities for acquisitions structured through Portuguese sociedades unipessoais or international holding structures.</p>
+  </div>
+
+  <h3 class="section">2.1 Corporate Tax Reform: The Path to 19% IRC</h3>
+  <p>Portugal's corporate income tax rate is undergoing a phased reduction as part of the government's "Agenda para a Competitividade" package.</p>
+
+  <table class="data-table no-break">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th class="center">Standard IRC Rate</th>
+        <th class="center">SME Rate (First €25K)</th>
+        <th class="center">Effective Rate (Lisbon Derrama)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>2023</td><td class="center">21.0%</td><td class="center">17.0%</td><td class="center">22.5%</td></tr>
+      <tr><td>2024</td><td class="center">20.0%</td><td class="center">16.0%</td><td class="center">21.5%</td></tr>
+      <tr><td>2025</td><td class="center">19.5%</td><td class="center">15.0%</td><td class="center">21.0%</td></tr>
+      <tr style="background:rgba(212,180,131,0.08);">
+        <td><strong style="color:#E2E8F0;">2026</strong></td>
+        <td class="center gold-bold">19.0%</td>
+        <td class="center gold-bold">14.5%</td>
+        <td class="center gold-bold">20.5%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>For investors holding Portuguese rental property through a Portuguese corporate structure (LDA or SA), the 2026 rate of <strong>19% on net taxable profit</strong> — combined with the ability to deduct management fees, depreciation, interest expense, and professional services — produces an effective tax rate that is often materially below the headline figure.</p>
+  <div class="callout no-break" style="border-left:3px solid rgba(212,180,131,0.5); margin-bottom:14px;">
+    <h4 class="subsection" style="margin-top:0; color:#D4B483;">Transparency Note — Effective Rate</h4>
+    <p style="margin-bottom:0;">The headline 19% IRC rate is subject to a municipal surcharge (<strong>Derrama Municipal</strong>). In Lisbon, this adds approximately 1.5 percentage points, producing a working effective rate of <strong>20.5–21%</strong> for most portfolio structures. SME-regime LDAs in lower-Derrama municipalities may remain closer to the headline rate. All yield and IRR projections in this guide use 19% IRC for illustrative purposes; investors should model 21% for Lisbon-domiciled corporate structures.</p>
+  </div>
+
+  <div class="callout no-break">
+    <h4 class="subsection" style="margin-top:0;">Practical Illustration: Lisbon 2-Bedroom AL Portfolio</h4>
+    <p style="margin-bottom:6px;">Assume a Lisbon 2-bedroom apartment generating <strong>€36,000 gross annual AL revenue</strong>:</p>
+    <ul class="guide-list" style="margin-bottom:0;">
+      <li>Under individual Categoria B: ~8.75% effective rate on gross, <strong>no deductibility</strong> for management fees or maintenance</li>
+      <li>Under Portuguese LDA structure: Gross €36,000 → Deductibles €16,200 → Taxable income €19,800 → IRC at 19% = <strong>€3,762</strong></li>
+      <li><strong>Effective rate on gross revenue: 10.5%, with full expense deductibility</strong></li>
+    </ul>
+  </div>
+
+  <h3 class="section">2.2 IFICI — The NHR 2.0 Regime</h3>
+  <p>The original NHR regime — responsible for attracting an estimated 74,000 qualifying individuals to Portugal — was terminated for new applicants as of 1 January 2024. Its replacement, the <strong>IFICI regime</strong> (<em>Incentivo Fiscal à Investigação Científica e Inovação</em>), entered into force on 1 January 2024.</p>
+
+  <table class="data-table no-break">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th class="center">Original NHR</th>
+        <th class="center">IFICI (NHR 2.0)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Flat tax on Portuguese employment income</td><td class="center">20%</td><td class="center gold-bold">20%</td></tr>
+      <tr><td>Tax on foreign-source passive income</td><td class="center">0% (exempt)</td><td class="center">Subject to conditions</td></tr>
+      <tr><td>Eligible categories</td><td>High-value activities (broad)</td><td>Research, tech, qualified professionals, startups</td></tr>
+      <tr><td>Pension income (foreign-source)</td><td class="center">10% flat</td><td class="center">No longer eligible</td></tr>
+      <tr><td>Validity</td><td class="center">10 years</td><td class="center gold-bold">10 years</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Who benefits in the context of real estate investment?</strong></p>
+  <ol class="guide-list no-break">
+    <li><strong>The founder/CTO/fund manager who relocates to Lisbon.</strong> IFICI provides a 20% flat rate on Portuguese-source employment income for qualifying roles for 10 years. An individual earning €180,000 annually would pay €36,000 in personal income tax under IFICI versus up to €79,000 under the standard progressive IRS schedule — a saving of €43,000 per year.</li>
+    <li><strong>The investor who holds property through a company and draws dividends.</strong> Dividends from a Portuguese LDA to a non-resident IFICI beneficiary may, in certain treaty structures, qualify for reduced withholding. Legal counsel should be obtained for each specific case.</li>
+    <li><strong>The startup founder with a capital event.</strong> IFICI beneficiaries holding qualifying startup equity can access participation exemption regimes under specific conditions.</li>
+  </ol>
+
+  <p><strong>Transition provisions:</strong> Individuals who registered as NHR before 31 December 2023 retain their NHR status and benefits for the full 10-year period — through 2033 for the final cohort.</p>
+
+  <h3 class="section">2.3 IMT — Acquisition Structuring</h3>
+
+  <table class="data-table no-break">
+    <thead>
+      <tr>
+        <th>Purchase Price Band</th>
+        <th class="center">IMT Rate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Up to €97,064</td><td class="center">1%</td></tr>
+      <tr><td>€97,064 – €132,774</td><td class="center">2%</td></tr>
+      <tr><td>€132,774 – €181,034</td><td class="center">5%</td></tr>
+      <tr><td>€181,034 – €301,688</td><td class="center">7%</td></tr>
+      <tr><td>€301,688 – €578,598</td><td class="center">8%</td></tr>
+      <tr><td>Above €578,598</td><td class="center gold-bold">7.5% flat</td></tr>
+      <tr><td>Blacklisted jurisdiction structures</td><td class="center" style="color:#F87171; font-weight:700;">10% flat</td></tr>
+    </tbody>
+  </table>
+
+  <ul class="guide-list no-break">
+    <li><strong>Urban rehabilitation exemptions (ARU).</strong> Properties in official Urban Rehabilitation Areas benefit from IMT exemption for the first acquisition following a qualifying rehabilitation — reducing acquisition costs by 6–7.5% on properties above €300,000.</li>
+    <li><strong>Corporate acquisition structures.</strong> The 2024 tax code amendments introduced a 6.5% flat IMT on real estate holding company (SGII) transactions. Professional advice is essential.</li>
+    <li><strong>Stamp Duty (IS).</strong> A flat 0.8% Imposto do Selo applies to all transactions. Non-avoidable; factor into all acquisition cost models.</li>
+  </ul>
+
+  <h3 class="section">2.4 Ongoing Property Taxes: IMI and AIMI</h3>
+  <p><strong>IMI</strong> (<em>Imposto Municipal sobre Imóveis</em>) is the annual property holding tax assessed on VPT (typically 40–70% of market value). Urban property rates: <strong>0.3% to 0.45%</strong> of VPT annually.</p>
+  <p><strong>AIMI</strong> applies to portfolios with aggregate VPT above €600,000. For corporate holders, the rate is a flat <strong>0.4%</strong> on aggregate VPT above €600,000. Corporate structuring at the outset avoids AIMI aggregation across a growing portfolio.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     CHAPTER 3 — THE AL LANDSCAPE
+════════════════════════════════════════════════════════════════ -->
+<div class="content-page page" style="position:relative; overflow:hidden;">
+  <div class="chapter-number-bg">3</div>
+
+  <div class="no-break" style="margin-bottom:20px; position:relative; z-index:1;">
+    <div class="chapter-eyebrow">Chapter 03</div>
+    <h1 class="chapter-title">The AL Landscape</h1>
+    <p class="chapter-subtitle">Licensing, Regulation &amp; the 2026 Market Reset</p>
+    <div class="gold-rule"></div>
+  </div>
+
+  <div class="exec-summary no-break">
+    <p>No aspect of Portuguese short-term rental investment has generated more investor uncertainty over the past three years than the regulatory treatment of Alojamento Local (AL) licenses. The "Mais Habitação" package of 2023 triggered a period of genuine disruption. In 2026, the landscape has materially clarified. Understanding what changed, what remains, and what opportunity this regulatory normalisation creates is essential for informed capital allocation.</p>
+  </div>
+
+  <h3 class="section">3.1 Historical Context: The Rise of AL</h3>
+  <p>The Alojamento Local framework was formally codified in Decree-Law 128/2014. By 2023, Portugal had registered over 108,000 AL properties nationally, concentrated heavily in Lisbon (≈22,000 licenses), the Algarve (≈31,000 licenses), and Porto (≈9,000 licenses). Yields significantly outperformed long-term residential letting across the same assets.</p>
+
+  <h3 class="section">3.2 Mais Habitação (2023): The Disruption</h3>
+  <p>In October 2023, the centre-left PS government passed the "Mais Habitação" legislative package. Its AL-specific provisions included:</p>
+  <ul class="guide-list no-break">
+    <li>A <strong>conditional suspension</strong> of new AL registrations in high-pressure urban areas (<em>zonas de contenção</em>), encompassing Lisbon's 24 parishes, Porto, and parts of the Algarve coastal strip</li>
+    <li>A <strong>condominium veto right</strong> allowing building assemblies to prohibit AL activity by simple majority</li>
+    <li>A proposed <strong>forced conversion</strong> mechanism for inactive licenses — challenged constitutionally and significantly weakened</li>
+    <li>Enhanced oversight requirements including mandatory AIMA guest registration procedures</li>
+  </ul>
+  <p>Transaction volumes for investment property in Lisbon dropped approximately 18% in Q4 2023. New license applications collapsed. Some operators exited the market.</p>
+
+  <h3 class="section">3.3 The 2024–2026 Regulatory Reset</h3>
+  <ul class="guide-list">
+    <li><strong>Change of government.</strong> The March 2024 elections produced a centre-right AD coalition under PM Luís Montenegro, signalling a more market-friendly approach and committing to a review of the most restrictive Mais Habitação provisions.</li>
+    <li><strong>Constitutional Court rulings.</strong> The Tribunal Constitucional ruled against the retroactive conversion mechanism and certain aspects of the condominium veto regime as applied to pre-existing licenses — removing the most significant overhang for existing AL asset owners.</li>
+    <li><strong>Revised municipal zoning.</strong> Lisbon reopened Avenidas Novas, Benfica, Olivais, and parts of Belém to new AL registrations. Porto expanded permitted zones in Matosinhos, Foz do Douro, and Campanhã.</li>
+    <li><strong>The Algarve — minimal restriction.</strong> Outside of central Albufeira and Vilamoura's resort core, the Algarve remained largely unrestricted throughout the Mais Habitação period.</li>
+  </ul>
+
+  <h3 class="section">3.4 The 2026 AL License Map</h3>
+
+  <h4 class="subsection" style="margin-top:16px;">Lisbon Metropolitan Area</h4>
+  <table class="data-table no-break">
+    <thead>
+      <tr><th>Zone Type</th><th class="center">New Licenses</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Zonas de contenção (historic core)</td><td class="center" style="color:#F87171; font-weight:600;">Restricted</td><td>Alfama, Castelo, Mouraria, Belém core</td></tr>
+      <tr><td>Zonas de desenvolvimento</td><td class="center gold-bold">✓ Permitted</td><td>Avenidas Novas, Benfica, Oeiras, Cascais, Loures</td></tr>
+      <tr><td>Pre-2023 licenses</td><td class="center gold-bold">✓ Protected</td><td>Constitutional Court protections apply</td></tr>
+      <tr><td>Urban rehabilitation (ARU)</td><td class="center gold-bold">✓ Permitted</td><td>With qualifying renovation documentation</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="subsection">Porto</h4>
+  <table class="data-table no-break">
+    <thead>
+      <tr><th>Zone Type</th><th class="center">New Licenses</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Historic centre (protected zones)</td><td class="center" style="color:#F87171; font-weight:600;">Restricted</td><td>Bonfim, Cedofeita core, Ribeira</td></tr>
+      <tr><td>Matosinhos / Foz / Antas</td><td class="center gold-bold">✓ Permitted</td><td>Strong demand, lower acquisition cost</td></tr>
+      <tr><td>Pre-2023 licenses</td><td class="center gold-bold">✓ Protected</td><td>No forced conversion risk</td></tr>
+    </tbody>
+  </table>
+
+  <h4 class="subsection">Algarve</h4>
+  <table class="data-table no-break">
+    <thead>
+      <tr><th>Area</th><th class="center">New Licenses</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Prime coastal (Lagos, Portimão, Tavira, Almancil)</td><td class="center gold-bold">✓ Broadly permitted</td><td>Strong seasonal + year-round demand</td></tr>
+      <tr><td>Central Albufeira</td><td class="center" style="color:#FBBF24; font-weight:600;">Mixed</td><td>Specific sub-zone restrictions</td></tr>
+      <tr><td>Interior Algarve</td><td class="center gold-bold">✓ Fully open</td><td>Lower yield but zero regulatory friction</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="section">3.5 Obtaining and Protecting an AL License in 2026</h3>
+  <ol class="guide-list no-break">
+    <li><strong>Pre-registration assessment</strong> with the relevant Câmara Municipal to confirm zone status</li>
+    <li><strong>RNAL registration</strong> via the Portal do Cidadão with property documentation, floor plan, and proof of ownership</li>
+    <li><strong>Fire safety compliance</strong> — properties above ground floor or with capacity above 9 guests require a valid ANEPC inspection certificate</li>
+    <li><strong>Condominium notification</strong> — formal written notice to the building's administrator; absent an explicit refusal vote, the license proceeds</li>
+    <li><strong>AIMA integration</strong> — guest identification data must be transmitted within 24 hours of check-in</li>
+  </ol>
+  <p>Processing times in permitted zones average <strong>45–75 days</strong>. In ARU areas, the process is integrated with the rehabilitation permit and can be expedited.</p>
+
+  <h3 class="section">3.6 The Supply Constraint as an Investment Argument</h3>
+  <p>The very regulatory restrictions that caused short-term investor anxiety in 2023–2024 have created a <strong>durable supply constraint in the highest-demand zones</strong>. In central Lisbon, no new AL inventory can be added in the historic parishes. Existing license holders — particularly those with post-renovation properties — are benefiting from structural increases in occupancy rates and ADR as total inventory stagnates while demand continues to grow. The license itself has become a capital asset with identifiable value.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     CHAPTER 4 — REGIONAL YIELD ANALYSIS
+════════════════════════════════════════════════════════════════ -->
+<div class="content-page page" style="position:relative; overflow:hidden;">
+  <div class="chapter-number-bg">4</div>
+
+  <div class="no-break" style="margin-bottom:20px; position:relative; z-index:1;">
+    <div class="chapter-eyebrow">Chapter 04</div>
+    <h1 class="chapter-title">Regional Yield Analysis</h1>
+    <p class="chapter-subtitle">Lisbon, Porto &amp; Algarve — Market-by-Market Data (2025–2026)</p>
+    <div class="gold-rule"></div>
+  </div>
+
+  <div class="exec-summary no-break">
+    <p>Yield analysis for Portuguese AL properties requires a framework more granular than city-level averages. This chapter presents a yield model calibrated to 2025–2026 market data from PortoPrime's operational portfolio, using a <strong>20% management fee (Standard tier)</strong> as the baseline for all net yield calculations. Results vary by selected management tier; see Chapter 5 for the full tiered structure.</p>
+  </div>
+
+  <h3 class="section">4.1 The Yield Model: Key Variables</h3>
+  <div class="callout no-break">
+    <ul class="guide-list" style="margin-bottom:0;">
+      <li><strong>Gross Daily Rate (GDR):</strong> Average achieved nightly rate. PortoPrime's dynamic pricing typically achieves 15–22% higher GDR than static pricing for equivalent properties.</li>
+      <li><strong>Occupancy Rate:</strong> Industry average for unmanaged AL in Lisbon is 62–68%. Professionally managed properties typically achieve 75–88%.</li>
+      <li><strong>Management Fee:</strong> 20% of gross revenue (Standard tier) — covers dynamic pricing, OTA management, 24/7 guest support, cleaning, and maintenance coordination. Premium (25%) adds fiscal representation, AL compliance, and monthly reporting.</li>
+      <li><strong>Net Yield on Capital:</strong> (Gross Revenue × 70%) ÷ Total Acquisition Cost (incl. IMT, IS, notary, renovation).</li>
+    </ul>
+  </div>
+
+  <h3 class="section">4.2 Lisbon Metropolitan Area</h3>
+  <p>Lisbon combines the highest absolute ADR in Portugal (outside ultra-premium Algarve resort clusters), the deepest demand base, and the most liquid secondary market for exit.</p>
+
+  <table class="data-table no-break">
+    <thead>
+      <tr>
+        <th>Property Type</th>
+        <th>Location</th>
+        <th class="center">Avg. Acq. Cost</th>
+        <th class="center">Gross Annual Rev.</th>
+        <th class="center">Net Revenue (×80%)</th>
+        <th class="center">Net Yield</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Studio (35m²)</td><td>Príncipe Real</td><td class="center">€310,000</td><td class="center">€32,400</td><td class="center">€25,920</td><td class="center gold-bold">8.4%</td></tr>
+      <tr><td>1-Bed (55m²)</td><td>Chiado / Bairro Alto</td><td class="center">€470,000</td><td class="center">€46,800</td><td class="center">€37,440</td><td class="center gold-bold">8.0%</td></tr>
+      <tr><td>2-Bed (85m²)</td><td>Avenidas Novas</td><td class="center">€520,000</td><td class="center">€54,000</td><td class="center">€43,200</td><td class="center gold-bold">8.3%</td></tr>
+      <tr style="background:rgba(212,180,131,0.06);"><td>2-Bed (90m²)</td><td>Alfama (existing license)</td><td class="center">€580,000</td><td class="center">€62,400</td><td class="center">€49,920</td><td class="center highlight">8.6%</td></tr>
+      <tr><td>3-Bed (120m²)</td><td>Belém / Santos</td><td class="center">€680,000</td><td class="center">€72,000</td><td class="center">€57,600</td><td class="center gold-bold">8.5%</td></tr>
+      <tr><td>Villa / Townhouse</td><td>Estoril / Cascais</td><td class="center">€1,200,000</td><td class="center">€108,000</td><td class="center">€86,400</td><td class="center gold-bold">7.2%</td></tr>
+    </tbody>
+  </table>
+  <p class="table-note">Assumptions: 80% occupancy; 20% Standard management tier (Net Revenue = Gross × 80%); GDR calibrated to Q4 2024/Q1 2025 achieved rates in PortoPrime portfolio; acquisition costs include 6–7% transaction costs.</p>
+
+  <ul class="guide-list no-break">
+    <li><strong>The Alfama premium.</strong> Pre-existing AL licenses in Alfama command a 15–25% acquisition premium — and frequently justify it. Constrained supply + UNESCO World Heritage foot traffic + maximum tourist intent = structural ADR outperformance. The license itself has a capital value.</li>
+    <li><strong>The Avenidas Novas opportunity.</strong> Modern layouts, open AL licensing, and acquisition prices 25–30% below Chiado produce yields that rival the historic core — with materially lower regulatory risk.</li>
+    <li><strong>Cascais as a satellite market.</strong> Outside Lisbon's zonas de contenção entirely. The 35-minute suburban rail connection and seasonal beach premium produce attractive blended yields at lower absolute acquisition cost.</li>
+  </ul>
+
+  <h3 class="section">4.3 Porto &amp; Northern Portugal</h3>
+  <p>Porto is the highest-growth tourism market in Portugal over the 2019–2024 period, with arrivals growing at a compound rate approximately 40% faster than Lisbon.</p>
+
+  <table class="data-table no-break">
+    <thead>
+      <tr>
+        <th>Property Type</th>
+        <th>Location</th>
+        <th class="center">Avg. Acq. Cost</th>
+        <th class="center">Gross Annual Rev.</th>
+        <th class="center">Net Revenue (×80%)</th>
+        <th class="center">Net Yield</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Studio (35m²)</td><td>Cedofeita / Bonfim</td><td class="center">€210,000</td><td class="center">€23,400</td><td class="center">€18,720</td><td class="center gold-bold">8.9%</td></tr>
+      <tr style="background:rgba(212,180,131,0.06);"><td>1-Bed (50m²)</td><td>Ribeira (existing license)</td><td class="center">€330,000</td><td class="center">€39,600</td><td class="center">€31,680</td><td class="center highlight">9.6%</td></tr>
+      <tr><td>2-Bed (75m²)</td><td>Matosinhos</td><td class="center">€320,000</td><td class="center">€36,000</td><td class="center">€28,800</td><td class="center gold-bold">9.0%</td></tr>
+      <tr><td>2-Bed (80m²)</td><td>Foz do Douro</td><td class="center">€480,000</td><td class="center">€50,400</td><td class="center">€40,320</td><td class="center gold-bold">8.4%</td></tr>
+      <tr><td>3-Bed (110m²)</td><td>Antas / Campanhã</td><td class="center">€390,000</td><td class="center">€43,200</td><td class="center">€34,560</td><td class="center gold-bold">8.9%</td></tr>
+    </tbody>
+  </table>
+  <p class="table-note">Assumptions: 80% occupancy; 20% Standard management tier (Net Revenue = Gross × 80%). Porto shows higher gross yields relative to acquisition cost, reflecting a lower entry price point.</p>
+
+  <h3 class="section">4.4 The Algarve</h3>
+  <p>The Algarve's investment case rests on extreme seasonal demand concentration (July–August achieves 3–4× off-season rates), a wealthy Northern European buyer and tenant base, and an almost total absence of AL license restrictions outside of central Albufeira.</p>
+
+  <table class="data-table no-break">
+    <thead>
+      <tr>
+        <th>Property Type</th>
+        <th>Location</th>
+        <th class="center">Avg. Acq. Cost</th>
+        <th class="center">Gross Annual Rev.</th>
+        <th class="center">Net Revenue (×80%)</th>
+        <th class="center">Net Yield</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1-Bed apartment</td><td>Lagos</td><td class="center">€290,000</td><td class="center">€32,400</td><td class="center">€25,920</td><td class="center gold-bold">8.9%</td></tr>
+      <tr><td>2-Bed apartment</td><td>Portimão</td><td class="center">€320,000</td><td class="center">€39,600</td><td class="center">€31,680</td><td class="center gold-bold">9.9%</td></tr>
+      <tr style="background:rgba(212,180,131,0.06);"><td>2-Bed w/ pool</td><td>Albufeira (inland)</td><td class="center">€380,000</td><td class="center">€50,400</td><td class="center">€40,320</td><td class="center highlight">10.6%</td></tr>
+      <tr><td>3-Bed villa</td><td>Tavira / East Algarve</td><td class="center">€520,000</td><td class="center">€64,800</td><td class="center">€51,840</td><td class="center gold-bold">10.0%</td></tr>
+      <tr><td>4-Bed pool villa</td><td>Almancil / Golden Triangle</td><td class="center">€1,400,000</td><td class="center">€144,000</td><td class="center">€115,200</td><td class="center gold-bold">8.2%</td></tr>
+      <tr><td>Luxury villa (6-bed, pool)</td><td>Quinta do Lago area</td><td class="center">€3,800,000</td><td class="center">€360,000</td><td class="center">€288,000</td><td class="center gold-bold">7.6%</td></tr>
+    </tbody>
+  </table>
+  <p class="table-note">Conservative 72% annual occupancy; 20% Standard management tier (Net Revenue = Gross × 80%). Peak-season properties can significantly exceed these figures in exceptional years.</p>
+
+  <p><strong>The Algarve renovation premium.</strong> Properties with a contemporary renovation, high-quality outdoor space, and premium kitchen/bathroom specification command ADRs 35–60% above unrenovated comparables. A typical €40,000–€85,000 full interior renovation of a 2-bedroom Algarve apartment produces a documented ADR increase of €40–€80/night — recovering the renovation cost in 18–30 months purely from rate differential.</p>
+
+  <h3 class="section">4.5 Cross-Market Portfolio Construction</h3>
+  <p>For investors with a total capital commitment of €1M–€3M, the optimal AL portfolio in 2026 is a <strong>geographic spread across two or three corridors</strong>:</p>
+  <ul class="guide-list no-break">
+    <li>A <strong>Lisbon</strong> asset provides the deepest year-round demand, highest secondary market liquidity, and the corporate/business-travel demand that stabilises occupancy during shoulder months</li>
+    <li>An <strong>Algarve</strong> asset provides the highest gross yield and the seasonal peak that creates the portfolio's revenue concentration</li>
+    <li>A <strong>Porto</strong> asset provides the highest yield-to-acquisition-cost ratio and exposure to the market with the greatest potential for capital appreciation catch-up relative to Lisbon</li>
+  </ul>
+  <p>This structure also creates natural tax planning opportunities: properties in different municipalities generate separate IMI assessments (avoiding AIMI aggregation), while a single LDA benefits from 19% IRC on consolidated net income across the entire portfolio.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     CHAPTER 5 — THE PORTOPRIME ADVANTAGE & EXIT STRATEGY
+════════════════════════════════════════════════════════════════ -->
+<div class="content-page page" style="position:relative; overflow:hidden;">
+  <div class="chapter-number-bg">5</div>
+
+  <div class="no-break" style="margin-bottom:20px; position:relative; z-index:1;">
+    <div class="chapter-eyebrow">Chapter 05</div>
+    <h1 class="chapter-title">The PortoPrime Advantage</h1>
+    <p class="chapter-subtitle">The 30% Management Model, Renovation Yield &amp; Exit Strategy</p>
+    <div class="gold-rule"></div>
+  </div>
+
+  <div class="exec-summary no-break">
+    <p>The difference between a good Portuguese property investment and a great one is almost entirely a function of execution: the management quality that determines actual occupancy and ADR versus theoretical potential; the renovation standard that either captures or forfeits the ADR premium; the regulatory compliance that protects the license; and the exit structure that converts a well-performing asset into capital gains that can be efficiently reinvested or repatriated.</p>
+  </div>
+
+  <h3 class="section">5.1 The Flexible Management Framework</h3>
+  <p>PortoPrime operates a tiered management structure — <strong>Tailored Stewardship</strong> — that allows investors to precisely calibrate the level of operational delegation and cost. All three tiers share the same dynamic pricing engine, OTA distribution, and compliance infrastructure; they differ in the depth of hands-on management delivered.</p>
+
+  <table class="data-table no-break" style="margin-bottom:18px;">
+    <thead>
+      <tr>
+        <th>Tier</th>
+        <th class="center">Fee</th>
+        <th>Included Services</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong style="color:#E2E8F0;">Essential</strong></td>
+        <td class="center gold-bold">15%</td>
+        <td>Online management, bookings, dynamic pricing, and multilingual guest communication</td>
+      </tr>
+      <tr style="background:rgba(212,180,131,0.06);">
+        <td><strong style="color:#E2E8F0;">Standard</strong> <span style="font-size:7.5pt; color:#64748B;">(Baseline)</span></td>
+        <td class="center highlight">20%</td>
+        <td>All Essential + professional cleaning, in-person check-ins, minor maintenance coordination, monthly owner statements</td>
+      </tr>
+      <tr>
+        <td><strong style="color:#E2E8F0;">Premium</strong></td>
+        <td class="center gold-bold">25%</td>
+        <td>All Standard + fiscal representation, AIMA &amp; AL license compliance, major maintenance oversight, annual property inspection, and dedicated portfolio reporting</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="font-size:9pt; color:#94A3B8; font-style:italic; margin-bottom:14px;">All yield figures in Chapter 4 are calculated on the Standard (20%) tier. Essential tier investors see net yields approximately 0.8–1.2 pp higher; Premium investors see yields approximately 0.5–0.8 pp lower — offset by the value of full-service compliance protection.</p>
+
+  <h4 class="subsection">What the Standard Tier Delivers</h4>
+
+  <div class="callout no-break" style="margin-bottom:14px;">
+    <h4 class="subsection" style="margin-top:0; color:#D4B483;">Revenue Optimisation — 15–22% ADR Uplift vs. Static Pricing</h4>
+    <p style="margin-bottom:0;">Dynamic pricing is adjusted 3–5 times per week per property based on real-time demand signals: OTA search velocity, competitor rate moves, local event calendars, and forward booking curve analysis. For a property with a naïve static price of €110/night, this process typically produces an achieved ADR of €127–€134/night — generating €6,200–€8,800 of additional annual gross revenue on a 1-bedroom Lisbon apartment.</p>
+  </div>
+
+  <div class="callout no-break" style="margin-bottom:14px;">
+    <h4 class="subsection" style="margin-top:0; color:#D4B483;">Distribution Across All Major Channels</h4>
+    <p style="margin-bottom:0;">Active management on Airbnb, Booking.com, Vrbo, Expedia Group, and the PortoPrime direct booking channel with real-time calendar synchronisation. The direct channel (zero OTA commission vs. 15–20% on Airbnb) represents an increasing proportion of revenue as the portfolio matures.</p>
+  </div>
+
+  <div class="callout no-break" style="margin-bottom:14px;">
+    <h4 class="subsection" style="margin-top:0; color:#D4B483;">Guest Experience &amp; License Protection</h4>
+    <p style="margin-bottom:0;">24/7 multilingual guest support (English, Portuguese, Russian, German, French, Italian, Spanish). A 4.8-star average rating commands a measurable ADR premium over 4.5-star equivalents. AIMA registration is completed for 100% of guest stays within the mandatory 24-hour window.</p>
+  </div>
+
+  <div class="callout no-break">
+    <h4 class="subsection" style="margin-top:0; color:#D4B483;">Fiscal &amp; Compliance Representation <span style="font-size:8pt; color:#64748B;">(Premium tier)</span></h4>
+    <p style="margin-bottom:0;">Every <strong>Premium tier</strong> client has a designated fiscal representative in Portugal for NHR/IFICI registration, CIRS/IRS declarations, quarterly Category B filings or annual IRC filings, and Câmara Municipal AL compliance reporting. Standard tier clients receive referrals to PortoPrime's affiliated fiscal partners at preferential rates.</p>
+  </div>
+
+  <h3 class="section">5.2 The Renovation-to-Yield Strategy</h3>
+  <p>The distinction between a residential renovation (focused on liveability) and an AL renovation (focused on photographic appeal, durability, and operational efficiency) is commercially significant:</p>
+  <ul class="guide-list no-break">
+    <li><strong>Photography-first design.</strong> Listing photographs account for 60–70% of click-through rate on Airbnb and Booking.com. Every room is designed with hero photography angles in mind.</li>
+    <li><strong>Durability specification.</strong> Hospitality-grade materials reduce maintenance cost over a 5-year hold by an estimated €3,000–€8,000 versus residential-quality renovation.</li>
+    <li><strong>Smart access and automation.</strong> Contactless entry, automated Wi-Fi management, and integrated noise monitoring (required in many Lisbon municipalities) are standard in all PortoPrime renovations.</li>
+  </ul>
+
+  <table class="data-table no-break">
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th class="center">Total Capital</th>
+        <th class="center">Gross Annual Rev.</th>
+        <th class="center">Net Rev. (×70%)</th>
+        <th class="center">Net Yield</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Unrenovated, self-managed</td>
+        <td class="center">€340,000</td>
+        <td class="center">€26,400</td>
+        <td class="center">€26,400*</td>
+        <td class="center">7.8%*</td>
+      </tr>
+      <tr>
+        <td>Unrenovated, Standard (20%)</td>
+        <td class="center">€340,000</td>
+        <td class="center">€34,200</td>
+        <td class="center">€27,360</td>
+        <td class="center gold-bold">8.0%</td>
+      </tr>
+      <tr style="background:rgba(212,180,131,0.08);">
+        <td><strong style="color:#E2E8F0;">Renovated, Standard (20%)</strong></td>
+        <td class="center">€399,000</td>
+        <td class="center">€46,800</td>
+        <td class="center">€37,440</td>
+        <td class="center highlight">9.4%</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="table-note">*No management fee applied; actual unmanaged yield would be lower after owner time, OTA fees, cleaning, and maintenance costs. Standard (20%) tier used as baseline; Premium (25%) reduces net yield by approximately 0.6–0.8 pp. Lisbon 1-bedroom illustrative.</p>
+
+  <h3 class="section">5.3 Exit Strategy: Realising Capital Gains</h3>
+  <p>Portuguese residential real estate in the AL-optimised segment has delivered capital appreciation of approximately <strong>15–22% in Lisbon</strong> and <strong>18–28% in Algarve prime locations</strong> over the 2020–2025 period.</p>
+
+  <ul class="guide-list no-break">
+    <li><strong>Non-resident individual CGT:</strong> Flat 28% on nominal gain, indexed for inflation using official Portuguese coefficients. Qualifying renovation costs are deductible from the taxable gain.</li>
+    <li><strong>LDA asset sale:</strong> Capital gain taxed at 19% IRC rate versus 28% for individual non-residents — a 9-point advantage for corporate structure holders.</li>
+    <li><strong>LDA share sale:</strong> The investor sells shares of the LDA rather than the underlying property. May avoid Portuguese property transfer taxes for the buyer and achieve capital gains treatment in the investor's home jurisdiction under applicable double tax treaties.</li>
+    <li><strong>Equity extraction (roll-up strategy):</strong> Refinance at 50–60% LTV (Portuguese banks for non-residents at competitive spreads) and deploy extracted equity into additional acquisitions — preserving the income-generating asset base while accessing capital.</li>
+  </ul>
+
+  <h3 class="section">5.4 Illustrative 7-Year Investment Case</h3>
+  <div class="callout no-break" style="margin-bottom:12px;">
+    <p style="margin-bottom:0; color:#94A3B8;"><strong style="color:#D4B483;">Property:</strong> 2-bed w/ pool, 80m², Albufeira (inland), Algarve &nbsp;|&nbsp; <strong style="color:#D4B483;">Purchase:</strong> €380,000 &nbsp;|&nbsp; <strong style="color:#D4B483;">Renovation:</strong> €30,000 &nbsp;|&nbsp; <strong style="color:#D4B483;">Total Capital:</strong> €436,000 &nbsp;|&nbsp; <strong style="color:#D4B483;">Tier:</strong> Standard (20%)</p>
+  </div>
+
+  <table class="data-table no-break">
+    <thead>
+      <tr>
+        <th class="center">Year</th>
+        <th class="center">Gross Revenue</th>
+        <th class="center">Net Revenue (×80%)</th>
+        <th class="center">After 19% IRC</th>
+        <th class="center">Cumulative Net Cash Flow</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="center">1</td><td class="center">€50,400</td><td class="center">€40,320</td><td class="center">€33,300</td><td class="center">€33,300</td></tr>
+      <tr><td class="center">2</td><td class="center">€51,912</td><td class="center">€41,530</td><td class="center">€34,300</td><td class="center">€67,600</td></tr>
+      <tr><td class="center">3</td><td class="center">€53,469</td><td class="center">€42,775</td><td class="center">€35,400</td><td class="center">€103,000</td></tr>
+      <tr><td class="center">4</td><td class="center">€55,073</td><td class="center">€44,058</td><td class="center">€36,400</td><td class="center">€139,400</td></tr>
+      <tr><td class="center">5</td><td class="center">€56,725</td><td class="center">€45,380</td><td class="center">€37,500</td><td class="center">€176,900</td></tr>
+      <tr><td class="center">6</td><td class="center">€58,427</td><td class="center">€46,742</td><td class="center">€38,600</td><td class="center">€215,500</td></tr>
+      <tr style="background:rgba(212,180,131,0.08);">
+        <td class="center"><strong style="color:#E2E8F0;">7</strong></td>
+        <td class="center">€60,180</td>
+        <td class="center">€48,144</td>
+        <td class="center">€39,800</td>
+        <td class="center highlight">€255,300</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="table-note">Assumes 3% annual revenue growth (conservative vs. 2020–2025 actuals); IRC applied to estimated net taxable profit after depreciation and expenses.</p>
+
+  <!-- Exit summary box -->
+  <div class="no-break" style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:14px 0;">
+    <div style="background:rgba(212,180,131,0.07); border:1px solid rgba(212,180,131,0.2); border-radius:6px; padding:14px 16px;">
+      <div style="font-size:7.5pt; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#64748B; margin-bottom:8px;">Year 7 Exit Scenario</div>
+      <div style="font-size:9pt; color:#CBD5E1; line-height:1.8;">
+        Sale price (28% appreciation): <strong style="color:#E2E8F0;">€558,080</strong><br/>
+        Capital gain (net of indexed cost): <strong style="color:#E2E8F0;">€122,080</strong><br/>
+        IRC on gain (19%): <strong style="color:#E2E8F0;">€23,195</strong><br/>
+        Net exit proceeds: <strong style="color:#D4B483;">€534,885</strong>
+      </div>
+    </div>
+    <div style="background:rgba(212,180,131,0.07); border:1px solid rgba(212,180,131,0.2); border-radius:6px; padding:14px 16px;">
+      <div style="font-size:7.5pt; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#64748B; margin-bottom:8px;">Total 7-Year Return</div>
+      <div style="font-size:9pt; color:#CBD5E1; line-height:1.8;">
+        Cumulative operating cash flows: <strong style="color:#E2E8F0;">€255,300</strong><br/>
+        Net exit proceeds: <strong style="color:#E2E8F0;">€534,885</strong><br/>
+        <strong style="color:#D4B483;">Total: €790,185 on €436,000 capital</strong><br/>
+        <strong style="color:#D4B483; font-size:10pt;">+81.2% / IRR ≈ 10.8% p.a. after-tax</strong>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:9pt; color:#64748B; font-style:italic;">This IRR — on a euro-denominated, EU-regulated, liquid real estate asset — substantially exceeds the risk-adjusted return profile of European investment-grade credit (currently 3.8–4.5%) and is achieved with significantly lower volatility than comparable equity-market strategies. Switching to the <strong style="color:#94A3B8;">Premium (25%) tier</strong> would reduce annual net cash flows by approximately €2,200–€3,100 while providing full AL license protection and fiscal representation.</p>
+
+  <h3 class="section">5.5 The PortoPrime Partnership</h3>
+  <p>PortoPrime is not a lettings agency. We are the operational partner that transforms a real estate acquisition into a professionally managed investment vehicle. Our clients are investors who understand that the difference between 5.5% and 7.5% net yield on a €500,000 asset is <strong>€10,000 per year</strong> — and who choose not to leave that gap on the table through sub-optimal management.</p>
+  <p>Our engagement begins before acquisition: PortoPrime provides pre-acquisition yield due diligence, renovation specification, and license viability assessments as part of the client onboarding process. It continues through the full hold period with monthly reporting, annual tax filing support, and proactive asset management recommendations. And it extends to exit: our relationships with the leading Portuguese investment property agents and our track record of professionally managed assets provide our clients with a meaningful advantage when bringing properties to market.</p>
+  <p>The management fee — whether 15%, 20%, or 25% — is <strong>the cost of certainty, calibrated to the investor's chosen level of involvement</strong>. The flexibility to begin with Essential and step up to Premium as the portfolio matures is a structural advantage unique to the PortoPrime model. For investors whose time has a higher opportunity cost than asset management, and whose capital deserves professional stewardship, the tier selection is the most important decision after asset selection itself.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     CLOSING / DISCLAIMER PAGE
+════════════════════════════════════════════════════════════════ -->
+<div class="content-page page" style="display:flex; flex-direction:column; justify-content:space-between; min-height:260mm;">
+
+  <!-- Closing statement -->
+  <div>
+    <div style="text-align:center; margin-bottom:36px; margin-top:20mm;">
+      <div class="gold-rule-center" style="margin-bottom:24px;"></div>
+      <h2 style="font-family:'Playfair Display',serif; font-size:20pt; font-weight:700; color:#E2E8F0; margin-bottom:16px; line-height:1.3;">Portugal in 2026 is not a secret.</h2>
+      <p style="max-width:420px; margin:0 auto; font-size:10.5pt; color:#94A3B8; line-height:1.75; font-style:italic;">
+        The fundamentals — strong tourism demand, a reforming tax framework, a stabilising regulatory environment, and a structural undersupply of premium accommodation — are visible to any rigorous analyst. What remains differentiated is execution.
+      </p>
+      <div class="gold-rule-center" style="margin-top:24px;"></div>
+    </div>
+
+    <div style="text-align:center; margin-bottom:40px;">
+      <p style="font-family:'Inter',sans-serif; font-size:9pt; color:#64748B; margin-bottom:16px; letter-spacing:0.05em;">
+        We invite qualified investors to contact us for a personalised portfolio analysis<br/>and a site visit to current managed properties in Lisbon, Porto, and the Algarve.
+      </p>
+      <div style="display:inline-block; border:1px solid rgba(212,180,131,0.3); border-radius:6px; padding:10px 24px; background:rgba(212,180,131,0.06);">
+        <div style="font-family:'Playfair Display',serif; font-size:14pt; font-weight:600; color:#D4B483;">portoprime.pt</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom logo + legal block -->
+  <div>
+    <!-- Divider -->
+    <div class="gold-rule-full" style="margin-bottom:24px;"></div>
+
+    <!-- Logo repeat -->
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
+      <svg width="32" height="32" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="44" height="44" rx="10" fill="rgba(212,180,131,0.1)" stroke="rgba(212,180,131,0.25)" stroke-width="1"/>
+        <path d="M22 8L7 19.5V36H17V27H27V36H37V19.5L22 8Z" fill="none" stroke="#D4B483" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M18 36V28H26V36" fill="none" stroke="#D4B483" stroke-width="1.4" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <div style="font-family:'Playfair Display',serif; font-size:11pt; font-weight:700; color:#94A3B8;">PortoPrime</div>
+        <div style="font-family:'Inter',sans-serif; font-size:6.5pt; letter-spacing:0.2em; text-transform:uppercase; color:#475569;">Property Management</div>
+      </div>
+    </div>
+
+    <!-- Legal disclaimer -->
+    <p style="font-size:7.5pt; color:#334155; line-height:1.65; margin-bottom:8px;">
+      © 2026 PortoPrime Property Management. All rights reserved. This document is confidential and intended solely for the use of the individual or entity to which it is addressed. Reproduction or distribution without written permission is prohibited.
+    </p>
+    <p style="font-size:7.5pt; color:#334155; line-height:1.65; margin:0; font-style:italic;">
+      Legal disclaimer: This guide does not constitute investment, legal, or tax advice. All projections are illustrative and based on current market conditions which may change. Investors should obtain independent legal and tax counsel before making investment decisions. All yield projections are estimates based on current market data and are not guarantees of future performance. Past performance of real estate markets is not indicative of future results.
+    </p>
+  </div>
+
+</div>
+
+</div><!-- end .page-wrap -->
+</body>
+</html>

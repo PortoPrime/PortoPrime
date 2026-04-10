@@ -188,7 +188,7 @@
     "occupancy": "Taxa de Ocupação Média",
     "estimatedRevenue": "Receita Mensal Estimada",
     "perMonth": "/mês",
-    "afterFees": "após taxa de gestão de 30%",
+    "afterFees": "após {fee}% de taxa de gestão",
     "annualProjection": "Projeção anual",
     "renovationUpsell": "Com a nossa Renovação Profissional, o seu rendimento poderia aumentar mais",
     "renovationUpsellHighlight": "25%",
@@ -196,7 +196,13 @@
     "cta": "Obter Relatório Detalhado do Meu Imóvel",
     "disclaimer": "As estimativas baseiam-se em dados de mercado atuais para Alojamento Local (AL) em Portugal. O rendimento final depende das características específicas do imóvel, dos regimes fiscais CIRS/CIRC (contabilidade simplificada ou organizada) e das regulamentações municipais. A PortoPrime presta apoio completo no licenciamento AL e na representação fiscal.",
     "otherRegionMessage": "Esta região requer uma análise de mercado individual. Deixe um pedido e prepararemos um relatório detalhado para a sua cidade.",
-    "ctaOtherRegion": "Solicitar Cálculo para a Minha Cidade"
+    "ctaOtherRegion": "Solicitar Cálculo para a Minha Cidade",
+    "feeTierLabel": "Plano de Gestão",
+    "tiers": {
+      "essential": "Essencial · 15%",
+      "standard": "Standard · 20%",
+      "premium": "Premium · 25%"
+    }
   },
   "footer": {
     "tagline": "Gestão premium de imóveis para investidores que exigem resultados.",
@@ -235,8 +241,8 @@
     "a3": "Os rendimentos AL enquadram-se na Categoria B (actividade profissional independente). No regime simplificado, 35% do rendimento bruto é tributável ao abrigo do CIRS. Na contabilidade organizada, as despesas dedutíveis reais reduzem a base tributável. A PortoPrime modela ambos os regimes anualmente e muda para o mais vantajoso.",
     "q4": "A minha licença AL pode ser suspensa ou revogada?",
     "a4": "As licenças podem ser suspensas por queixas de ruído reiteradas, ausência de seguro de responsabilidade civil válido ou incumprimento dos requisitos de registo de hóspedes da AIMA. A nossa gestão 24/7 garante total conformidade: registamos todos os check-ins/check-outs na AIMA, mantemos os registos de seguro e respondemos a todas as interacções com hóspedes.",
-    "q5": "O que inclui a taxa de gestão de 30%?",
-    "a5": "Apoio multilíngue 24/7, gestão dinâmica de preços e canais, limpeza profissional após cada saída, coordenação de pequena manutenção, extractos mensais, representação fiscal, relatórios de conformidade AIMA e acesso à nossa rede privada de hóspedes de alto valor. Sem custos ocultos — tudo discriminado no dashboard mensal."
+    "q5": "O que inclui a taxa de gestão e como está estruturada?",
+    "a5": "O PortoPrime oferece três planos transparentes: Essencial (15%) — reservas, preços dinâmicos e comunicação multilíngue com hóspedes; Standard (20%) — todos os serviços Essenciais mais limpeza, check-ins, pequena manutenção e extractos mensais; Premium (25%) — todos os serviços Standard mais representação fiscal, conformidade AIMA e AL, grandes manutenções e inspecção anual. Sem custos ocultos — tudo discriminado no dashboard mensal."
   },
   "leadMagnet": {
     "eyebrow": "Recurso Gratuito",
