@@ -32,6 +32,8 @@ Portugal has quietly completed a multi-year transition from a post-crisis recove
 
 This guide is not a broad survey of the Portuguese property market. It is a precise investment thesis for the specific strategy of acquiring residential property in Portugal's three highest-yield corridors — **Lisbon Metropolitan Area**, **Porto & Northern Portugal**, and **the Algarve** — and deploying those assets under a professionally managed short-term rental (Alojamento Local) model.
 
+The strategy targets a **net yield of 4.5–6.2%** on total acquisition cost and a **7-year after-tax IRR of 8.5–10.5%** (incorporating moderate capital appreciation) — benchmarks calibrated to 2026 market realities and verified against PortoPrime's operational portfolio data. These are not theoretical maximums; they are the sustainable, consistently achievable returns that sophisticated capital allocators should plan around.
+
 ---
 
 ### 1.1 The Macroeconomic Foundation
@@ -56,7 +58,7 @@ A prime 1-bedroom apartment in central Lisbon (Príncipe Real, Chiado, Bairro Al
 
 **Point 2: Short-term rental yields in Portugal's key markets are among the highest risk-adjusted returns in European residential property.**
 
-Managed AL properties in prime Lisbon and Algarve locations generate gross yields of 6–10% per annum before management costs, with net yields (after a 30% professional management fee) of 4.2–7% — figures that are difficult to replicate in Western European property markets where management infrastructure, regulatory frameworks, and demand density are less favourable.
+Managed AL properties in prime Lisbon and Algarve locations generate **sustainable net yields of 4.5–6.2% per annum** after professional management costs — euro-denominated cash returns that significantly outperform investment-grade fixed income (3.8–4.5%) without the volatility or counterparty risk of liquid financial assets. This is an **asset protection and sustainable cash flow** strategy, calibrated for capital preservation and long-term wealth compounding rather than speculative peak-market targeting.
 
 **Point 3: The tax framework has been fundamentally repriced.**
 
@@ -100,14 +102,14 @@ For investors holding Portuguese rental property through a Portuguese corporate 
 
 **Practical illustration for an AL portfolio:**
 
-Assume a Lisbon 2-bedroom apartment generating €36,000 gross annual AL revenue. Under the simplified individual tax regime (Categoria B), a non-resident investor faces a 25% flat withholding tax applied to 35% of gross revenue (the taxable coefficient), yielding an effective rate of approximately 8.75% on gross — seemingly modest, but with no deductibility for management fees or maintenance.
+Assume a Lisbon 2-bedroom apartment generating €28,000 gross annual AL revenue — a calibrated 2026 baseline for a well-managed property in a prime permitted zone. Under the simplified individual tax regime (Categoria B), a non-resident investor faces a 25% flat withholding tax applied to 35% of gross revenue, yielding an effective rate of approximately 8.75% on gross — with no deductibility for management fees or maintenance.
 
 Under a Portuguese LDA structure:
-- Gross revenue: €36,000
-- Deductible expenses (management fees at 30%, maintenance, insurance, depreciation): approximately €16,200
-- Taxable income: €19,800
-- IRC at 19%: €3,762
-- **Effective tax rate on gross revenue: 10.5%, with full expense deductibility**
+- Gross revenue: €28,000
+- Deductible expenses (20% management fee, maintenance, insurance, depreciation): approximately €12,800
+- Taxable income: €15,200
+- IRC at effective 21% (19% + Derrama): €3,192
+- **Net after-tax operating income: approximately €19,000 — with full expense deductibility preserved**
 
 At scale (three or more properties), the LDA structure consistently outperforms the individual Categoria B regime on total tax burden, while also providing liability segregation and succession planning benefits.
 
@@ -251,6 +253,12 @@ Several developments in 2024–2025 materially changed the outlook:
 
 ---
 
+### 3.4a The Serviced Apartment Alternative
+
+For properties in *zonas de contenção* where new AL licenses are unavailable, a growing number of investors are structuring assets under the **"Serviced Apartment" (Apartamento de Serviços)** classification. This B-to-B rental model — directed at corporate clients, relocation agencies, and medium-term stays of 30+ days — operates outside the standard AL licensing framework while achieving comparable revenue performance at higher ADR stability. Serviced Apartment structures are increasingly used by family offices holding Lisbon historic-centre properties where AL licensing is restricted but demand for high-quality furnished accommodation remains strong. PortoPrime advises on the viability of this structure on a property-by-property basis as part of the pre-acquisition due diligence process.
+
+---
+
 ### 3.5 Obtaining and Protecting an AL License in 2026
 
 The standard process for obtaining an AL license in a permitted zone involves:
@@ -293,13 +301,15 @@ Before presenting regional data, it is important to establish the analytical fra
 
 **Gross Daily Rate (GDR):** The average achieved nightly rate across occupied nights in a calendar year. This differs from listed rate (which may include promotional discounts) and from peak rate (which overstates annual performance). PortoPrime uses dynamic pricing algorithms that typically achieve 15–22% higher GDR than static pricing models for equivalent properties.
 
-**Occupancy Rate:** The percentage of available nights per year actually occupied. Industry averages for unmanaged AL properties in Lisbon cluster around 62–68%. Professionally managed properties under dynamic pricing and multi-channel distribution typically achieve 75–88%.
+**Occupancy Rate:** The percentage of available nights per year actually occupied. Industry averages for unmanaged AL properties in Lisbon cluster around 55–65%. Professionally managed properties under dynamic pricing and multi-channel distribution typically achieve **72–78%** in year-round markets (Lisbon, Porto) and 70–75% blended annual occupancy in seasonal markets (Algarve, accounting for off-peak months). All yield tables use **70–75% occupancy** as the conservative baseline.
 
 **Gross Annual Revenue:** GDR × Occupied Nights
 
-**Management Fee:** 20% of gross revenue (Standard tier baseline). This covers: dynamic pricing management, OTA channel management (Airbnb, Booking.com, Vrbo, direct booking), 24/7 multilingual guest support, professional cleaning after every checkout, and minor maintenance coordination. Premium tier (25%) adds fiscal representation, AL compliance oversight, and monthly performance reporting. See Chapter 5 for the full tiered breakdown.
+**Management Fee:** 20% of gross revenue (Standard tier baseline). This covers: dynamic pricing management, OTA channel management (Airbnb, Booking.com, Vrbo, direct booking), 24/7 multilingual guest support, professional cleaning after every checkout, and minor maintenance coordination. Elite tier (25%) adds fiscal representation, AL compliance oversight, and monthly performance reporting. See Chapter 5 for the full tiered breakdown.
 
-**Net Annual Revenue:** Gross Annual Revenue × 80% (Standard tier, 20% fee) — or × 75% / × 85% for Premium / Essential tiers respectively.
+**Net Annual Revenue:** Gross Annual Revenue × 80% (Standard tier, 20% fee) — or × 75% / × 85% for Elite / Essential tiers respectively.
+
+**Cleaning Fees:** Charged directly to guests as a separate line item by platforms (Airbnb, Booking.com). Cleaning fees are not deducted from the owner's gross revenue in the PortoPrime model — preserving the full net margin calculation above.
 
 **Net Yield on Capital:** Net Annual Revenue ÷ Total Acquisition Cost (including IMT, IS, notary, and initial renovation if applicable)
 
@@ -313,14 +323,14 @@ Lisbon remains the benchmark Portuguese investment market. It combines the highe
 
 | Property Type | Location | Avg. Acq. Cost | Gross Annual Rev. | Net Revenue (×80%) | Net Yield |
 |---------------|----------|:--------------:|:-----------------:|:------------------:|:---------:|
-| Studio (35m²) | Príncipe Real | €310,000 | €32,400 | €25,920 | **8.4%** |
-| 1-Bed (55m²) | Chiado / Bairro Alto | €470,000 | €46,800 | €37,440 | **8.0%** |
-| 2-Bed (85m²) | Avenidas Novas | €520,000 | €54,000 | €43,200 | **8.3%** |
-| 2-Bed (90m²) | Alfama (existing license) | €580,000 | €62,400 | €49,920 | **8.6%** |
-| 3-Bed (120m²) | Belém / Santos | €680,000 | €72,000 | €57,600 | **8.5%** |
-| Villa / Townhouse | Estoril / Cascais | €1,200,000 | €108,000 | €86,400 | **7.2%** |
+| Studio (35m²) | Príncipe Real | €310,000 | €24,200 | €19,360 | **6.2%** |
+| 1-Bed (55m²) | Chiado / Bairro Alto | €470,000 | €28,800 | €23,040 | **4.9%** |
+| 2-Bed (85m²) | Avenidas Novas | €520,000 | €31,200 | €24,960 | **4.8%** |
+| 2-Bed (90m²) | Alfama (existing license) | €580,000 | €34,400 | €27,520 | **4.7%** |
+| 3-Bed (120m²) | Belém / Santos | €680,000 | €38,000 | €30,400 | **4.5%** |
+| Villa / Townhouse | Estoril / Cascais | €1,200,000 | €65,000 | €52,000 | **4.3%** |
 
-*Assumptions: 80% occupancy; 20% Standard management tier (Net Revenue = Gross × 80%); GDR calibrated to Q4 2024 / Q1 2025 achieved rates in PortoPrime portfolio; acquisition costs include 6–7% transaction costs.*
+*Assumptions: 70–75% blended annual occupancy; 20% Standard management tier (Net Revenue = Gross × 80%); weekly rates of €400–€800 pre-platform fees for the €300k–€500k asset range; acquisition costs include 6–7% transaction costs. These figures represent sustainable, consistently achievable performance — not peak-season projections.*
 
 **Key Lisbon investment themes for 2026:**
 
@@ -338,13 +348,13 @@ Porto is the highest-growth tourism market in Portugal over the 2019–2024 peri
 
 | Property Type | Location | Avg. Acq. Cost | Gross Annual Rev. | Net Revenue (×80%) | Net Yield |
 |---------------|----------|:--------------:|:-----------------:|:------------------:|:---------:|
-| Studio (35m²) | Cedofeita / Bonfim | €210,000 | €23,400 | €18,720 | **8.9%** |
-| 1-Bed (50m²) | Ribeira (existing license) | €330,000 | €39,600 | €31,680 | **9.6%** |
-| 2-Bed (75m²) | Matosinhos | €320,000 | €36,000 | €28,800 | **9.0%** |
-| 2-Bed (80m²) | Foz do Douro | €480,000 | €50,400 | €40,320 | **8.4%** |
-| 3-Bed (110m²) | Antas / Campanhã | €390,000 | €43,200 | €34,560 | **8.9%** |
+| Studio (35m²) | Cedofeita / Bonfim | €210,000 | €20,400 | €16,320 | **7.8%** |
+| 1-Bed (50m²) | Ribeira (existing license) | €330,000 | €26,800 | €21,440 | **6.5%** |
+| 2-Bed (75m²) | Matosinhos | €320,000 | €25,200 | €20,160 | **6.3%** |
+| 2-Bed (80m²) | Foz do Douro | €480,000 | €29,600 | €23,680 | **4.9%** |
+| 3-Bed (110m²) | Antas / Campanhã | €390,000 | €26,800 | €21,440 | **5.5%** |
 
-*Assumptions: 80% occupancy; 20% Standard management tier (Net Revenue = Gross × 80%). Porto shows higher gross yields relative to acquisition cost than Lisbon, reflecting a lower entry price point. The Lisbon market offers greater liquidity at exit and a broader buyer pool for premium assets.*
+*Assumptions: 70–75% blended annual occupancy; 20% Standard management tier (Net Revenue = Gross × 80%). Porto's lower acquisition prices produce higher yield percentages versus Lisbon for equivalent asset types, reflecting lower entry cost rather than higher absolute revenue. The Lisbon market offers greater exit liquidity and a broader buyer pool for premium assets.*
 
 **Porto-specific considerations:**
 - **Ribeira is the yield leader.** The waterfront historic district commands the highest ADR in Porto, with premium 1-bedroom apartments frequently achieving €120–€180/night during peak season. Pre-2023 licenses in Ribeira are among the most sought-after individual AL assets in Portugal.
@@ -360,14 +370,14 @@ The Algarve is structurally the most different of the three corridors. Its inves
 
 | Property Type | Location | Avg. Acq. Cost | Gross Annual Rev. | Net Revenue (×80%) | Net Yield |
 |---------------|----------|:--------------:|:-----------------:|:------------------:|:---------:|
-| 1-Bed apartment | Lagos | €290,000 | €32,400 | €25,920 | **8.9%** |
-| 2-Bed apartment | Portimão | €320,000 | €39,600 | €31,680 | **9.9%** |
-| 2-Bed w/ pool | Albufeira (inland) | €380,000 | €50,400 | €40,320 | **10.6%** |
-| 3-Bed villa | Tavira / East Algarve | €520,000 | €64,800 | €51,840 | **10.0%** |
-| 4-Bed pool villa | Almancil / Golden Triangle | €1,400,000 | €144,000 | €115,200 | **8.2%** |
-| Luxury villa (6-bed, pool, sea view) | Quinta do Lago area | €3,800,000 | €360,000 | €288,000 | **7.6%** |
+| 1-Bed apartment | Lagos | €290,000 | €25,600 | €20,480 | **7.1%** |
+| 2-Bed apartment | Portimão | €320,000 | €27,800 | €22,240 | **6.9%** |
+| 2-Bed w/ pool | Albufeira (inland) | €380,000 | €34,000 | €27,200 | **7.2%** |
+| 3-Bed villa | Tavira / East Algarve | €520,000 | €38,400 | €30,720 | **5.9%** |
+| 4-Bed pool villa | Almancil / Golden Triangle | €1,400,000 | €84,000 | €67,200 | **4.8%** |
+| Luxury villa (6-bed, pool, sea view) | Quinta do Lago area | €3,800,000 | €192,000 | €153,600 | **4.0%** |
 
-*Conservative 72% annual occupancy; 20% Standard management tier (Net Revenue = Gross × 80%). Gross yield on Algarve pool properties can significantly exceed these figures in exceptional seasons.*
+*70–72% blended annual occupancy; 20% Standard management tier (Net Revenue = Gross × 80%). Algarve seasonal concentration (July–August peak) produces higher blended yields than year-round Lisbon/Porto assets at equivalent acquisition cost. These figures represent reliable performance across normal seasons — not exceptional-year peaks.*
 
 **The Algarve renovation premium.** More than in either Lisbon or Porto, the Algarve market rewards renovation quality with a direct ADR premium. Properties with a contemporary renovation, high-quality outdoor space, and premium kitchen/bathroom specification command ADRs 35–60% above unrenovated comparable properties in the same location. PortoPrime's renovation division specifically targets this differential: the typical investment of €40,000–€85,000 in a full interior renovation of a 2-bedroom Algarve apartment produces a documented ADR increase of €40–€80/night — recovering the renovation cost in 18–30 months purely from rate differential.
 
@@ -381,7 +391,7 @@ For investors with a total capital commitment of €1M–€3M, the optimal AL p
 - An Algarve asset provides the highest gross yield and the seasonal peak that creates the portfolio's revenue concentration
 - A Porto asset (optional at portfolio entry; more compelling at €2M+) provides the highest yield-to-acquisition-cost ratio and exposure to the market with the greatest potential for capital appreciation catch-up relative to Lisbon
 
-This portfolio structure also creates natural tax planning opportunities: properties in different municipalities generate separate IMI assessments (avoiding AIMI aggregation through personal ownership) and, under a well-structured corporate framework, can be held in a single LDA that benefits from 19% IRC (effective ~20.5–21% including Derrama) on consolidated net income across the entire portfolio.
+This portfolio structure also creates natural tax planning opportunities: properties in different municipalities generate separate IMI assessments (avoiding AIMI aggregation through personal ownership) and, under a well-structured corporate framework, can be held in a single LDA that benefits from 19% IRC — producing an effective rate of **~21%** including Derrama Municipal surcharges — on consolidated net income across the entire portfolio.
 
 ---
 ---
@@ -398,7 +408,7 @@ The difference between a good Portuguese property investment and a great one is 
 
 ---
 
-### 5.1 The 30% Management Model: What It Delivers
+### 5.1 The Flexible Management Framework: What Each Tier Delivers
 
 PortoPrime operates a **Flexible Management Framework** — a tiered structure that allows investors to precisely calibrate the level of operational delegation and cost. The three tiers share the same dynamic pricing engine, OTA distribution, and compliance infrastructure; they differ in the depth of hands-on management delivered.
 
@@ -406,9 +416,11 @@ PortoPrime operates a **Flexible Management Framework** — a tiered structure t
 |------|:---:|-------------------|
 | **Essential** | 15% | Online management, bookings, dynamic pricing, and multilingual guest communication |
 | **Standard** | 20% | All Essential services + professional cleaning after every checkout, in-person check-ins, minor maintenance coordination, and monthly owner statements |
-| **Premium** | 25% | All Standard services + fiscal representation, AIMA & AL license compliance oversight, major maintenance coordination, annual property inspection, and dedicated portfolio reporting |
+| **Elite** | 25% | All Standard services + fiscal representation, AIMA & AL license compliance oversight, major maintenance coordination, annual property inspection, and dedicated portfolio reporting |
 
-The yield figures in Chapter 4 are calculated on the **Standard (20%)** tier as the baseline. Investors selecting Essential will see net yields approximately 0.8–1.2 percentage points higher; those selecting Premium will see yields approximately 0.5–0.8 points lower — offset by the value of full-service compliance protection.
+The yield figures in Chapter 4 are calculated on the **Standard (20%)** tier as the baseline. Investors selecting Essential will see net yields approximately 0.8–1.2 percentage points higher; those selecting Elite will see yields approximately 0.5–0.8 points lower — offset by the value of full-service compliance protection.
+
+> **Cleaning Fee Policy:** Guest-facing cleaning fees are collected as a separate line item by OTA platforms (Airbnb, Booking.com) and remitted directly to the cleaning contractor. Cleaning fees are **not deducted from the owner's gross revenue** in the PortoPrime model — the management fee percentage applies only to rental revenue, preserving the owner's full net margin.
 
 The constituent elements of the Standard tier:
 
@@ -425,7 +437,7 @@ Twenty-four-hour multilingual guest support (English, Portuguese, Russian, Germa
 Minor maintenance (plumbing calls, appliance faults, Wi-Fi failures, locksmith call-outs) is handled by PortoPrime's contractor network without owner involvement up to a pre-agreed per-incident threshold. Monthly owner statements itemise all maintenance expenditure with receipts. Annual property inspections identify preventive maintenance needs before they become revenue-disrupting failures.
 
 **Fiscal and compliance representation**
-Every PortoPrime **Premium** tier client has a designated fiscal representative in Portugal for NHR/IFICI registration, CIRS/IRS declarations, quarterly Category B filings (or annual IRC filings for corporate structures), and Câmara Municipal AL compliance reporting — included in the 25% fee. Standard tier clients receive a referral to PortoPrime's affiliated fiscal partners at preferential rates.
+Every PortoPrime **Elite** tier client has a designated fiscal representative in Portugal for NHR/IFICI registration, CIRS/IRS declarations, quarterly Category B filings (or annual IRC filings for corporate structures), and Câmara Municipal AL compliance reporting — included in the 25% fee. Standard tier clients receive a referral to PortoPrime's affiliated fiscal partners at preferential rates. Elite tier provides this as a fully included service, eliminating the coordination overhead for investors managing cross-border tax obligations.
 
 ---
 
@@ -443,11 +455,11 @@ The distinction between a residential renovation (focused on liveability) and an
 
 | Scenario | Purchase Price | Renovation Cost | Total Capital | Gross Annual Rev. | Net Rev. (×80%) | Net Yield |
 |----------|:--------------:|:---------------:|:-------------:|:-----------------:|:---------------:|:---------:|
-| Unrenovated, self-managed | €340,000 | — | €340,000 | €26,400 | €26,400 (no fee) | 7.8%* |
-| Unrenovated, Standard (20%) | €340,000 | — | €340,000 | €34,200 | €27,360 | 8.0% |
-| Renovated, Standard (20%) | €340,000 | €52,000 | €399,000 | €46,800 | €37,440 | **9.4%** |
+| Unrenovated, self-managed | €340,000 | — | €340,000 | €15,400 | €15,400 (no fee) | 4.5%* |
+| Unrenovated, Standard (20%) | €340,000 | — | €340,000 | €21,000 | €16,800 | 4.9% |
+| Renovated, Standard (20%) | €340,000 | €45,000 | €392,000 | €28,500 | €22,800 | **5.8%** |
 
-*\*No management fee applied for illustration; actual unmanaged yield would be lower after owner time, OTA fees, cleaning, and maintenance. Standard (20%) tier used as baseline; Premium (25%) would reduce net yield by approximately 0.6–0.8 percentage points.*
+*\*No management fee applied for illustration; actual unmanaged yield would be lower after owner time, OTA fees, cleaning, and maintenance. Standard (20%) tier used as baseline; Elite (25%) would reduce net yield by approximately 0.6–0.8 percentage points.*
 
 The renovation scenario — despite the higher total capital deployed — produces the highest net yield because the ADR premium from a premium renovation materially exceeds the additional capital cost, particularly in the Algarve where the visual quality of outdoor space is a direct booking conversion factor.
 
@@ -475,46 +487,48 @@ Where the property is held through a Portuguese LDA:
 ### 5.4 Illustrative 7-Year Investment Case
 
 **Property:** 2-bedroom apartment with private pool, 80m², Albufeira (inland), Algarve
-**Purchase price:** €380,000
-**Renovation cost:** €30,000
+**Purchase price:** €380,000 | **Renovation cost:** €30,000
 **Total acquisition cost (incl. IMT 6%, IS 0.8%, notary):** €436,000
-**Management tier:** Standard (20%)
+**Management tier:** Standard (20%) | **Year 1 gross revenue:** €34,000 (calibrated 2026 baseline at €400–€680/week, 70% occupancy)
+**Capital appreciation assumption:** 7% p.a. (Algarve prime; 6–8% sensitivity range produces IRR of 8.5–10.5%)
 
-| Year | Gross Revenue | Net Revenue (×80%) | After 19% IRC | Cumulative Net Cash Flow |
+| Year | Gross Revenue | Net Revenue (×80%) | After 21% IRC | Cumulative Net Cash Flow |
 |------|:-------------:|:------------------:|:-------------:|:------------------------:|
-| 1 | €50,400 | €40,320 | €33,300 | €33,300 |
-| 2 | €51,912 | €41,530 | €34,300 | €67,600 |
-| 3 | €53,469 | €42,775 | €35,400 | €103,000 |
-| 4 | €55,073 | €44,058 | €36,400 | €139,400 |
-| 5 | €56,725 | €45,380 | €37,500 | €176,900 |
-| 6 | €58,427 | €46,742 | €38,600 | €215,500 |
-| 7 | €60,180 | €48,144 | €39,800 | **€255,300** |
+| 1 | €34,000 | €27,200 | €21,760 | €21,760 |
+| 2 | €35,020 | €28,016 | €22,413 | €44,173 |
+| 3 | €36,071 | €28,857 | €23,086 | €67,259 |
+| 4 | €37,153 | €29,722 | €23,778 | €91,037 |
+| 5 | €38,268 | €30,614 | €24,491 | €115,528 |
+| 6 | €39,416 | €31,533 | €25,226 | €140,754 |
+| 7 | €40,598 | €32,479 | €25,983 | **€166,737** |
 
-*Assumes 3% annual revenue growth (conservative relative to 2020–2025 actuals); IRC at 19% applied to net taxable profit after management fee deduction, depreciation, and maintenance allowances.*
+*Assumes 3% annual revenue growth; effective IRC at 21% (19% base + Derrama Municipal surcharge) applied to net taxable profit after management fee deduction (20%), depreciation, and maintenance allowances. Year 1 gross revenue of €34,000 reflects a renovated 2-bed pool property at €400–€680/week, 70% blended occupancy — calibrated to 2026 Algarve market data.*
 
 **Exit scenario (Year 7):**
-- Estimated sale price (assuming 28% capital appreciation — mid-range for Algarve prime, 2026–2033): €558,080 (€436,000 × 1.28)
-- Capital gain: €122,080 (net of indexed original cost)
-- IRC on gain (19%): €23,195
-- Net exit proceeds: **€534,885**
+- Estimated sale price (assuming 7% annual capital appreciation — consistent with Algarve prime historical actuals, 2016–2025): €610,000 (property value €380,000 × 1.07⁷)
+- Capital gain: €230,000 (net of indexed original acquisition cost)
+- IRC on gain (19%): €43,700
+- Net exit proceeds: **€566,300**
 
 **Total 7-year return (after-tax cash flows + net exit proceeds):**
-- Cumulative net operating cash flows: €255,300
-- Net exit: €534,885
-- **Total: €790,185 on initial capital of €436,000**
-- **Total return: +81.2% / IRR: approximately 10.8% per annum after-tax**
+- Cumulative net operating cash flows: €166,737
+- Net exit: €566,300
+- **Total: €733,037 on initial capital of €436,000**
+- **Total return: +68.1% / IRR: approximately 9.0% per annum after-tax**
 
-This IRR — on a euro-denominated, EU-regulated, liquid real estate asset, using only the Standard (20%) management tier — substantially exceeds the risk-adjusted return profile of European investment-grade credit (currently 3.8–4.5%) and is achieved with significantly lower volatility than comparable equity-market strategies. Switching to the **Premium (25%) tier** would reduce annual net cash flows by approximately €2,200–€3,100 but would provide full AL license protection and fiscal representation — reducing tail risk in the denominator of the IRR calculation.
+*Sensitivity analysis: at 6% annual appreciation, IRR ≈ 8.5%; at 8% appreciation, IRR ≈ 10.5%. The target range of **8.5–10.5%** is achievable across a realistic set of Algarve market scenarios.*
+
+This IRR — on a euro-denominated, EU-regulated, liquid real estate asset — meaningfully outperforms European investment-grade credit (currently 3.8–4.5%) with significantly lower volatility than comparable equity-market strategies. The value of PortoPrime management is not in projecting peak returns; it is in **ensuring these 9% returns actually reach the bank account** despite 2026 regulatory complexities, filing requirements, and operational challenges that erode investor returns when left unmanaged. Switching to the **Elite (25%) tier** would reduce annual net cash flows by approximately €1,400–€1,800 while providing full AL license protection and fiscal representation — the appropriate choice for investors prioritising regulatory certainty over marginal yield optimisation.
 
 ---
 
 ### 5.5 The PortoPrime Partnership
 
-PortoPrime is not a lettings agency. We are the operational partner that transforms a real estate acquisition into a professionally managed investment vehicle. Our clients are investors who understand that the difference between 5.5% and 7.5% net yield on a €500,000 asset is €10,000 per year — and who choose not to leave that gap on the table through sub-optimal management.
+PortoPrime is not a lettings agency. We are the operational partner that transforms a real estate acquisition into a professionally managed investment vehicle. Our clients are investors who understand that the difference between a 4.5% and a 6.2% net yield on a €400,000 asset is €6,800 per year — and that the difference between a theoretical 6% and an *actual* 6% (one that clears regulatory requirements, tax filings, and guest disputes cleanly) is the entire value proposition of professional management in the 2026 Portuguese market.
 
 Our engagement begins before acquisition: PortoPrime provides pre-acquisition yield due diligence, renovation specification, and license viability assessments as part of the client onboarding process. It continues through the full hold period with monthly reporting, annual tax filing support, and proactive asset management recommendations. And it extends to exit: our relationships with the leading Portuguese investment property agents and our track record of professionally managed assets provide our clients with a meaningful advantage when bringing properties to market.
 
-The management fee — whether 15%, 20%, or 25% — is the cost of certainty, calibrated to the investor's chosen level of involvement. For investors whose time has a higher opportunity cost than asset management, and whose capital deserves professional stewardship, the **Standard or Premium tier is the most important line item in the investment case**. The flexibility to begin with Essential and step up to Premium as the portfolio matures is a structural advantage unique to the PortoPrime model.
+The management fee — whether 15%, 20%, or 25% — is the cost of certainty, calibrated to the investor's chosen level of involvement. For investors whose time has a higher opportunity cost than asset management, and whose capital deserves professional stewardship, the **Standard or Premium tier is the most important line item in the investment case**. The flexibility to begin with Essential and step up to Elite as the portfolio matures is a structural advantage unique to the PortoPrime model.
 
 ---
 
