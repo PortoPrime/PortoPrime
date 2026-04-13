@@ -23,7 +23,7 @@
     "ctaPrimary": "Calculer le Potentiel de Mon Bien",
     "ctaSecondary": "Découvrir nos Services",
     "badge1": "Revenus multipliés 1,5–2,5×",
-    "badge2": "90% de taux d'occupation",
+    "badge2": ">75% de taux d'occupation",
     "badge3": "Licencié & conforme",
     "trust": {
       "licensed": "Agréé par Turismo de Portugal",
@@ -88,12 +88,12 @@
     "headline": "Des Chiffres qui Parlent d'Eux-Mêmes",
     "metrics": {
       "yield": {
-        "value": "15%",
+        "value": "×1,5–2,5",
         "label": "Rendement Annuel Moyen",
         "description": "Des retours sur investissement supérieurs au marché pour nos biens gérés"
       },
       "occupancy": {
-        "value": "90%",
+        "value": ">75%",
         "label": "Taux d'Occupation",
         "description": "Taux d'occupation constamment élevé dans tout notre portefeuille"
       },

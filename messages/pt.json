@@ -23,7 +23,7 @@
     "ctaPrimary": "Calcule o Potencial do Meu Imóvel",
     "ctaSecondary": "Ver Serviços",
     "badge1": "Aumento de receita 1,5–2,5×",
-    "badge2": "90% de Taxa de Ocupação",
+    "badge2": ">75% de Taxa de Ocupação",
     "badge3": "Licenciado e Conforme",
     "trust": {
       "licensed": "Licenciado pelo Turismo de Portugal",
@@ -88,12 +88,12 @@
     "headline": "Números que Falam por Si",
     "metrics": {
       "yield": {
-        "value": "15%",
+        "value": "×1,5–2,5",
         "label": "Rendimento Anual Médio",
         "description": "Retornos acima do mercado para os nossos imóveis geridos"
       },
       "occupancy": {
-        "value": "90%",
+        "value": ">75%",
         "label": "Taxa de Ocupação",
         "description": "Ocupação consistentemente elevada em todo o nosso portefólio"
       },

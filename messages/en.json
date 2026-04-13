@@ -23,7 +23,7 @@
     "ctaPrimary": "Calculate My Property Potential",
     "ctaSecondary": "Explore Our Services",
     "badge1": "1.5–2.5× Revenue Uplift",
-    "badge2": "90% Occupancy Rate",
+    "badge2": ">75% Occupancy Rate",
     "badge3": "Licensed & Compliant",
     "trust": {
       "licensed": "Licensed by Turismo de Portugal",
@@ -88,12 +88,12 @@
     "headline": "Numbers That Speak for Themselves",
     "metrics": {
       "yield": {
-        "value": "15%",
+        "value": "×1.5–2.5",
         "label": "Average Annual Yield",
         "description": "Above-market returns for our managed properties"
       },
       "occupancy": {
-        "value": "90%",
+        "value": ">75%",
         "label": "Occupancy Rate",
         "description": "Consistently high occupancy across our portfolio"
       },

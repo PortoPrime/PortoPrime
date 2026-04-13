@@ -23,7 +23,7 @@
     "ctaPrimary": "Calcola il Potenziale della Mia Proprietà",
     "ctaSecondary": "Scopri i Servizi",
     "badge1": "Entrate aumentate 1,5–2,5×",
-    "badge2": "90% tasso di occupazione",
+    "badge2": ">75% tasso di occupazione",
     "badge3": "Autorizzato & conforme",
     "trust": {
       "licensed": "Autorizzato da Turismo de Portugal",
@@ -88,12 +88,12 @@
     "headline": "Numeri che Parlano da Soli",
     "metrics": {
       "yield": {
-        "value": "15%",
+        "value": "×1,5–2,5",
         "label": "Rendimento Annuale Medio",
         "description": "Rendimenti superiori al mercato per i nostri immobili gestiti"
       },
       "occupancy": {
-        "value": "90%",
+        "value": ">75%",
         "label": "Tasso di Occupazione",
         "description": "Occupazione costantemente alta in tutto il nostro portafoglio"
       },

@@ -23,7 +23,7 @@
     "ctaPrimary": "Mein Immobilienpotenzial Berechnen",
     "ctaSecondary": "Unsere Leistungen",
     "badge1": "1,5–2,5-fache Umsatzsteigerung",
-    "badge2": "90% Auslastungsquote",
+    "badge2": ">75% Auslastungsquote",
     "badge3": "Lizenziert & compliant",
     "trust": {
       "licensed": "Lizenziert von Turismo de Portugal",
@@ -88,12 +88,12 @@
     "headline": "Zahlen, die für sich sprechen",
     "metrics": {
       "yield": {
-        "value": "15%",
+        "value": "×1,5–2,5",
         "label": "Durchschnittliche Jahresrendite",
         "description": "Überdurchschnittliche Renditen für unsere verwalteten Objekte"
       },
       "occupancy": {
-        "value": "90%",
+        "value": ">75%",
         "label": "Auslastungsquote",
         "description": "Konstant hohe Auslastung in unserem gesamten Portfolio"
       },
