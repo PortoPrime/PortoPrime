@@ -168,8 +168,8 @@ export function Hero() {
         {/* Stats badges */}
         <div className="flex flex-wrap justify-center gap-3 mb-16">
           {[
-            { value: '15%',  labelKey: 'badge1' as const },
-            { value: '90%',  labelKey: 'badge2' as const },
+            { value: '×1,5–2,5', labelKey: 'badge1' as const },
+            { value: '>75%',     labelKey: 'badge2' as const },
             { value: '120+', label:    'Properties'      },
           ].map(({ value, labelKey, label }) => (
             <div key={value} className="glass rounded-2xl px-6 py-3.5 text-center min-w-[108px]">
