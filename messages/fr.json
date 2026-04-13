@@ -18,7 +18,7 @@
   },
   "hero": {
     "eyebrow": "Le Partenaire Immobilier Premium du Portugal",
-    "headline": "Services Complets de Gestion Locative Immobilière au Portugal",
+    "headline": "Nous Augmentons vos Revenus Locatifs au Portugal en Location Courte Durée",
     "subheadline": "Gestion professionnelle avec une commission flexible à partir de 15%",
     "ctaPrimary": "Calculer le Potentiel de Mon Bien",
     "ctaSecondary": "Découvrir nos Services",
@@ -29,7 +29,9 @@
       "licensed": "Agréé par Turismo de Portugal",
       "aima": "Conforme AIMA",
       "roi": "Certification AL"
-    }
+    },
+    "bullet1": "Nous garantissons un taux d'occupation à partir de 75% par an",
+    "bullet2": "Gestion complète avec commission à partir de 150€/mois"
   },
   "services": {
     "eyebrow": "Nos Services",

@@ -18,7 +18,7 @@
   },
   "hero": {
     "eyebrow": "Portugals führender Premium-Immobilienpartner",
-    "headline": "Vollständiges Immobilienvermietungsmanagement in Portugal",
+    "headline": "Wir Steigern Ihre Mieteinnahmen in Portugal mit Kurzzeitvermietung",
     "subheadline": "Professionelle Verwaltung mit flexibler Provision ab 15%",
     "ctaPrimary": "Mein Immobilienpotenzial Berechnen",
     "ctaSecondary": "Unsere Leistungen",
@@ -29,7 +29,9 @@
       "licensed": "Lizenziert von Turismo de Portugal",
       "aima": "AIMA-konform",
       "roi": "AL-Zertifizierung"
-    }
+    },
+    "bullet1": "Wir sichern eine Auslastung ab 75% pro Jahr",
+    "bullet2": "Vollständiges Management ab 150€/Monat Provision"
   },
   "services": {
     "eyebrow": "Unsere Leistungen",

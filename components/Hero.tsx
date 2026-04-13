@@ -118,16 +118,23 @@ export function Hero() {
           ))}
         </h1>
 
-        {/* Subheadline — text-shadow ensures legibility across every photo zone
-            and every language, regardless of line length or background brightness */}
-        <p
-          className="text-base sm:text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed font-light"
-          style={{
-            textShadow: '0 1px 3px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.45)',
-          }}
-        >
-          {t('subheadline')}
-        </p>
+        {/* Bullet points — two key value props below the headline */}
+        <ul className="flex flex-col items-start sm:items-center gap-3 mb-10 max-w-xl mx-auto">
+          {(['bullet1', 'bullet2'] as const).map((key) => (
+            <li
+              key={key}
+              className="flex items-center gap-3 text-base sm:text-lg text-white/90 font-light"
+              style={{ textShadow: '0 1px 3px rgba(0,0,0,0.55)' }}
+            >
+              <span
+                className="flex-shrink-0 w-2 h-2 rounded-full"
+                style={{ background: '#E0C397' }}
+                aria-hidden="true"
+              />
+              {t(key)}
+            </li>
+          ))}
+        </ul>
 
         {/* CTA row */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">

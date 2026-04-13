@@ -18,7 +18,7 @@
   },
   "hero": {
     "eyebrow": "Portugal's Premier Property Partner",
-    "headline": "Full-Cycle Property Rental Management Services in Portugal",
+    "headline": "We'll Grow Your Portugal Property Income Through Short-Term Rentals",
     "subheadline": "Professional management with a flexible commission from 15%",
     "ctaPrimary": "Calculate My Property Potential",
     "ctaSecondary": "Explore Our Services",
@@ -29,7 +29,9 @@
       "licensed": "Licensed by Turismo de Portugal",
       "aima": "AIMA Compliant",
       "roi": "AL Certification"
-    }
+    },
+    "bullet1": "We secure occupancy from 75% per year",
+    "bullet2": "Full management from €150/month commission"
   },
   "services": {
     "eyebrow": "Our Services",

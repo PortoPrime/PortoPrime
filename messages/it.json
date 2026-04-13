@@ -18,7 +18,7 @@
   },
   "hero": {
     "eyebrow": "Il Partner Immobiliare Premium del Portogallo",
-    "headline": "Servizi Completi di Gestione degli Affitti Immobiliari in Portogallo",
+    "headline": "Aumentiamo i Redditi del Suo Immobile in Portogallo negli Affitti Brevi",
     "subheadline": "Gestione professionale con commissione flessibile a partire dal 15%",
     "ctaPrimary": "Calcola il Potenziale della Mia Proprietà",
     "ctaSecondary": "Scopri i Servizi",
@@ -29,7 +29,9 @@
       "licensed": "Autorizzato da Turismo de Portugal",
       "aima": "Conforme AIMA",
       "roi": "Certificazione AL"
-    }
+    },
+    "bullet1": "Garantiamo un tasso di occupazione a partire dal 75% annuo",
+    "bullet2": "Gestione completa con commissione a partire da 150€/mese"
   },
   "services": {
     "eyebrow": "I Nostri Servizi",

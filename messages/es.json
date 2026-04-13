@@ -18,7 +18,7 @@
   },
   "hero": {
     "eyebrow": "El Socio Inmobiliario Premium de Portugal",
-    "headline": "Servicios Completos de Gestión de Alquiler Inmobiliario en Portugal",
+    "headline": "Aumentamos los Ingresos de su Propiedad en Portugal con el Alquiler a Corto Plazo",
     "subheadline": "Gestión profesional con comisión flexible desde el 15%",
     "ctaPrimary": "Calcular el Potencial de Mi Propiedad",
     "ctaSecondary": "Ver Nuestros Servicios",
@@ -29,7 +29,9 @@
       "licensed": "Autorizado por Turismo de Portugal",
       "aima": "Cumple con AIMA",
       "roi": "Certificación AL"
-    }
+    },
+    "bullet1": "Aseguramos una ocupación a partir del 75% anual",
+    "bullet2": "Gestión completa con comisión desde 150€/mes"
   },
   "services": {
     "eyebrow": "Nuestros Servicios",
