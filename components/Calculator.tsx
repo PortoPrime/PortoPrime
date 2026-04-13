@@ -9,33 +9,41 @@ const REVENUE_EVENT = 'portoprime:revenue';
 
 // ─── Calculation constants ──────────────────────────────────────────────────
 
+/**
+ * Lisbon is the reference location (multiplier 1.0).
+ * Anchored to real 2025 market data: 1-bed Lisbon ranges €60–€200/night.
+ */
 const LOCATION_MULTIPLIERS: Record<string, number> = {
-  lisbon:  1.2,
-  porto:   1.0,
-  algarve: 1.1,
-  other:   0.8,
+  lisbon:  1.00,  // reference — 1-bed Good €110/night
+  porto:   0.80,  // ~20% below Lisbon
+  algarve: 0.90,  // slightly below Lisbon; seasonal peaks compensate
+  other:   0.65,  // Silver Coast, Setúbal, interior regions
 };
 
+/**
+ * Base ADR (€/night) for each property type at Lisbon "Good" condition.
+ * Anchor: 1-bed Lisbon Good = €110/night.
+ */
 const BASE_RATES: Record<string, number> = {
-  studio:      80,
-  oneBedroom: 110,
-  twoBedroom: 160,
-  villa:      300,
+  studio:      73,   // 35m² — €40 (reno) → €133 (premium) in Lisbon
+  oneBedroom: 110,   // 55m² — €60 (reno) → €200 (premium) in Lisbon ← anchor
+  twoBedroom: 145,   // 80m² — €79 (reno) → €264 (premium) in Lisbon
+  villa:      290,   // 200m²+ — €158 (reno) → €527 (premium) in Lisbon
 };
 
 /**
  * ADR multiplier by condition (1 = Needs Renovation → 5 = Premium).
- * Spread is intentionally wide: Premium earns ~2× a Renovation property,
- * which reinforces the renovation upsell and reflects real market dynamics.
- *   Condition 5 / Condition 1 = 1.30 / 0.65 = 2.0  (+100% vs renovation)
- *   Condition 5 / Condition 3 = 1.30 / 1.00 = +30%  above market baseline
+ * Calibrated to real Lisbon market anchors provided by PortoPrime:
+ *   Condition 1 (Renovation): €60/night for 1-bed  →  110 × 0.55 = €60.5
+ *   Condition 5 (Premium):   €200/night for 1-bed  →  110 × 1.82 = €200.2
+ *   Spread: 1.82 / 0.55 = 3.3× (renovation → premium)
  */
 const CONDITION_MULTIPLIERS: Record<number, number> = {
-  1: 0.65,   // Needs Renovation — significant ADR discount
-  2: 0.80,   // Fair             — below-market
-  3: 1.00,   // Good             — at market (reference point)
-  4: 1.15,   // Very Good        — above market
-  5: 1.30,   // Premium          — top-of-market (+100% vs Renovation)
+  1: 0.55,   // Needs Renovation — heavy ADR discount
+  2: 0.73,   // Fair             — below-market (~€80/night 1-bed Lisbon)
+  3: 1.00,   // Good             — at market reference
+  4: 1.36,   // Very Good        — above market (~€150/night 1-bed Lisbon)
+  5: 1.82,   // Premium          — top-of-market (~€200/night 1-bed Lisbon)
 };
 
 const DAYS_PER_MONTH    = 30;
