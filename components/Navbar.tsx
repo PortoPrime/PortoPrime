@@ -174,7 +174,7 @@ export function Navbar({ locale }: NavbarProps) {
               <button
                 onClick={() => setLangOpen((v) => !v)}
                 className="
-                  h-10 flex items-center gap-1.5 px-3.5 rounded-full
+                  h-10 w-[88px] flex items-center justify-between px-3 rounded-full
                   text-sm font-medium text-white/80 hover:text-white
                   border border-white/20 hover:border-white/40
                   transition-all duration-200
@@ -184,10 +184,10 @@ export function Navbar({ locale }: NavbarProps) {
                 aria-expanded={langOpen}
                 aria-label={t('languageLabel')}
               >
-                <Globe className="w-3.5 h-3.5 opacity-70" />
-                <span>{activeLocale.flag} {activeLocale.code.toUpperCase()}</span>
+                <Globe className="w-3.5 h-3.5 opacity-70 flex-shrink-0" />
+                <span className="flex-shrink-0">{activeLocale.flag} {activeLocale.code.toUpperCase()}</span>
                 <ChevronDown
-                  className={`w-3.5 h-3.5 opacity-60 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`}
+                  className={`w-3.5 h-3.5 opacity-60 flex-shrink-0 transition-transform duration-200 ${langOpen ? 'rotate-180' : ''}`}
                 />
               </button>
 
