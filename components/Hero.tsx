@@ -182,7 +182,7 @@ export function Hero() {
           {[
             { value: '×1,5–2,5', labelKey: 'badge1' as const },
             { value: '>75%',     labelKey: 'badge2' as const },
-            { value: '120+', label:    'Properties'      },
+            { value: '120+', labelKey: 'badge4' as const  },
           ].map(({ value, labelKey, label }) => (
             <div key={value} className="glass rounded-2xl px-6 py-3.5 text-center min-w-[108px]">
               <div
