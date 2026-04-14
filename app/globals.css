@@ -36,6 +36,8 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Windows: always reserve scrollbar space to prevent 17px layout shift on locale change */
+  overflow-y: scroll;
 }
 
 body {
