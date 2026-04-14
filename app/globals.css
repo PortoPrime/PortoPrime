@@ -36,6 +36,8 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Reserve scrollbar space so layout never shifts when scrollbar appears/disappears */
+  scrollbar-gutter: stable;
 }
 
 body {
