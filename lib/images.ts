@@ -37,7 +37,7 @@ export const IMAGES = {
    * Aspect ratio: 16:9 | Full-bleed background
    */
   hero: {
-    src: 'https://images.unsplash.com/photo-1548707309-dcebeab9ea9b?auto=format&fit=crop&w=1920&q=85',
+    src: '/images/hero.jpg',
     alt: 'Premium luxury property overlooking the Tagus River in Lisbon at sunset',
     blurDataURL: BLUR_DARK,
     width: 1920,
