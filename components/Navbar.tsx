@@ -232,13 +232,13 @@ export function Navbar({ locale }: NavbarProps) {
               )}
             </div>
 
-            {/* CTA */}
+            {/* CTA — fixed width prevents layout shift on locale change */}
             <a
               href="#contact"
               className="
-                h-10 inline-flex items-center justify-center px-5 rounded-full
+                h-10 inline-flex items-center justify-center rounded-full
                 text-sm font-semibold text-[#1B263B]
-                min-w-[130px]
+                w-[176px]
                 transition-all duration-300
                 hover:scale-105 hover:shadow-[0_0_20px_rgba(224,195,151,0.4)]
                 active:scale-100

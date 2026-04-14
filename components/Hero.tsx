@@ -34,8 +34,6 @@ export function Hero() {
         fill
         priority
         quality={90}
-        placeholder="blur"
-        blurDataURL={img.blurDataURL}
         className="object-cover object-center"
         sizes="100vw"
       />
