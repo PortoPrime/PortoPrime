@@ -36,6 +36,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -43,8 +44,6 @@ body {
   color: var(--primary);
   font-family: var(--font-sans);
   line-height: 1.6;
-  /* Always reserve scrollbar space — prevents width shift on locale/page change */
-  overflow-y: scroll;
 }
 
 /* ─── Glassmorphism Utility ───────────────────────────────────────────────── */
