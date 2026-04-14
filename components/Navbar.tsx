@@ -122,7 +122,7 @@ export function Navbar({ locale }: NavbarProps) {
           {/* ── Logo ──────────────────────────────────────────────────── */}
           <a
             href={`/${locale === 'en' ? '' : locale}`}
-            className="flex items-center gap-2.5 group flex-shrink-0 w-[148px]"
+            className="flex items-center gap-2.5 group flex-shrink-0"
             aria-label="PortoPrime — Home"
           >
             <div
@@ -167,7 +167,7 @@ export function Navbar({ locale }: NavbarProps) {
             Both controls share h-10 (40px) so they sit on the same baseline
             as the w-9 h-9 logo icon when the flex container uses items-center.
           */}
-          <div className="hidden md:flex items-center gap-3 flex-shrink-0 w-[252px] justify-end">
+          <div className="hidden md:flex items-center gap-3 flex-shrink-0">
 
             {/* Language switcher */}
             <div className="relative" ref={langRef}>
