@@ -23,6 +23,10 @@ export async function generateMetadata({
     description: t('description'),
     keywords: t('keywords'),
     metadataBase: new URL('https://portoprime.pt'),
+    icons: {
+      icon: '/favicon.svg',
+      shortcut: '/favicon.svg',
+    },
     alternates: {
       canonical: `/${locale}`,
       languages: Object.fromEntries(

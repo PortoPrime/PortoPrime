@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Gold rounded square background -->
+  <rect width="32" height="32" rx="7" fill="url(#gold)"/>
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0C397"/>
+      <stop offset="100%" stop-color="#C9A96E"/>
+    </linearGradient>
+  </defs>
+  <!-- TrendingUp icon (deep navy, strokeWidth ~2.5, centered) -->
+  <polyline
+    points="3,22 10,14 15,18 22,10"
+    fill="none"
+    stroke="#1B263B"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <polyline
+    points="18,10 22,10 22,14"
+    fill="none"
+    stroke="#1B263B"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
