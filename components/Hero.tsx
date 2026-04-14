@@ -123,12 +123,17 @@ export function Hero() {
           {(['bullet1', 'bullet2'] as const).map((key) => (
             <li
               key={key}
-              className="flex items-center gap-3 text-base sm:text-lg text-white/90 font-light"
-              style={{ textShadow: '0 1px 3px rgba(0,0,0,0.55)' }}
+              className="flex items-center gap-3 text-base sm:text-lg text-white font-medium px-4 py-2 rounded-xl"
+              style={{
+                textShadow: '0 1px 6px rgba(0,0,0,0.9)',
+                background: 'rgba(0,0,0,0.38)',
+                backdropFilter: 'blur(6px)',
+                border: '1px solid rgba(255,255,255,0.10)',
+              }}
             >
               <span
                 className="flex-shrink-0 w-2 h-2 rounded-full"
-                style={{ background: '#E0C397' }}
+                style={{ background: '#E0C397', boxShadow: '0 0 6px rgba(224,195,151,0.7)' }}
                 aria-hidden="true"
               />
               {t(key)}
