@@ -7,9 +7,9 @@ import { IMAGES } from '@/lib/images';
 
 // ─── Trust Badge data (icon + translation key) ─────────────────────────────
 const TRUST_BADGES = [
-  { key: 'licensed' as const, Icon: Shield     },
-  { key: 'aima'     as const, Icon: Award      },
-  { key: 'roi'      as const, Icon: TrendingUp },
+  { key: 'licensed' as const, tKey: 'trust.licensed' as const, Icon: Shield      },
+  { key: 'aima'     as const, tKey: 'trust.aima'     as const, Icon: Award       },
+  { key: 'roi'      as const, tKey: 'trust.roi'      as const, Icon: TrendingUp  },
 ] as const;
 
 // ─── Hero Component ────────────────────────────────────────────────────────
@@ -183,7 +183,7 @@ export function Hero() {
             { value: '×1,5–2,5', labelKey: 'badge1' as const },
             { value: '>75%',     labelKey: 'badge2' as const },
             { value: '120+', labelKey: 'badge4' as const  },
-          ].map(({ value, labelKey, label }) => (
+          ].map(({ value, labelKey }) => (
             <div key={value} className="glass rounded-2xl px-6 py-3.5 text-center min-w-[108px]">
               <div
                 className="text-2xl font-bold text-gradient-gold"
@@ -192,7 +192,7 @@ export function Hero() {
                 {value}
               </div>
               <div className="text-xs text-white/60 mt-0.5 tracking-wide">
-                {labelKey ? t(labelKey) : label}
+                {t(labelKey)}
               </div>
             </div>
           ))}
@@ -206,7 +206,7 @@ export function Hero() {
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 md:gap-16">
-            {TRUST_BADGES.map(({ key, Icon }) => (
+            {TRUST_BADGES.map(({ key, tKey, Icon }) => (
               <div key={key} className="flex items-center gap-3 group">
                 <div
                   className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center
@@ -219,7 +219,7 @@ export function Hero() {
                   <Icon className="w-4 h-4" style={{ color: '#E0C397' }} strokeWidth={1.8} />
                 </div>
                 <span className="text-sm font-medium text-white/80 group-hover:text-white transition-colors duration-200 whitespace-nowrap">
-                  {t(`trust.${key}`)}
+                  {t(tKey)}
                 </span>
                 {key !== 'roi' && (
                   <span className="hidden sm:block w-px h-5 bg-white/15 ml-4" aria-hidden="true" />
