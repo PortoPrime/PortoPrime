@@ -274,5 +274,10 @@
     "label": "Trusted Partners & Certifications",
     "headline": "Our Trusted Network",
     "subheadline": "Licensed, certified and partnered with the best in Portuguese real estate and finance."
+  },
+  "cookies": {
+    "message": "We use cookies to improve your experience on our website. By continuing to use the site, you agree to our privacy policy.",
+    "accept": "Accept",
+    "ariaLabel": "Cookie consent"
   }
 }

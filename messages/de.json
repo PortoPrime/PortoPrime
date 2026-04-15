@@ -274,5 +274,10 @@
     "label": "Vertrauenspartner & Zertifizierungen",
     "headline": "Unser vertrauenswürdiges Netzwerk",
     "subheadline": "Lizenziert, zertifiziert und mit den Besten im portugiesischen Immobilien- und Finanzbereich."
+  },
+  "cookies": {
+    "message": "Wir verwenden Cookies, um Ihr Erlebnis auf unserer Website zu verbessern. Durch die weitere Nutzung der Website stimmen Sie unserer Datenschutzrichtlinie zu.",
+    "accept": "Akzeptieren",
+    "ariaLabel": "Cookie-Zustimmung"
   }
 }

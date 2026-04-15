@@ -274,5 +274,10 @@
     "label": "Partenaires et Certifications de Confiance",
     "headline": "Notre Réseau de Confiance",
     "subheadline": "Agréés, certifiés et en partenariat avec les meilleurs de l'immobilier et de la finance au Portugal."
+  },
+  "cookies": {
+    "message": "Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant à utiliser le site, vous acceptez notre politique de confidentialité.",
+    "accept": "Accepter",
+    "ariaLabel": "Consentement aux cookies"
   }
 }

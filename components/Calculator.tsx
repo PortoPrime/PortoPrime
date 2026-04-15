@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import { MapPin, Home, Sliders, TrendingUp, ArrowRight, Sparkles, BarChart2, Info } from 'lucide-react';
+import { calcCookie } from '@/lib/cookies';
 
 // Custom event name — LeadForm listens for this to pre-fill the revenue field
 const REVENUE_EVENT = 'portoprime:revenue';
@@ -184,13 +185,19 @@ function GoldSelect({ value, onChange, children, ariaLabel }: SelectProps) {
 export function Calculator() {
   const t = useTranslations('calculator');
 
-  // ── State ────────────────────────────────────────────────────────────────
-  const [selectedLocation, setSelectedLocation] = useState('lisbon');
-  const [propertyType,     setPropertyType]     = useState('oneBedroom');
-  const [condition,        setCondition]        = useState(3);         // 1–5
-  const [occupancy,        setOccupancy]        = useState(80);        // 40–100 %
-  const [feeTier,          setFeeTier]          = useState<FeeTier>('standard');
+  // ── State (restored from cookie on first mount) ───────────────────────────
+  const saved = calcCookie.get();
+  const [selectedLocation, setSelectedLocation] = useState(saved?.location     ?? 'lisbon');
+  const [propertyType,     setPropertyType]     = useState(saved?.propertyType ?? 'oneBedroom');
+  const [condition,        setCondition]        = useState(saved?.condition     ?? 3);
+  const [occupancy,        setOccupancy]        = useState(saved?.occupancy     ?? 80);
+  const [feeTier,          setFeeTier]          = useState<FeeTier>((saved?.feeTier as FeeTier) ?? 'standard');
   const [hoveredTier,      setHoveredTier]      = useState<FeeTier | null>(null);
+
+  // ── Persist state to cookie on every change ───────────────────────────────
+  useEffect(() => {
+    calcCookie.set({ location: selectedLocation, propertyType, condition, occupancy, feeTier });
+  }, [selectedLocation, propertyType, condition, occupancy, feeTier]);
 
   // ── Derived values ───────────────────────────────────────────────────────
   const monthly         = calcMonthly(selectedLocation, propertyType, condition, occupancy, feeTier);

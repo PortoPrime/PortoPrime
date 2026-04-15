@@ -274,5 +274,10 @@
     "label": "Parceiros e Certificações de Confiança",
     "headline": "A Nossa Rede de Confiança",
     "subheadline": "Licenciados, certificados e parceiros dos melhores em imobiliário e finanças em Portugal."
+  },
+  "cookies": {
+    "message": "Utilizamos cookies para melhorar a sua experiência no nosso site. Ao continuar a usar o site, concorda com a nossa política de privacidade.",
+    "accept": "Aceitar",
+    "ariaLabel": "Consentimento de cookies"
   }
 }

@@ -274,5 +274,10 @@
     "label": "Socios y Certificaciones de Confianza",
     "headline": "Nuestra Red de Confianza",
     "subheadline": "Autorizados, certificados y en colaboración con los mejores en el sector inmobiliario y financiero de Portugal."
+  },
+  "cookies": {
+    "message": "Utilizamos cookies para mejorar su experiencia en nuestro sitio web. Al continuar utilizando el sitio, acepta nuestra política de privacidad.",
+    "accept": "Aceptar",
+    "ariaLabel": "Consentimiento de cookies"
   }
 }

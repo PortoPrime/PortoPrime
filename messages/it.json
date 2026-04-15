@@ -274,5 +274,10 @@
     "label": "Partner e Certificazioni di Fiducia",
     "headline": "La Nostra Rete di Fiducia",
     "subheadline": "Autorizzati, certificati e in partnership con i migliori nel settore immobiliare e finanziario portoghese."
+  },
+  "cookies": {
+    "message": "Utilizziamo cookie per migliorare la tua esperienza sul nostro sito. Continuando a utilizzare il sito, accetti la nostra informativa sulla privacy.",
+    "accept": "Accetta",
+    "ariaLabel": "Consenso ai cookie"
   }
 }

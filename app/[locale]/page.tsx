@@ -8,6 +8,7 @@ import { FAQ }            from '@/components/FAQ';
 import { LeadMagnet }     from '@/components/LeadMagnet';
 import { LeadForm }       from '@/components/LeadForm';
 import { Footer }         from '@/components/Footer';
+import { CookieBanner }   from '@/components/CookieBanner';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 interface PageProps {
@@ -49,6 +50,9 @@ export default async function HomePage({ params }: PageProps) {
 
       {/* Footer — legal links, trust marks, copyright */}
       <Footer />
+
+      {/* GDPR Cookie Consent Banner */}
+      <CookieBanner />
     </main>
   );
 }
