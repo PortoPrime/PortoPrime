@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative h-screen flex flex-col items-center overflow-hidden"
       aria-label="Hero"
     >
       {/* ── Background photo — LCP element, loaded with priority ────────── */}
@@ -94,11 +94,11 @@ export function Hero() {
       />
 
       {/* ── Main content ─────────────────────────────────────────────────── */}
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-28 pb-12">
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-28 pb-6">
 
         {/* Eyebrow pill */}
         <p
-          className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.3em] uppercase mb-8 px-4 py-2 rounded-full border border-[#E0C397]/30"
+          className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.3em] uppercase mb-5 px-4 py-2 rounded-full border border-[#E0C397]/30"
           style={{ color: '#E0C397', background: 'rgba(224,195,151,0.08)' }}
         >
           <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#E0C397' }} />
@@ -107,7 +107,7 @@ export function Hero() {
 
         {/* Headline — Playfair Display, split to gold-highlight the second clause */}
         <h1
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.05] tracking-tight"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-white mb-5 leading-[1.05] tracking-tight"
           style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
         >
           {t('headline').split('. ').map((part, i) => (
@@ -119,7 +119,7 @@ export function Hero() {
         </h1>
 
         {/* Bullet points — two key value props below the headline */}
-        <ul className="flex flex-col items-start sm:items-center gap-3 mb-10 max-w-xl mx-auto">
+        <ul className="flex flex-col items-start sm:items-center gap-3 mb-7 max-w-xl mx-auto">
           {(['bullet1', 'bullet2'] as const).map((key) => (
             <li
               key={key}
@@ -142,7 +142,7 @@ export function Hero() {
         </ul>
 
         {/* CTA row */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <a
             href="#contact"
             className="
@@ -178,7 +178,7 @@ export function Hero() {
         </div>
 
         {/* Stats badges */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
+        <div className="flex flex-wrap justify-center gap-3">
           {[
             { value: '×1,5–2,5', labelKey: 'badge1' as const },
             { value: '>75%',     labelKey: 'badge2' as const },
@@ -201,7 +201,7 @@ export function Hero() {
 
       {/* ── Trust Badge Strip ─────────────────────────────────────────────── */}
       <div
-        className="relative z-10 w-full border-t border-white/10"
+        className="relative z-10 w-full border-t border-white/10 mt-auto"
         style={{ background: 'rgba(13,20,32,0.72)', backdropFilter: 'blur(16px)' }}
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
