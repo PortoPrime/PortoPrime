@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative h-screen flex flex-col items-center justify-center overflow-hidden"
       aria-label="Hero"
     >
       {/* ── Background photo — LCP element, loaded with priority ────────── */}

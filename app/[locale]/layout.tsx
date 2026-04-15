@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
@@ -10,6 +10,13 @@ interface LocaleLayoutProps {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }
+
+// ─── Viewport — locked to prevent per-locale zoom drift ───────────────────
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 // ─── SEO Metadata ──────────────────────────────────────────────────────────
 export async function generateMetadata({
