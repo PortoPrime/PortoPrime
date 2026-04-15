@@ -236,7 +236,7 @@ export function Navbar({ locale }: NavbarProps) {
             <a
               href="#contact"
               className="
-                h-10 inline-flex items-center px-5 rounded-full
+                h-10 inline-flex items-center justify-center px-5 min-w-[200px] rounded-full
                 text-sm font-semibold text-[#1B263B]
                 transition-all duration-300
                 hover:scale-105 hover:shadow-[0_0_20px_rgba(224,195,151,0.4)]
