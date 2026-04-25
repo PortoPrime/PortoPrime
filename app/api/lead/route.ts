@@ -249,29 +249,27 @@ async function fireCapiEvent(
   req: NextRequest,
   lead: LeadPayload,
   ip: string,
-): Promise<void> {
+): Promise<{ ok: boolean; error?: string; skipped?: 'no_event_id' }> {
   if (!lead.eventId) {
-    console.info('[LeadAPI] No eventId on payload — skipping CAPI (no browser Pixel dedup available)');
-    return;
+    return { ok: false, skipped: 'no_event_id' };
   }
 
   const sourceUrl = req.headers.get('referer') ?? undefined;
   const userData  = buildUserDataFromRequest(req, lead, ip);
 
   if (lead.source === 'lead_magnet') {
-    await sendCompleteRegistrationEvent({
+    return sendCompleteRegistrationEvent({
       eventId: lead.eventId,
       userData,
       sourceUrl,
     });
-  } else {
-    await sendContactEvent({
-      eventId:  lead.eventId,
-      userData,
-      sourceUrl,
-      revenue:  lead.revenue,
-    });
   }
+  return sendContactEvent({
+    eventId:  lead.eventId,
+    userData,
+    sourceUrl,
+    revenue:  lead.revenue,
+  });
 }
 
 // ─── POST /api/lead ─────────────────────────────────────────────────────────
@@ -336,11 +334,17 @@ export async function POST(req: NextRequest) {
     // request lands before the process moves on. CAPI errors never fail
     // the lead itself — Telegram already succeeded above.
     try {
-      await fireCapiEvent(req, lead, ip);
-      console.info('[LeadAPI] Meta CAPI event sent', {
-        source:  lead.source,
-        eventId: lead.eventId ?? 'none',
-      });
+      const capiResult = await fireCapiEvent(req, lead, ip);
+      if (capiResult.ok) {
+        console.info('[LeadAPI] Meta CAPI event sent', {
+          source:  lead.source,
+          eventId: lead.eventId ?? 'none',
+        });
+      } else if (capiResult.skipped) {
+        console.warn(`[LeadAPI] Meta CAPI skipped — reason: ${capiResult.skipped}`);
+      } else {
+        console.error(`[LeadAPI] Meta CAPI failed — reason: ${capiResult.error ?? 'unknown'}`);
+      }
     } catch (err) {
       console.error('[LeadAPI] Meta CAPI send failed:', err);
     }
