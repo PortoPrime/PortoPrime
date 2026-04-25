@@ -69,3 +69,70 @@ export function trackCompleteRegistration(eventId: string, data?: Record<string,
 export function trackViewContent(eventId?: string, data?: Record<string, unknown>): void {
   trackEvent('ViewContent', data, eventId);
 }
+
+// ─── Advanced Matching ─────────────────────────────────────────────────────
+/**
+ * Re-init Pixel with user data so subsequent events include hashed PII for
+ * matching. Meta hashes values automatically client-side (SHA-256) — pass
+ * normalized PLAIN values, not pre-hashed ones.
+ *
+ * Call this RIGHT BEFORE trackContact / trackCompleteRegistration, after the
+ * user has filled in the form. The Pixel will re-init and the next track()
+ * call inherits the user_data block, raising EMQ score and lowering CPL.
+ *
+ * Normalization rules (Meta requirements):
+ *   - email:   lowercase, trimmed
+ *   - phone:   digits only (strip "+", spaces, dashes)
+ *   - names:   lowercase, trimmed
+ *   - city:    lowercase, trimmed, no diacritics is ideal but not required
+ *   - country: ISO 3166-1 alpha-2, lowercase (e.g. "pt")
+ */
+export interface PixelUserData {
+  email?:     string;
+  phone?:     string;
+  firstName?: string;
+  lastName?:  string;
+  city?:      string;
+  country?:   string;
+}
+
+export function setUserData(u: PixelUserData): void {
+  if (typeof window === 'undefined' || typeof window.fbq !== 'function') return;
+
+  const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  if (!pixelId) return;
+
+  // Build the advanced matching object — Meta's keys are short codes (em, ph...)
+  const ud: Record<string, string> = {};
+
+  if (u.email) {
+    const em = u.email.trim().toLowerCase();
+    if (em) ud.em = em;
+  }
+  if (u.phone) {
+    const ph = u.phone.replace(/\D/g, '');
+    if (ph) ud.ph = ph;
+  }
+  if (u.firstName) {
+    const fn = u.firstName.trim().toLowerCase();
+    if (fn) ud.fn = fn;
+  }
+  if (u.lastName) {
+    const ln = u.lastName.trim().toLowerCase();
+    if (ln) ud.ln = ln;
+  }
+  if (u.city) {
+    const ct = u.city.trim().toLowerCase();
+    if (ct) ud.ct = ct;
+  }
+  if (u.country) {
+    const co = u.country.trim().toLowerCase();
+    if (co) ud.country = co;
+  }
+
+  if (Object.keys(ud).length === 0) return;
+
+  // Re-init Pixel with advanced matching data — fbq merges this into all
+  // subsequent track() calls until the page is reloaded.
+  window.fbq('init', pixelId, ud);
+}

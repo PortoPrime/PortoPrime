@@ -14,7 +14,7 @@ import {
   TrendingUp,
   Shield,
 } from 'lucide-react';
-import { newEventId, trackContact } from '@/lib/meta-pixel';
+import { newEventId, setUserData, trackContact } from '@/lib/meta-pixel';
 
 // ─── WhatsApp deep link ─────────────────────────────────────────────────────
 const WA_HREF =
@@ -218,6 +218,22 @@ export function LeadForm() {
       });
 
       if (res.ok) {
+        // ── Advanced Matching — re-init Pixel with user data so the next
+        // track() call carries hashed PII for higher EMQ score (lower CPL).
+        // Split full name into first/last on the first space.
+        const trimmedName = name.trim();
+        const spaceIdx    = trimmedName.indexOf(' ');
+        const firstName   = spaceIdx > 0 ? trimmedName.slice(0, spaceIdx)  : trimmedName;
+        const lastName    = spaceIdx > 0 ? trimmedName.slice(spaceIdx + 1) : '';
+
+        setUserData({
+          phone:     phone.trim(),
+          firstName,
+          lastName,
+          city:      location.trim() || undefined,
+          country:   'pt',
+        });
+
         // ── Fire browser Pixel Contact event (deduped via eventId) ───────
         trackContact(eventId, {
           content_name: 'Lead Form Submission',

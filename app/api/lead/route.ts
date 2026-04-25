@@ -347,10 +347,13 @@ export async function POST(req: NextRequest) {
     try {
       const capiResult = await fireCapiEvent(req, lead, ip);
       if (capiResult.ok) {
-        console.info('[LeadAPI] Meta CAPI event sent', {
-          source:  lead.source,
-          eventId: lead.eventId ?? 'none',
-        });
+        // Success log only in dev/preview — production stays clean.
+        if (process.env.NODE_ENV !== 'production') {
+          console.info('[LeadAPI] Meta CAPI event sent', {
+            source:  lead.source,
+            eventId: lead.eventId ?? 'none',
+          });
+        }
       } else if (capiResult.skipped) {
         console.warn(`[LeadAPI] Meta CAPI skipped — reason: ${capiResult.skipped}`);
       } else {

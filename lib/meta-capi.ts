@@ -154,18 +154,20 @@ export async function sendCapiEvent(input: CapiEventInput): Promise<{ ok: boolea
       return { ok: false, error: `http_${res.status}` };
     }
 
-    // Success — parse & log Meta's response so we can verify events_received
-    // and confirm the test_event_code was picked up.
-    try {
-      const parsed = JSON.parse(responseText);
-      console.info(`[MetaCAPI] ${input.eventName} OK — response:`, {
-        events_received: parsed.events_received,
-        messages:        parsed.messages,
-        fbtrace_id:      parsed.fbtrace_id,
-        test_code_sent:  TEST_EVENT_CODE || '(none)',
-      });
-    } catch {
-      console.info(`[MetaCAPI] ${input.eventName} OK — raw response: ${responseText}`);
+    // Success — verbose response logging only in dev/preview so production
+    // logs stay clean. Errors above are logged regardless.
+    if (process.env.NODE_ENV !== 'production') {
+      try {
+        const parsed = JSON.parse(responseText);
+        console.info(`[MetaCAPI] ${input.eventName} OK — response:`, {
+          events_received: parsed.events_received,
+          messages:        parsed.messages,
+          fbtrace_id:      parsed.fbtrace_id,
+          test_code_sent:  TEST_EVENT_CODE || '(none)',
+        });
+      } catch {
+        console.info(`[MetaCAPI] ${input.eventName} OK — raw response: ${responseText}`);
+      }
     }
 
     return { ok: true };

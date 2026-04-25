@@ -3,7 +3,7 @@
 import { useState, useId } from 'react';
 import { useTranslations } from 'next-intl';
 import { Mail, BookOpen, CheckCircle2 } from 'lucide-react';
-import { newEventId, trackCompleteRegistration } from '@/lib/meta-pixel';
+import { newEventId, setUserData, trackCompleteRegistration } from '@/lib/meta-pixel';
 
 // ─── PDF Download utility ─────────────────────────────────────────────────────
 /**
@@ -51,6 +51,13 @@ export function LeadMagnet() {
       // ── Meta Pixel + CAPI dedup id — shared between browser and server ─
       const eventId = newEventId();
       const cleanEmail = email.trim();
+
+      // ── Advanced Matching — re-init Pixel with hashed email so the next
+      // track() call carries it as user_data, raising EMQ score (lower CPL).
+      setUserData({
+        email:   cleanEmail,
+        country: 'pt',
+      });
 
       // ── Fire browser Pixel CompleteRegistration (deduped via eventId) ──
       trackCompleteRegistration(eventId, {
