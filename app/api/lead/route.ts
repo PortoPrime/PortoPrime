@@ -301,24 +301,35 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true });
     }
 
-    // ── Required field validation — location is optional ─────────────────
-    if (!name?.trim() || !phone?.trim()) {
-      return NextResponse.json({ error: 'missing_fields' }, { status: 400 });
+    // ── Source-aware validation ───────────────────────────────────────────
+    // Contact form  → name + phone required (phone validated)
+    // Lead magnet   → email required, name/phone not collected
+    const normalizedSource: 'contact' | 'lead_magnet' =
+      source === 'lead_magnet' ? 'lead_magnet' : 'contact';
+
+    if (normalizedSource === 'lead_magnet') {
+      if (!email?.trim()) {
+        return NextResponse.json({ error: 'missing_email' }, { status: 400 });
+      }
+    } else {
+      if (!name?.trim() || !phone?.trim()) {
+        return NextResponse.json({ error: 'missing_fields' }, { status: 400 });
+      }
+      if (!isValidPhone(phone)) {
+        return NextResponse.json({ error: 'invalid_phone' }, { status: 422 });
+      }
     }
 
-    // ── Phone format validation ───────────────────────────────────────────
-    if (!isValidPhone(phone)) {
-      return NextResponse.json({ error: 'invalid_phone' }, { status: 422 });
-    }
-
+    // For lead_magnet, name/phone may be absent — we substitute placeholders so
+    // the existing Telegram/email senders don't choke. CAPI uses only email.
     const lead: LeadPayload = {
-      name:     name.trim(),
-      phone:    phone.trim(),
-      email:    email?.trim() || undefined,
+      name:     name?.trim()    || (normalizedSource === 'lead_magnet' ? 'Lead Magnet Subscriber' : ''),
+      phone:    phone?.trim()   || '+000000000000',
+      email:    email?.trim()   || undefined,
       location: location?.trim() || undefined,
       revenue:  revenue?.trim()  || undefined,
       eventId:  eventId?.trim() || undefined,
-      source:   source === 'lead_magnet' ? 'lead_magnet' : 'contact',
+      source:   normalizedSource,
     };
 
     // ── Send Telegram (primary — must succeed) ───────────────────────────
