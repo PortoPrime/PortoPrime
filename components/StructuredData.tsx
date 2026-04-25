@@ -33,6 +33,15 @@ const BUSINESS = {
   brandName:  'PortoPrime',
   phone:      '+351915481058',
   whatsapp:   'https://wa.me/351915481058',
+  // Registered office — used for the Schema.org PostalAddress block.
+  // Update if the company moves; Google uses it for the local pack.
+  address: {
+    streetAddress:    'Rua Fernando Farinha 25C',
+    addressLocality:  'Lisboa',
+    addressRegion:    'Lisboa',
+    postalCode:       '1950-273',
+    addressCountry:   'PT',
+  },
   // Coverage area — used for areaServed and serviceArea.
   cities:     ['Lisbon', 'Porto'] as const,
   regions:    ['Algarve'] as const,
@@ -73,6 +82,9 @@ export async function StructuredData({ locale }: StructuredDataProps) {
   const orgId = `${SITE_URL}#organization`;
 
   // 1) RealEstateAgent — the business itself
+  // Note: `telephone` is intentionally repeated at the top level AND inside
+  // contactPoint. Google's Rich Results validator looks for it on the
+  // LocalBusiness root; ContactPoint is for completeness with other crawlers.
   const realEstateAgent = {
     '@context':   'https://schema.org',
     '@type':      'RealEstateAgent',
@@ -83,9 +95,14 @@ export async function StructuredData({ locale }: StructuredDataProps) {
     logo:         `${SITE_URL}/favicon.svg`,
     image:        `${SITE_URL}/favicon.svg`,
     description:  t('description'),
+    telephone:    BUSINESS.phone,
     address: {
-      '@type':         'PostalAddress',
-      addressCountry:  BUSINESS.country,
+      '@type':          'PostalAddress',
+      streetAddress:    BUSINESS.address.streetAddress,
+      addressLocality:  BUSINESS.address.addressLocality,
+      addressRegion:    BUSINESS.address.addressRegion,
+      postalCode:       BUSINESS.address.postalCode,
+      addressCountry:   BUSINESS.address.addressCountry,
     },
     areaServed: [
       ...BUSINESS.cities.map((city) => ({
