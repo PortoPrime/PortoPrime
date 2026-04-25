@@ -65,6 +65,14 @@ export async function generateMetadata({
       title: t('title'),
       description: t('description'),
     },
+    // Domain verification tags — emitted into <head> on every page.
+    // Required by Meta Business Manager so PortoPrime can run ads pointing
+    // to portoprime.pt and configure Aggregated Event Measurement priorities.
+    verification: {
+      other: {
+        'facebook-domain-verification': '342pg89byakl7qkkhqc1p7wbjthyjn',
+      },
+    },
   };
 }
 
