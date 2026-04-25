@@ -14,6 +14,7 @@ import {
   TrendingUp,
   Shield,
 } from 'lucide-react';
+import { newEventId, trackContact } from '@/lib/meta-pixel';
 
 // ─── WhatsApp deep link ─────────────────────────────────────────────────────
 const WA_HREF =
@@ -199,6 +200,9 @@ export function LeadForm() {
 
     setLoading(true);
     try {
+      // ── Meta Pixel + CAPI dedup id — same id goes to both paths ─────────
+      const eventId = newEventId();
+
       const res = await fetch('/api/lead', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -207,11 +211,19 @@ export function LeadForm() {
           phone:    phone.trim(),
           location: location.trim(),
           revenue:  revenue.trim() || undefined,
+          eventId,
+          source:   'contact',
           _hp:      honeypot,
         }),
       });
 
       if (res.ok) {
+        // ── Fire browser Pixel Contact event (deduped via eventId) ───────
+        trackContact(eventId, {
+          content_name: 'Lead Form Submission',
+          ...(revenue ? { estimated_revenue: revenue } : {}),
+        });
+
         // Reset fields and show success modal
         setName(''); setPhone(''); setLocation(''); setRevenue('');
         setShowModal(true);

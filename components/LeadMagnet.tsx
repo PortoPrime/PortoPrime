@@ -3,6 +3,7 @@
 import { useState, useId } from 'react';
 import { useTranslations } from 'next-intl';
 import { Mail, BookOpen, CheckCircle2 } from 'lucide-react';
+import { newEventId, trackCompleteRegistration } from '@/lib/meta-pixel';
 
 // ─── PDF Download utility ─────────────────────────────────────────────────────
 /**
@@ -47,36 +48,41 @@ export function LeadMagnet() {
 
     setLoading(true);
     try {
-      // ── Analytics — fire on every valid lead ───────────────────────
-      // Replace the console.log below with your actual tracker once ready:
-      //   window.gtag?.('event', 'generate_lead', { email: email.trim(), label: 'guide-download' });
-      //   analytics.track('Lead Generated', { email: email.trim(), source: 'guide-magnet' });
-      console.log('[PortoPrime Analytics] Lead Generated', {
-        event:  'guide_download',
-        email:  email.trim(),
-        source: 'lead-magnet',
-        ts:     new Date().toISOString(),
+      // ── Meta Pixel + CAPI dedup id — shared between browser and server ─
+      const eventId = newEventId();
+      const cleanEmail = email.trim();
+
+      // ── Fire browser Pixel CompleteRegistration (deduped via eventId) ──
+      trackCompleteRegistration(eventId, {
+        content_name: 'Portugal Investment Guide 2026',
+        source:       'lead_magnet',
       });
 
-      // ── Trigger PDF download immediately (don't block on API) ──────
+      // ── Trigger PDF download immediately (don't block on API) ──────────
       triggerDownload(
         '/docs/Portugal-Investment-Guide-2026.pdf',
         'Portugal-Investment-Guide-2026.pdf',
       );
 
-      // ── Capture lead in background — non-critical, fire-and-forget ─
+      // ── Capture lead in background — non-critical, fire-and-forget ────
+      // Server also fires Meta CAPI CompleteRegistration with the SAME
+      // eventId for dedup. Email goes in the `email` field so CAPI can hash
+      // and send it as the primary match key.
       fetch('/api/lead', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name:     email.trim(),
+          name:     cleanEmail,
           phone:    '+000000000000', // guide requests have no phone
+          email:    cleanEmail,
           location: 'Guide Request',
-          revenue:  email.trim(),   // used as email identifier in admin notification
+          revenue:  cleanEmail,      // used as email identifier in admin notification
+          eventId,
+          source:   'lead_magnet',
         }),
       }).catch(() => { /* non-critical — download already started */ });
 
-      // ── Clear field + show success banner ──────────────────────────
+      // ── Clear field + show success banner ──────────────────────────────
       setEmail('');
       setSuccess(true);
 

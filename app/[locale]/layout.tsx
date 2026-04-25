@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import { MetaPixel } from '@/components/MetaPixel';
 import '../globals.css';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
@@ -91,6 +92,8 @@ export default async function LocaleLayout({
         />
       </head>
       <body className="bg-surface text-primary antialiased">
+        {/* Meta Pixel — fires PageView automatically; custom events via lib/meta-pixel.ts */}
+        <MetaPixel />
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
