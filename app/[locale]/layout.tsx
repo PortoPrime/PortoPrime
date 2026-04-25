@@ -4,6 +4,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { MetaPixel } from '@/components/MetaPixel';
+import { StructuredData } from '@/components/StructuredData';
+import { SITE_URL, localePath, absoluteUrl } from '@/lib/site';
 import '../globals.css';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
@@ -26,25 +28,35 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
+  // Build hreflang map: every locale → its localized path under the
+  // as-needed prefix strategy ('/' for default, '/{locale}' for others).
+  // x-default points to the default-locale homepage so Google has a
+  // fallback for users from regions without an exact match.
+  const languages: Record<string, string> = Object.fromEntries(
+    routing.locales.map((l) => [l, localePath('/', l)])
+  );
+  languages['x-default'] = localePath('/', routing.defaultLocale);
+
   return {
     title: t('title'),
     description: t('description'),
     keywords: t('keywords'),
-    metadataBase: new URL('https://portoprime.pt'),
+    metadataBase: new URL(SITE_URL),
     icons: {
       icon: '/favicon.svg',
       shortcut: '/favicon.svg',
     },
     alternates: {
-      canonical: `/${locale}`,
-      languages: Object.fromEntries(
-        routing.locales.map((l) => [l, `/${l}`])
-      ),
+      // Canonical for the current page in the current locale.
+      // Default locale stays at '/', non-default at '/{locale}'.
+      canonical: localePath('/', locale),
+      languages,
     },
     openGraph: {
       title: t('title'),
       description: t('description'),
       siteName: 'PortoPrime',
+      url: absoluteUrl('/', locale),
       locale,
       type: 'website',
     },
@@ -92,6 +104,10 @@ export default async function LocaleLayout({
         />
       </head>
       <body className="bg-surface text-primary antialiased">
+        {/* JSON-LD structured data — rendered server-side, indexed by search
+            engines for rich snippets, Knowledge Graph, and local pack. */}
+        <StructuredData locale={locale} />
+
         {/* Meta Pixel — fires PageView automatically; custom events via lib/meta-pixel.ts */}
         <MetaPixel />
         <NextIntlClientProvider messages={messages}>
