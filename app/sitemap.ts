@@ -28,7 +28,7 @@ import { absoluteUrl, localePath, SITE_URL } from '@/lib/site';
  * The home page is always priority 1.0; deeper pages get 0.8 by default,
  * override per-route in the priority map below if needed.
  */
-const ROUTES: readonly string[] = ['/'];
+const ROUTES: readonly string[] = ['/', '/privacy', '/terms', '/legal'];
 
 // Optional per-route overrides (lastModified, changeFrequency, priority).
 const ROUTE_META: Record<
@@ -39,7 +39,11 @@ const ROUTE_META: Record<
     priority?: number;
   }
 > = {
-  '/': { changeFrequency: 'weekly', priority: 1.0 },
+  '/':         { changeFrequency: 'weekly',  priority: 1.0 },
+  // Legal pages change rarely and aren't core landing targets — lower priority.
+  '/privacy':  { changeFrequency: 'yearly',  priority: 0.3 },
+  '/terms':    { changeFrequency: 'yearly',  priority: 0.3 },
+  '/legal':    { changeFrequency: 'yearly',  priority: 0.3 },
 };
 
 // ─── Sitemap generator ──────────────────────────────────────────────────────

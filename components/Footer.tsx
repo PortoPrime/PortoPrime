@@ -2,6 +2,9 @@
 
 import { useTranslations } from 'next-intl';
 import { TrendingUp, MapPin, Scale } from 'lucide-react';
+// Locale-aware Link — preserves `/{locale}` prefix when present so footer
+// navigation (privacy, terms, legal, home) keeps the visitor in their language.
+import { Link } from '@/i18n/navigation';
 
 // ─── Footer Component ──────────────────────────────────────────────────────
 export function Footer() {
@@ -24,7 +27,7 @@ export function Footer() {
           {/* Brand block */}
           <div className="max-w-xs">
             {/* Logo */}
-            <a
+            <Link
               href="/"
               className="inline-flex items-center gap-2.5 mb-4 group"
               aria-label="PortoPrime — Home"
@@ -41,7 +44,7 @@ export function Footer() {
               >
                 Porto<span className="text-gradient-gold">Prime</span>
               </span>
-            </a>
+            </Link>
 
             {/* Tagline */}
             <p className="text-sm text-white/45 leading-relaxed mb-3">
@@ -66,23 +69,23 @@ export function Footer() {
           >
             {/* Privacy & Terms */}
             <div className="flex flex-col gap-3">
-              <a
+              <Link
                 href="/privacy"
                 className="text-white/40 hover:text-white/75 transition-colors duration-200"
               >
                 {t('privacy')}
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/terms"
                 className="text-white/40 hover:text-white/75 transition-colors duration-200"
               >
                 {t('terms')}
-              </a>
+              </Link>
             </div>
 
             {/* Legal Disclaimer — visually emphasised with icon */}
             <div className="flex flex-col gap-3">
-              <a
+              <Link
                 href="/legal"
                 className="
                   inline-flex items-center gap-2
@@ -107,7 +110,7 @@ export function Footer() {
                   />
                 </span>
                 {t('legalDisclaimer')}
-              </a>
+              </Link>
             </div>
           </nav>
         </div>
