@@ -3,15 +3,28 @@ import {
   sendContactEvent,
   sendCompleteRegistrationEvent,
   type CapiUserData,
+  type CapiUtmData,
 } from '@/lib/meta-capi';
 
 // ─── Runtime: standard Node.js (not edge) ──────────────────────────────────
-// Required for nodemailer (uses Node crypto/net under the hood).
+// Required for crypto used by CAPI hashing and the Resend SDK.
 export const runtime = 'nodejs';
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 /** Where the lead came from — determines which Meta event we fire. */
 type LeadSource = 'contact' | 'lead_magnet';
+
+/** UTM block forwarded by the client. Mirrors lib/utm.ts → UtmParams. */
+interface LeadUtm {
+  source?:     string;
+  medium?:     string;
+  campaign?:   string;
+  content?:    string;
+  term?:       string;
+  fbclid?:     string;
+  gclid?:      string;
+  capturedAt?: string;
+}
 
 interface LeadPayload {
   name:      string;
@@ -23,6 +36,8 @@ interface LeadPayload {
   eventId?:  string;
   /** Which funnel the lead came from. Defaults to "contact". */
   source?:   LeadSource;
+  /** UTM/click-id attribution captured client-side from URL. */
+  utm?:      LeadUtm;
   _hp?:      string; // honeypot — should always be empty
 }
 
@@ -58,7 +73,7 @@ function isValidPhone(phone: string): boolean {
   return ptPattern.test(cleaned) || intlPattern.test(cleaned);
 }
 
-// ─── HTML escape (for Telegram HTML mode) ──────────────────────────────────
+// ─── HTML escape (for Telegram HTML mode + email body) ─────────────────────
 function escHtml(s: string): string {
   return s
     .replace(/&/g, '&amp;')
@@ -76,6 +91,9 @@ async function sendTelegram(lead: LeadPayload): Promise<void> {
     return;
   }
 
+  // Optional UTM block — only emit if at least one field is present
+  const utmLines = lead.utm ? formatUtmTextLines(lead.utm) : [];
+
   const lines = [
     `🚀 <b>New Lead for PortoPrime!</b>`,
     ``,
@@ -83,6 +101,7 @@ async function sendTelegram(lead: LeadPayload): Promise<void> {
     `📞 <b>Phone:</b> ${escHtml(lead.phone)}`,
     lead.location ? `📍 <b>Location:</b> ${escHtml(lead.location)}` : null,
     lead.revenue  ? `💰 <b>Est. Revenue:</b> ${escHtml(lead.revenue)}/mo` : null,
+    ...(utmLines.length > 0 ? ['', '🎯 <b>Source:</b>', ...utmLines] : []),
     ``,
     `🕐 <i>${new Date().toLocaleString('en-GB', { timeZone: 'Europe/Lisbon' })} (Lisbon)</i>`,
   ].filter(Boolean).join('\n');
@@ -102,39 +121,70 @@ async function sendTelegram(lead: LeadPayload): Promise<void> {
   }
 }
 
-// ─── Email notification (nodemailer — optional) ─────────────────────────────
-// Install with: npm install nodemailer @types/nodemailer
-// Then fill in SMTP_* vars in .env.local (see comments there).
-// If nodemailer is not installed the email step is silently skipped.
+/** Formats UTM block as Telegram-safe lines. */
+function formatUtmTextLines(utm: LeadUtm): string[] {
+  const out: string[] = [];
+  if (utm.source)   out.push(`  • source: ${escHtml(utm.source)}`);
+  if (utm.medium)   out.push(`  • medium: ${escHtml(utm.medium)}`);
+  if (utm.campaign) out.push(`  • campaign: ${escHtml(utm.campaign)}`);
+  if (utm.content)  out.push(`  • content: ${escHtml(utm.content)}`);
+  if (utm.term)     out.push(`  • term: ${escHtml(utm.term)}`);
+  if (utm.fbclid)   out.push(`  • fbclid: ${escHtml(utm.fbclid)}`);
+  if (utm.gclid)    out.push(`  • gclid: ${escHtml(utm.gclid)}`);
+  return out;
+}
+
+// ─── Email notification (Resend) ────────────────────────────────────────────
+// Uses RESEND_API_KEY (server-only env). Sends from notifications@portoprime.pt
+// → LEAD_EMAIL_TO (default: alexxistu@gmail.com). DKIM/SPF for portoprime.pt
+// must be configured in DNS (Vercel) — see CLAUDE.md → Resend Setup.
+//
+// Resend SDK is loaded lazily so the build doesn't fail when the package is
+// not yet installed (e.g. during CI before `npm install` runs).
 async function sendEmail(lead: LeadPayload): Promise<void> {
-  const smtpUser  = process.env.SMTP_USER;
-  const smtpPass  = process.env.SMTP_PASS;
-  const smtpHost  = process.env.SMTP_HOST  || 'smtp.gmail.com';
-  const smtpPort  = Number(process.env.SMTP_PORT) || 587;
-  const emailTo   = process.env.LEAD_EMAIL_TO || 'aleksei@fastapproval.pt';
+  const apiKey = process.env.RESEND_API_KEY;
+  const from   = process.env.RESEND_FROM   || 'PortoPrime Leads <notifications@portoprime.pt>';
+  const to     = process.env.LEAD_EMAIL_TO || 'alexxistu@gmail.com';
 
-  if (!smtpUser || !smtpPass) {
-    console.info('[LeadAPI] SMTP credentials not set — skipping email notification');
+  if (!apiKey) {
+    console.info('[LeadAPI] RESEND_API_KEY not set — skipping email notification');
     return;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any
-  let nodemailer: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let Resend: any;
   try {
-    nodemailer = require('nodemailer');
+    // Lazy require so missing dependency doesn't crash the build.
+    Resend = require('resend').Resend;
   } catch {
-    console.warn('[LeadAPI] nodemailer not installed — run: npm install nodemailer @types/nodemailer');
+    console.warn('[LeadAPI] resend not installed — run: npm install resend');
     return;
   }
 
-  const transporter = nodemailer.createTransport({
-    host:   smtpHost,
-    port:   smtpPort,
-    secure: smtpPort === 465,
-    auth:   { user: smtpUser, pass: smtpPass },
-  });
-
+  const resend = new Resend(apiKey);
   const lisbonTime = new Date().toLocaleString('en-GB', { timeZone: 'Europe/Lisbon' });
+
+  // Build optional UTM rows for the table
+  const utmRows = lead.utm
+    ? Object.entries({
+        'utm_source':   lead.utm.source,
+        'utm_medium':   lead.utm.medium,
+        'utm_campaign': lead.utm.campaign,
+        'utm_content':  lead.utm.content,
+        'utm_term':     lead.utm.term,
+        'fbclid':       lead.utm.fbclid,
+        'gclid':        lead.utm.gclid,
+      })
+        .filter(([, v]) => v)
+        .map(
+          ([k, v], idx) => `
+          <tr ${idx % 2 === 0 ? 'style="background:#fafafa;"' : ''}>
+            <td style="padding:8px 8px;color:#888;font-family:monospace;font-size:12px;width:160px;">${k}</td>
+            <td style="padding:8px 8px;color:#1B263B;font-family:monospace;font-size:12px;">${escHtml(String(v))}</td>
+          </tr>`,
+        )
+        .join('')
+    : '';
 
   const html = `
     <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#f4f4f4;padding:20px;border-radius:10px;">
@@ -157,17 +207,35 @@ async function sendEmail(lead: LeadPayload): Promise<void> {
             <td style="padding:10px 8px;color:#888;vertical-align:top;">📞 Phone</td>
             <td style="padding:10px 8px;color:#1B263B;font-weight:bold;">${escHtml(lead.phone)}</td>
           </tr>
-          ${lead.location ? `
+          ${lead.email ? `
           <tr>
-            <td style="padding:10px 0;color:#888;vertical-align:top;">📍 Location</td>
-            <td style="padding:10px 0;color:#1B263B;font-weight:bold;">${escHtml(lead.location)}</td>
+            <td style="padding:10px 0;color:#888;vertical-align:top;">✉️ Email</td>
+            <td style="padding:10px 0;color:#1B263B;font-weight:bold;">${escHtml(lead.email)}</td>
+          </tr>` : ''}
+          ${lead.location ? `
+          <tr style="background:#fafafa;">
+            <td style="padding:10px 8px;color:#888;vertical-align:top;">📍 Location</td>
+            <td style="padding:10px 8px;color:#1B263B;font-weight:bold;">${escHtml(lead.location)}</td>
           </tr>` : ''}
           ${lead.revenue ? `
-          <tr style="background:#fafafa;">
-            <td style="padding:10px 8px;color:#888;vertical-align:top;">💰 Est. Revenue</td>
-            <td style="padding:10px 8px;font-weight:bold;font-size:18px;color:#C9A96E;">${escHtml(lead.revenue)}/mo</td>
+          <tr>
+            <td style="padding:10px 0;color:#888;vertical-align:top;">💰 Est. Revenue</td>
+            <td style="padding:10px 0;font-weight:bold;font-size:18px;color:#C9A96E;">${escHtml(lead.revenue)}/mo</td>
           </tr>` : ''}
+          <tr style="background:#fafafa;">
+            <td style="padding:10px 8px;color:#888;vertical-align:top;">🔗 Source</td>
+            <td style="padding:10px 8px;color:#1B263B;font-weight:bold;text-transform:uppercase;font-size:12px;letter-spacing:1px;">${escHtml(lead.source ?? 'contact')}</td>
+          </tr>
         </table>
+
+        ${utmRows ? `
+        <!-- UTM attribution -->
+        <h3 style="color:#1B263B;font-size:14px;margin:24px 0 10px;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid #eee;padding-bottom:6px;">
+          🎯 Attribution
+        </h3>
+        <table style="width:100%;border-collapse:collapse;">
+          ${utmRows}
+        </table>` : ''}
 
         <!-- Timestamp -->
         <div style="margin-top:24px;padding:14px 16px;background:#f0f4f8;border-radius:6px;border-left:4px solid #E0C397;">
@@ -190,12 +258,43 @@ async function sendEmail(lead: LeadPayload): Promise<void> {
     </div>
   `;
 
-  await transporter.sendMail({
-    from:    `"PortoPrime Leads" <${smtpUser}>`,
-    to:      emailTo,
+  // Plaintext fallback for Gmail Promotions filter heuristics + accessibility
+  const text = [
+    'New PortoPrime Lead',
+    '',
+    `Name:     ${lead.name}`,
+    `Phone:    ${lead.phone}`,
+    lead.email    ? `Email:    ${lead.email}`        : null,
+    lead.location ? `Location: ${lead.location}`     : null,
+    lead.revenue  ? `Revenue:  ${lead.revenue}/mo`   : null,
+    `Source:   ${lead.source ?? 'contact'}`,
+    ...(lead.utm ? ['', 'Attribution:'] : []),
+    ...(lead.utm
+      ? Object.entries(lead.utm)
+          .filter(([, v]) => v)
+          .map(([k, v]) => `  ${k}: ${v}`)
+      : []),
+    '',
+    `Time: ${lisbonTime} (Lisbon)`,
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  const result = await resend.emails.send({
+    from,
+    to,
     subject: `🏠 New Lead: ${lead.name}${lead.location ? ` — ${lead.location}` : ''}`,
     html,
+    text,
+    // Help inbox providers thread admin notifications and not flag them as spam.
+    headers: {
+      'X-Entity-Ref-ID': lead.eventId ?? '',
+    },
   });
+
+  if (result?.error) {
+    throw new Error(`Resend API error: ${result.error.message ?? JSON.stringify(result.error)}`);
+  }
 }
 
 // ─── Meta CAPI helpers ──────────────────────────────────────────────────────
@@ -240,6 +339,14 @@ function buildUserDataFromRequest(
   };
 }
 
+/** Convert client UTM block to the CAPI custom_data shape. */
+function toCapiUtm(utm?: LeadUtm): CapiUtmData | undefined {
+  if (!utm) return undefined;
+  const { capturedAt, ...rest } = utm;
+  void capturedAt; // capturedAt is informational only; not forwarded to Meta
+  return rest;
+}
+
 /**
  * Fire the appropriate Meta CAPI event for the given lead source.
  * Errors are thrown so the caller can log them; the lead itself never fails
@@ -256,12 +363,14 @@ async function fireCapiEvent(
 
   const sourceUrl = req.headers.get('referer') ?? undefined;
   const userData  = buildUserDataFromRequest(req, lead, ip);
+  const utm       = toCapiUtm(lead.utm);
 
   if (lead.source === 'lead_magnet') {
     return sendCompleteRegistrationEvent({
       eventId: lead.eventId,
       userData,
       sourceUrl,
+      utm,
     });
   }
   return sendContactEvent({
@@ -269,6 +378,7 @@ async function fireCapiEvent(
     userData,
     sourceUrl,
     revenue:  lead.revenue,
+    utm,
   });
 }
 
@@ -293,7 +403,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'invalid_body' }, { status: 400 });
     }
 
-    const { name, phone, email, location, revenue, eventId, source, _hp } = body;
+    const { name, phone, email, location, revenue, eventId, source, utm, _hp } = body;
 
     // ── Honeypot check — real users never touch this hidden field ─────────
     if (_hp) {
@@ -330,6 +440,7 @@ export async function POST(req: NextRequest) {
       revenue:  revenue?.trim()  || undefined,
       eventId:  eventId?.trim() || undefined,
       source:   normalizedSource,
+      utm:      utm && typeof utm === 'object' ? utm : undefined,
     };
 
     // ── Send Telegram (primary — must succeed) ───────────────────────────

@@ -15,6 +15,7 @@ import {
   Shield,
 } from 'lucide-react';
 import { newEventId, setUserData, trackContact } from '@/lib/meta-pixel';
+import { captureUtmFromCurrentUrl, ensureUtm } from '@/lib/utm';
 
 // ─── WhatsApp deep link ─────────────────────────────────────────────────────
 const WA_HREF =
@@ -187,6 +188,12 @@ export function LeadForm() {
     return () => window.removeEventListener(REVENUE_EVENT, handler);
   }, []);
 
+  // ── Capture UTM params on mount so they persist for this session ─────────
+  // Idempotent — first capture wins; subsequent calls don't overwrite.
+  useEffect(() => {
+    captureUtmFromCurrentUrl();
+  }, []);
+
   // ── Submit handler ────────────────────────────────────────────────────────
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -203,6 +210,9 @@ export function LeadForm() {
       // ── Meta Pixel + CAPI dedup id — same id goes to both paths ─────────
       const eventId = newEventId();
 
+      // ── UTM attribution — captured on landing, read at submit ──────────
+      const utm = ensureUtm();
+
       const res = await fetch('/api/lead', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -213,6 +223,7 @@ export function LeadForm() {
           revenue:  revenue.trim() || undefined,
           eventId,
           source:   'contact',
+          utm,
           _hp:      honeypot,
         }),
       });

@@ -17,6 +17,9 @@ export function CookieBanner() {
 
   const handleAccept = () => {
     consent.set();
+    // Notify any consent-gated trackers (Meta Pixel, future analytics).
+    // Custom event listeners pick this up on the same tick and mount.
+    window.dispatchEvent(new Event('pp:consent:granted'));
     setVisible(false);
   };
 

@@ -1,23 +1,43 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Script from 'next/script';
+import { consent } from '@/lib/cookies';
 
 /**
- * Meta Pixel base snippet + automatic PageView.
+ * Meta Pixel — GDPR-gated.
  *
- * Placed in the root locale layout so the global `window.fbq` function is
- * available on every page. Fires `PageView` automatically once loaded.
+ * Pixel script & PageView/ViewContent fire ONLY after the user grants cookie
+ * consent (CookieBanner → `consent.set()` → window event `pp:consent:granted`).
  *
- * Custom events (Contact, CompleteRegistration, etc.) are fired from
- * individual components via the helpers in `lib/meta-pixel.ts` — using the
- * SAME event_id that's sent to /api/lead for Conversions API dedup.
+ * Behaviour:
+ *   - On mount: check consent cookie. If already granted → mount Pixel.
+ *   - Otherwise: listen for `pp:consent:granted` and mount Pixel then.
+ *
+ * Custom events (Contact, CompleteRegistration, etc.) fire from individual
+ * components via the helpers in `lib/meta-pixel.ts` — using the SAME event_id
+ * that's sent to /api/lead for Conversions API dedup.
  *
  * No-ops if NEXT_PUBLIC_META_PIXEL_ID is not set (e.g. local dev without a
  * pixel) so nothing breaks.
  */
 export function MetaPixel() {
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
-  if (!pixelId) return null;
+  const [consentGranted, setConsentGranted] = useState(false);
+
+  useEffect(() => {
+    // Cookie check is client-only — must run after mount.
+    if (consent.get()) {
+      setConsentGranted(true);
+      return;
+    }
+    // Otherwise wait for the banner to dispatch consent.
+    const onGranted = () => setConsentGranted(true);
+    window.addEventListener('pp:consent:granted', onGranted);
+    return () => window.removeEventListener('pp:consent:granted', onGranted);
+  }, []);
+
+  if (!pixelId || !consentGranted) return null;
 
   return (
     <>

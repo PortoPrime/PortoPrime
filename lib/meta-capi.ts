@@ -180,18 +180,50 @@ export async function sendCapiEvent(input: CapiEventInput): Promise<{ ok: boolea
 // ─── Typed event builders ───────────────────────────────────────────────────
 // Thin wrappers so callers don't have to remember the exact Meta event names.
 
+/**
+ * Optional UTM/click-id payload — passed through to CAPI custom_data so
+ * Meta can read attribution alongside the conversion event. Adds no PII risk.
+ */
+export interface CapiUtmData {
+  source?:   string;
+  medium?:   string;
+  campaign?: string;
+  content?:  string;
+  term?:     string;
+  fbclid?:   string;
+  gclid?:    string;
+}
+
+/** Flatten a CapiUtmData into custom_data keys (utm_*), dropping empties. */
+function utmToCustomData(utm?: CapiUtmData): CapiCustomData {
+  if (!utm) return {};
+  const out: CapiCustomData = {};
+  if (utm.source)   out.utm_source   = utm.source;
+  if (utm.medium)   out.utm_medium   = utm.medium;
+  if (utm.campaign) out.utm_campaign = utm.campaign;
+  if (utm.content)  out.utm_content  = utm.content;
+  if (utm.term)     out.utm_term     = utm.term;
+  if (utm.fbclid)   out.fbclid       = utm.fbclid;
+  if (utm.gclid)    out.gclid        = utm.gclid;
+  return out;
+}
+
 export function sendContactEvent(args: {
   eventId:   string;
   userData:  CapiUserData;
   sourceUrl?: string;
   revenue?:   string; // the calculator's estimated monthly revenue, as a label
+  utm?:       CapiUtmData;
 }) {
   return sendCapiEvent({
     eventName: 'Contact',
     eventId:   args.eventId,
     sourceUrl: args.sourceUrl,
     userData:  args.userData,
-    customData: args.revenue ? { estimated_revenue: args.revenue } : undefined,
+    customData: {
+      ...(args.revenue ? { estimated_revenue: args.revenue } : {}),
+      ...utmToCustomData(args.utm),
+    },
   });
 }
 
@@ -199,13 +231,18 @@ export function sendCompleteRegistrationEvent(args: {
   eventId:   string;
   userData:  CapiUserData;
   sourceUrl?: string;
+  utm?:       CapiUtmData;
 }) {
   return sendCapiEvent({
     eventName: 'CompleteRegistration',
     eventId:   args.eventId,
     sourceUrl: args.sourceUrl,
     userData:  args.userData,
-    customData: { content_name: 'Portugal Investment Guide 2026', source: 'lead_magnet' },
+    customData: {
+      content_name: 'Portugal Investment Guide 2026',
+      source: 'lead_magnet',
+      ...utmToCustomData(args.utm),
+    },
   });
 }
 

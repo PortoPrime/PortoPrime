@@ -2,7 +2,7 @@
 
 > **Persistent context for Claude.** Update after every milestone so context survives compaction.
 > **Owner:** Aleks (alexxistu@gmail.com)
-> **Last updated:** 2026-04-26 (post-legal-pages, ready for first campaign)
+> **Last updated:** 2026-04-28 (consent gate + UTM + Resend code wired; user needs to run npm install + add DNS/env)
 
 ---
 
@@ -51,7 +51,10 @@
 - `META_CAPI_ACCESS_TOKEN` = (set, server-only)
 - `NEXT_PUBLIC_SITE_URL` = `https://portoprime.pt`
 - `META_TEST_EVENT_CODE` = **EMPTY** in prod (was set during testing, removed after redeploy)
-- SMTP creds — not configured yet
+- `RESEND_API_KEY` = **NOT SET YET** — needs to be added before lead emails work
+- `RESEND_FROM` = optional; defaults to `PortoPrime Leads <notifications@portoprime.pt>`
+- `LEAD_EMAIL_TO` = optional; defaults to `alexxistu@gmail.com`
+- `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID` — already wired (primary lead channel)
 
 ### Verification & Test Results
 
@@ -78,6 +81,9 @@
 | **2.** Facebook Page + Ad Account + Pixel access | ✅ Done | FB Page **PortoPrime** (ID `1119067117949609`) — owned by PortoPrime business. IG linked. Card attached to Ad Account `942503462024609`. |
 | **3.** Custom Audiences | ✅ Done | All 4 created in Ads Manager `942503462024609` |
 | **3a.** Legal pages (Privacy, Terms, Legal Disclaimer) | ✅ Done | `/privacy`, `/terms`, `/legal` live in all 7 locales. Shared `LegalPage` component reads sections from `legal.{privacy,terms,disclaimer}` namespaces. Sitemap updated. Footer uses locale-aware `Link`. TypeScript: 0 errors. |
+| **3b.** Cookie-consent gate on Meta Pixel | ✅ Code done | `MetaPixel.tsx` no longer fires `PageView`/`ViewContent` until `consent.get() === true` OR `pp:consent:granted` event is dispatched. `CookieBanner.tsx` dispatches the event in `handleAccept()`. Aligns reality with Privacy Policy text. |
+| **3c.** UTM attribution capture | ✅ Code done | New `lib/utm.ts` captures `utm_*` + `fbclid`/`gclid` from URL on landing into sessionStorage. `LeadForm` and `LeadMagnet` read it at submit and pass through `payload.utm` → API → Telegram + Resend email + CAPI `custom_data`. |
+| **3d.** Resend integration (`notifications@portoprime.pt`) | ⚠️ Partial — code done, DNS+env pending | `app/api/lead/route.ts` swapped from nodemailer to Resend SDK (lazy-required). `package.json` lists `resend: ^4.0.0`. **TODO for Aleks:** (1) `npm install` locally, (2) register on resend.com, (3) add domain DKIM TXT records to Vercel DNS, (4) extend SPF without breaking ImprovMX, (5) set `RESEND_API_KEY` env on Vercel. |
 | **4.** First Conversion campaign | ⏳ Next | Optimize for `Contact`. Country: Portugal. Decisions pending: budget tier (€10/€20/€30 per day), target audience (RU expats / PT locals / EN expats), creatives format. |
 
 ### Custom Audiences — created 2026-04-26

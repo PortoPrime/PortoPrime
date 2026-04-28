@@ -4,6 +4,7 @@ import { useState, useId } from 'react';
 import { useTranslations } from 'next-intl';
 import { Mail, BookOpen, CheckCircle2 } from 'lucide-react';
 import { newEventId, setUserData, trackCompleteRegistration } from '@/lib/meta-pixel';
+import { ensureUtm } from '@/lib/utm';
 
 // ─── PDF Download utility ─────────────────────────────────────────────────────
 /**
@@ -75,6 +76,7 @@ export function LeadMagnet() {
       // Server also fires Meta CAPI CompleteRegistration with the SAME
       // eventId for dedup. Email goes in the `email` field so CAPI can hash
       // and send it as the primary match key.
+      const utm = ensureUtm();
       fetch('/api/lead', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -86,6 +88,7 @@ export function LeadMagnet() {
           revenue:  cleanEmail,      // used as email identifier in admin notification
           eventId,
           source:   'lead_magnet',
+          utm,
         }),
       }).catch(() => { /* non-critical — download already started */ });
 
